@@ -3,32 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name</title>
+    <title>Oussama Boudaoud</title>
     <style>
-        /* Your common styles here */
         body {
             font-family: Georgia, serif;
             background-color: white;
             color: black;
             margin: 0;
             padding: 0;
-            padding-left: 3cm; /* 3 cm of empty space on the left */
-            padding-right: 3cm; /* 3 cm of empty space on the right */
+            padding-left: 7cm; /* 7 cm of empty space on the left */
+            padding-right: 7cm; /* 7 cm of empty space on the right */
             padding-top: 1cm; /* 1 cm of empty space at the top */
+            display: flex;
+            flex-direction: column;
         }
 
-        a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
+        .dark-mode {
+            background-color: black;
+            color: white;
         }
 
-        a:hover {
-            color: green;
-            font-style: italic;
-        }
-
-        .header {
+        header {
             background-color: #f0f0f0;
             padding: 20px;
             text-align: center;
@@ -64,24 +59,63 @@
             font-size: 18px;
         }
 
-        /* Styles for specific pages go here */
-        .contact-page {
-            /* Add specific styles for the Contact page if needed */
+        footer {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        /* Hide contact content by default */
-        .contact-page {
-            display: none;
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: green;
+            font-style: italic;
+        }
+
+        h1 {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            margin-bottom: 0.5cm; /* 0.5 cm space between "your name" and other words */
+        }
+
+        .profile-picture {
+            text-align: center;
+            margin-top: 1cm;
+        }
+
+        .profile-picture img {
+            width: 300px; /* Adjust the width as needed */
+            height: 430px; /* Adjust the height as needed */
+            border: 2px solid black; /* Add a black border */
+            display: block;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            text-align: right;
+            margin-right: 2cm; /* 2 cm of space from the right */
+            margin-top: 0.5cm; /* 0.5 cm space from the top */
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <!-- Common Header for All Pages -->
-    <div class="header">
-        <h1>Your Name</h1>
+    <header>
+        <h1>Oussama Boudaoud</h1>
         <nav>
             <ul>
-                <li><a href="javascript:void(0);" onclick="loadContactPage()">Contact</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
         <div class="dark-mode-toggle">
@@ -97,27 +131,18 @@
                 <!-- Add more language options as needed -->
             </select>
         </div>
+    </header>
+
+    <div class="profile-picture">
+        <img src="LinkedIn Photo.jpg" alt="Your Name's Profile Picture" width="120" height="120">
     </div>
-
-    <!-- Content specific to each page goes here -->
-    <main>
-        <!-- Content for the Contact page -->
-        <div class="contact-page">
-            <!-- Your contact page content goes here -->
-            <div class="social-media">
-                <a href="https://www.linkedin.com/in/osama-bendavid/" target="_blank">LinkedIn</a>
-                <a href="https://twitter.com/o_bendavid" target="_blank">Twitter</a>
-                <a href="https://www.facebook.com/OussBoudaoud/" target="_blank">Facebook</a>
-                <a href="https://www.instagram.com/clockwork_orange23/" target="_blank">Instagram</a>
-                <a href="https://github.com/oussamaboudaoud" target="_blank">GitHub</a>
-                <a href="mailto:your.email@example.com">Email</a>
-                <!-- Add more social media links or contact details as needed -->
-            </div>
-        </div>
-    </main>
-
+    
+    <hr> <!-- Black line -->
+    
     <footer>
-        <!-- Footer content here -->
+        <div class="copyright">
+            &copy;  2023, Oussama Boudaoud
+        </div>
     </footer>
 
     <script>
@@ -132,16 +157,8 @@
         // Handle Language Translation (You'll need a translation library for this)
         const languageSelect = document.getElementById('language-select');
 
-        // Function to load the Contact page content
-        function loadContactPage() {
-            const contactPage = document.querySelector('.contact-page');
-            if (contactPage.style.display === 'none') {
-                contactPage.style.display = 'block';
-            }
-        }
+        // Add options to the languageSelect element for different languages
     </script>
 </body>
 </html>
-
-
 
