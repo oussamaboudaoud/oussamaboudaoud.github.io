@@ -11,18 +11,10 @@
             color: black;
             margin: 0;
             padding: 0;
+            padding-left: 3cm; /* 3 cm of empty space on the left */
+            padding-right: 3cm; /* 3 cm of empty space on the right */
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        .page-container {
-            max-width: 960px; /* Adjust the max-width as needed */
-            width: 100%;
-            box-sizing: border-box;
-            padding: 0 3.5cm; /* Equal spacing on both sides (3.5 cm) */
         }
 
         header {
@@ -89,40 +81,38 @@
     </style>
 </head>
 <body>
-    <div class="page-container">
-        <header>
-            <h1>Your Name</h1>
-            <nav>
-                <ul>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="media.html">Media</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="dark-mode-toggle">
-                <label for="dark-mode">Dark Mode:</label>
-                <input type="checkbox" id="dark-mode">
-            </div>
-            <div class="language-translation">
-                <label for="language-select">Select Language:</label>
-                <select id="language-select">
-                    <option value="en">English</option>
-                    <option value="fr">French</option>
-                    <option value="es">Spanish</option>
-                    <!-- Add more language options as needed -->
-                </select>
-            </div>
-        </header>
+    <header>
+        <h1>Your Name</h1>
+        <nav>
+            <ul>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="dark-mode-toggle">
+            <label for="dark-mode">Dark Mode:</label>
+            <input type="checkbox" id="dark-mode">
+        </div>
+        <div class="language-translation">
+            <label for="language-select">Select Language:</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <!-- Add more language options as needed -->
+            </select>
+        </div>
+    </header>
 
-        <main>
-            <!-- Content sections will go here -->
-        </main>
+    <main>
+        <!-- Content sections will go here -->
+    </main>
 
-        <footer>
-            <!-- Footer content here -->
-        </footer>
-    </div>
+    <footer>
+        <!-- Footer content here -->
+    </footer>
 
     <script>
         // Handle Dark Mode
