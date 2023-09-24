@@ -7,7 +7,7 @@
     <style>
         /* Your resume page styles here */
         body {
-            font-family: Georgia, serif;
+            font-family: 'Trebuchet MS', sans-serif; /* Use Trebuchet MS font */
             background-color: white;
             color: black;
             margin: 0;
@@ -28,7 +28,19 @@
 
         /* Your resume content styles here */
         .resume-content {
-            /* Add your resume content styles here */
+            margin-top: 1cm; /* Space below highlighted name */
+        }
+
+        .resume-section {
+            margin-top: 1cm; /* Space between sections */
+        }
+
+        .section-header {
+            font-weight: bold;
+        }
+
+        .section-content {
+            margin-left: 1cm; /* Indent content within sections */
         }
     </style>
 </head>
@@ -38,8 +50,74 @@
 
     <!-- Resume content -->
     <div class="resume-content">
-        <!-- Add your resume content here -->
+        <!-- Education section -->
+        <div class="resume-section">
+            <p class="section-header">Education</p>
+            <div class="section-content">
+                <p>Lebanese American University (LAU)</p>
+                <p>BACHELOR OF SCIENCE IN BUSINESS, BANKING & FINANCE, MINOR IN ECONOMICS, CUMULATIVE GPA: 3.8/4</p>
+                <p>Aug 2018 – July 2021</p>
+                <!-- Add more education details if needed -->
+            </div>
+        </div>
+
+        <!-- Work Experience section -->
+        <div class="resume-section">
+            <p class="section-header">Work Experience</p>
+            <div class="section-content">
+                <p>American University of Beirut (AUB)</p>
+                <p>SUMMER INTERN</p>
+                <p>June 2022 - Aug. 2022</p>
+                <ul>
+                    <li>Analyzed health data using STATA, improving data interpretation and extracting insights into public health trends.</li>
+                    <li>Developed strong analytical skills and attention to detail through managing and manipulating complex datasets.</li>
+                </ul>
+                <!-- Add more work experience details if needed -->
+            </div>
+        </div>
+
+        <!-- Skills section -->
+        <div class="resume-section">
+            <p class="section-header">Skills</p>
+            <div class="section-content">
+                <p>Programming / Stat Software: STATA (advanced), R (intermediate), SPSS (intermediate), HTML (intermediate), CSS (intermediate), Javascript</p>
+                <p>Productivity Software: Microsoft Office Suite (with strong emphasis on Excel), G-Suite, Slack</p>
+                <p>Languages: English (native), French (professional proficiency), Levantine Arabic</p>
+            </div>
+        </div>
+
+        <!-- Awards and Scholarships section -->
+        <div class="resume-section">
+            <p class="section-header">Awards and Scholarships</p>
+            <div class="section-content">
+                <p>Erasmus Program (Erasmus+), 2020</p>
+                <p>Awarded a full scholarship by the European Union to study at one of Europe’s most prestigious social sciences schools Sciences Po in the heart of Paris</p>
+                <p>Role: Exchange student. Funding amount: 4K euros.</p>
+                <!-- Add more awards and scholarships details if needed -->
+            </div>
+        </div>
+
+        <!-- Additional Information section -->
+        <div class="resume-section">
+            <p class="section-header">Additional Information</p>
+            <div class="section-content">
+                <p>Relevant Coursework:</p>
+                <ul>
+                    <li>Corporate Finance</li>
+                    <li>Financial Accounting</li>
+                    <li>Managerial Accounting</li>
+                    <!-- Add more coursework details if needed -->
+                </ul>
+                <p>Extracurricular Activities:</p>
+                <ul>
+                    <li>Manage a YouTube channel focused on startup ecosystem</li>
+                    <li>Authored news articles and conducted detail-oriented reporting for “Roostergnn Global News Network”</li>
+                    <!-- Add more extracurricular activities if needed -->
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>
+
 
