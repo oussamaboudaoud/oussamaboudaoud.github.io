@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name</title>
-    
     <style>
-        /* Global styles */
         body {
             font-family: Georgia, serif;
             background-color: white;
@@ -52,35 +47,11 @@
         }
 
         /* Add more styles as needed */
-
-        /* Dark mode styles */
-        .dark-mode {
-            background-color: black;
-            color: white;
-        }
-
-        /* Mouse hover effect */
-        a:hover {
-            color: green;
-            font-style: italic;
-        }
-
-        /* Media section styles */
-        #Media {
-            padding: 20px;
-        }
-
-        /* Social media links */
-        .social-media-links {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .social-media-links li {
-            display: inline;
-            margin-right: 20px;
-        }
     </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <header>
@@ -88,8 +59,8 @@
         <nav>
             <ul>
                 <li><a href="#Resume">Resume</a></li>
-                <li><a href="#Blog">Blog</a></li>
-                <li><a href="#Media">Media</a></li>
+                <li><a href="blog.html" target="_blank">Blog</a></li>
+                <li><a href="media.html" target="_blank">Media</a></li>
                 <li><a href="#Contact">Contact</a></li>
             </ul>
         </nav>
@@ -97,30 +68,6 @@
 
     <main>
         <!-- Content sections will go here -->
-        <section id="Blog">
-            <h2>Blog</h2>
-            <div id="Latest">
-                <h3>Latest Articles</h3>
-                <!-- List your latest articles here -->
-            </div>
-            <div id="Archive">
-                <h3>Archive</h3>
-                <!-- List your articles grouped by date, title, and keywords in a table -->
-            </div>
-        </section>
-
-        <section id="Media">
-            <h2>Media</h2>
-            <!-- Add your photos and captions here -->
-            <div class="photo">
-                <img src="photo1.jpg" alt="Photo 1">
-                <p>Caption for Photo 1</p>
-            </div>
-            <div class="photo">
-                <img src="photo2.jpg" alt="Photo 2">
-                <p>Caption for Photo 2</p>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -130,42 +77,10 @@
         </div>
         <div class="language-translation">
             <!-- Language translation options will go here -->
-            <div id="google_translate_element"></div>
-            <script type="text/javascript">
-                function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({
-                        pageLanguage: 'en',
-                        includedLanguages: 'fr,es,de', // Add more languages as needed
-                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                        autoDisplay: false
-                    }, 'google_translate_element');
-                }
-            </script>
-            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        </div>
-        <div class="contact">
-            <h2>Contact</h2>
-            <p>Connect with me on social media:</p>
-            <ul class="social-media-links">
-                <li><a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a></li>
-                <li><a href="https://twitter.com/yourusername">Tweets</a></li>
-                <li><a href="https://www.facebook.com/yourprofile">Facebook</a></li>
-                <li><a href="https://www.instagram.com/yourusername">Instagram</a></li>
-            </ul>
         </div>
     </footer>
 
-    <script>
-        // Function to toggle dark mode
-        function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-mode');
-        }
-
-        // Event listener for the dark mode toggle checkbox
-        const darkModeToggle = document.getElementById('dark-mode');
-        darkModeToggle.addEventListener('change', toggleDarkMode);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 
