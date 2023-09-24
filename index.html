@@ -15,15 +15,22 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* Ensure content spans the full height of the viewport */
+            min-height: 100vh;
+        }
+
+        .page-container {
+            max-width: 960px; /* Adjust the max-width as needed */
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 8cm; /* Equal spacing on both sides */
         }
 
         header {
             background-color: #f0f0f0;
             padding: 20px;
             text-align: center;
-            width: 100%; /* Make header span full width */
-            box-sizing: border-box; /* Include padding in width calculation */
+            width: 100%;
+            box-sizing: border-box;
         }
 
         nav ul {
@@ -37,7 +44,7 @@
             margin-right: 20px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 24px; /* Larger font size for titles */
+            font-size: 24px;
         }
 
         .dark-mode-toggle {
@@ -51,26 +58,17 @@
 
         .language-translation {
             margin-top: 20px;
-            font-size: 18px; /* Font size for the translation select element */
+            font-size: 18px;
         }
 
         footer {
             background-color: #f0f0f0;
             text-align: center;
             padding: 10px;
-            width: 100%; /* Make footer span full width */
-            box-sizing: border-box; /* Include padding in width calculation */
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        /* Add more styles as needed */
-
-        /* Dark Mode */
-        .dark-mode {
-            background-color: black;
-            color: white;
-        }
-
-        /* Links */
         a {
             text-decoration: none;
             color: black;
@@ -82,7 +80,6 @@
             font-style: italic;
         }
 
-        /* Your Name Style */
         h1 {
             background-color: black;
             color: white;
@@ -92,38 +89,40 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Your Name</h1>
-        <nav>
-            <ul>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="media.html">Media</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="dark-mode-toggle">
-            <label for="dark-mode">Dark Mode:</label>
-            <input type="checkbox" id="dark-mode">
-        </div>
-        <div class="language-translation">
-            <label for="language-select">Select Language:</label>
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="fr">French</option>
-                <option value="es">Spanish</option>
-                <!-- Add more language options as needed -->
-            </select>
-        </div>
-    </header>
+    <div class="page-container">
+        <header>
+            <h1>Your Name</h1>
+            <nav>
+                <ul>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="dark-mode-toggle">
+                <label for="dark-mode">Dark Mode:</label>
+                <input type="checkbox" id="dark-mode">
+            </div>
+            <div class="language-translation">
+                <label for="language-select">Select Language:</label>
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                    <!-- Add more language options as needed -->
+                </select>
+            </div>
+        </header>
 
-    <main>
-        <!-- Content sections will go here -->
-    </main>
+        <main>
+            <!-- Content sections will go here -->
+        </main>
 
-    <footer>
-        <!-- Footer content here -->
-    </footer>
+        <footer>
+            <!-- Footer content here -->
+        </footer>
+    </div>
 
     <script>
         // Handle Dark Mode
@@ -141,7 +140,6 @@
     </script>
 </body>
 </html>
-
 
 
 
