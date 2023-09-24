@@ -3,112 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oussama Boudaoud - Personal Website</title>
-    <style>
-        /* Reset some default styles */
-        body, h1, p {
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Set a dark background and white text color */
-        body {
-            background-color: #222; /* Dark background color */
-            color: #fff; /* White text color */
-            font-family: Georgia, sans-serif;
-        }
-
-        /* Style the header */
-        header {
-            background-color: #333;
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Style the main content */
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Style headings and paragraphs */
-        h1 {
-            font-size: 36px;
-        }
-
-        p {
-            font-size: 18px;
-        }
-
-        /* Style links */
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        /* Style the photo */
-        .profile-photo {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Style the footer */
-        footer {
-            background-color: #333;
-            padding: 10px 0;
-            text-align: center;
-        }
-    </style>
+    <title>Your Name</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Oussama Boudaoud</h1>
-        <p>Web Developer</p>
+        <h1>Your Name</h1>
+        <nav>
+            <ul>
+                <li><a href="#Resume">Resume</a></li>
+                <li><a href="#Blog">Blog</a></li>
+                <li><a href="#Media">Media</a></li>
+                 <li><a href="#Contact">Media</a></li>
+            </ul>
+        </nav>
     </header>
-    
+
     <main>
-        <section>
-            <h2>About Me</h2>
-            <p>
-                Welcome to my personal website. I'm a web developer passionate about creating web applications that make a difference.
-            </p>
-        </section>
-        
-        <section>
-            <h2>Resume</h2>
-            <p>
-                Here, you can view my resume and professional experience.
-                <!-- You can provide a link to your resume file or embed it here. -->     <a href="BOUDAOUD's Resumé - Ontario.pdf" target="_blank">View Resume</a>
-            </p>
-        </section>
-
-        <section>
-            <h2>Blog</h2>
-            <p>
-                Check out my latest blog posts and insights.
-                <!-- You can provide links to your blog posts here. -->
-            </p>
-        </section>
-
-        <section>
-            <h2>Photos</h2>
-            <p>
-                Explore my photo albums and visual experiences.
-                <!-- You can create links to your photo albums or embed photo galleries here. -->
-            </p>
-        </section>
-        
-        <section>
-            <h2>Contact Me</h2>
-            <p>
-                You can reach me at <a href="mailto:youremail@example.com">youremail@example.com</a>.
-            </p>
-        </section>
+        <!-- Content sections will go here -->
     </main>
-    
+
     <footer>
-        &copy; 2023 Your Name
+        <div class="dark-mode-toggle">
+            <label for="dark-mode">Dark Mode:</label>
+            <input type="checkbox" id="dark-mode">
+        </div>
+        <div class="language-translation">
+            <!-- Language translation options will go here -->
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+// end for the first html
+
+// begin the second code
+
+
+body {
+    font-family: Georgia, serif;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.dark-mode-toggle {
+    float: right;
+    margin-right: 20px;
+}
+
+.dark-mode-toggle label {
+    font-weight: bold;
+}
+
+.language-translation {
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Add more styles as needed */
+
+
+
+// end of the css
+
+// begin Javascript
+
+// Dark mode toggle
+const darkModeToggle = document.getElementById('dark-mode');
+const body = document.body;
+
+darkModeToggle.addEventListener('change', () => {
+    body.classList.toggle('dark-mode', darkModeToggle.checked);
+});
+
+// Language translation options
+const languages = ['English', 'French', 'Spanish', 'German', 'Arabic', 'Hebrew', 'Persian', 'Portuguese', 'Turkish', 'Dutch', 'Finnish'];
+const translationContainer = document.querySelector('.language-translation');
+
+languages.forEach((language) => {
+    const button = document.createElement('button');
+    button.textContent = language;
+    button.addEventListener('click', () => {
+        alert(`Translating to ${language}`);
+        // Implement your translation logic here
+    });
+    translationContainer.appendChild(button);
+});
+
+// end of javascript
