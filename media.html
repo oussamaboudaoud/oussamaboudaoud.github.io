@@ -1,12 +1,55 @@
+<!-- media.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Media</title>
+    <title>Media</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        /* Your media page styles here */
+        .city-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Create a 3-column grid */
+            grid-gap: 20px; /* Add spacing between images */
+            text-align: center;
+            margin: 20px;
+        }
+
+        .city-gallery img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <!-- Your media content goes here -->
-    <a href="index.html">Back to Home</a>
+    <header>
+        <h1>Your Name</h1>
+        <nav>
+            <ul>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="city-gallery">
+        <h2>Paris</h2>
+        <img src="paris/image1.jpg" alt="Paris Image 1">
+        <img src="paris/image2.jpg" alt="Paris Image 2">
+        <!-- Add more images for Paris -->
+
+        <h2>Beirut</h2>
+        <img src="beirut/image1.jpg" alt="Beirut Image 1">
+        <img src="beirut/image2.jpg" alt="Beirut Image 2">
+        <!-- Add more images for Beirut -->
+
+        <h2>Montreal</h2>
+        <img src="montreal/image1.jpg" alt="Montreal Image 1">
+        <img src="montreal/image2.jpg" alt="Montreal Image 2">
+        <!-- Add more images for Montreal -->
+    </div>
 </body>
 </html>
