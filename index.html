@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name</title>
     <style>
         body {
             font-family: Georgia, serif;
@@ -11,40 +8,38 @@
             color: black;
             margin: 0;
             padding: 0;
-            padding-left: 7cm; /* 7 cm of empty space on the left */
-            padding-right: 7cm; /* 7 cm of empty space on the right */
-            padding-top: 1cm; /* 1 cm of empty space at the top */
-            display: flex;
-            flex-direction: column;
         }
 
-        .dark-mode {
-            background-color: black;
-            color: white;
-        }
-
-        header {
+        .header {
             background-color: #f0f0f0;
             padding: 20px;
             text-align: center;
-            width: 100%;
-            box-sizing: border-box;
+        }
+
+        .profile-picture img {
+            width: 150px; /* Adjust the width as needed */
+            height: 150px; /* Adjust the height as needed */
+            display: block;
+            margin: 0 auto;
+        }
+
+        .header hr {
+            border: none;
+            height: 2px;
+            background-color: black;
+            margin: 10px 0;
         }
 
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            padding-top: 0.5cm; /* 0.5 cm space between title and navigation */
-            border-bottom: 2px solid black; /* Black line beneath navigation */
         }
 
         nav ul li {
             display: inline;
-            margin-right: 1cm; /* Sufficient space between words */
-            text-decoration: none;
+            margin-right: 20px;
             font-weight: bold;
-            font-size: 24px;
         }
 
         .dark-mode-toggle {
@@ -58,102 +53,48 @@
 
         .language-translation {
             margin-top: 20px;
-            font-size: 18px;
         }
 
         footer {
             background-color: #f0f0f0;
             text-align: center;
             padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            border-top: 2px solid black; /* Black line above footer */
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
-
-        a:hover {
-            color: green;
-            font-style: italic;
-        }
-
-        .profile-picture {
-            text-align: center;
-            margin-top: 0.5cm; /* 0.5 cm space between title and profile picture */
-        }
-
-        .profile-picture img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .copyright {
-            text-align: center;
-            font-size: 14px;
-            margin-top: 0.5cm; /* 0.5 cm space between profile picture and copyright */
-            border-top: 2px solid black; /* Black line above copyright */
-        }
-
-        .copyright::after {
-            content: ', Your Name';
         }
     </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="media.html">Media</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <div class="header">
+        <h1>Your Name</h1>
+        <div class="profile-picture">
+            <img src="https://github.com/oussamaboudaoud/oussamaboudaoud.github.io/raw/main/LinkedIn%20Photo.jpg" alt="Your Name's Profile Picture" width="150" height="150">>
+        </div>
+        <hr>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#Resume">Resume</a></li>
+            <li><a href="#Blog">Blog</a></li>
+            <li><a href="#Media">Media</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <footer>
         <div class="dark-mode-toggle">
             <label for="dark-mode">Dark Mode:</label>
             <input type="checkbox" id="dark-mode">
         </div>
         <div class="language-translation">
-            <label for="language-select">Select Language:</label>
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="fr">French</option>
-                <option value="es">Spanish</option>
-                <!-- Add more language options as needed -->
-            </select>
+            <!-- Language translation options will go here -->
         </div>
-    </header>
-
-    <main>
-        <h1></h1>
-        <div class="profile-picture">
-            <img src="your-profile-picture.jpg" alt="Your Name">
-        </div>
-        <!-- Content sections will go here -->
-    </main>
-
-    <footer>
-        <!-- Footer content here -->
     </footer>
 
-    <script>
-        // Handle Dark Mode
-        const darkModeToggle = document.getElementById('dark-mode');
-        const body = document.body;
-
-        darkModeToggle.addEventListener('change', () => {
-            body.classList.toggle('dark-mode');
-        });
-
-        // Handle Language Translation (You'll need a translation library for this)
-        const languageSelect = document.getElementById('language-select');
-
-        // Add options to the languageSelect element for different languages
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 
