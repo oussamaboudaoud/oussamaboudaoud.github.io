@@ -30,6 +30,7 @@
             margin-right: 20px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 24px; /* Larger font size for titles */
         }
 
         .dark-mode-toggle {
@@ -43,6 +44,7 @@
 
         .language-translation {
             margin-top: 20px;
+            font-size: 18px; /* Font size for the translation select element */
         }
 
         footer {
@@ -74,7 +76,7 @@
 </head>
 <body>
     <header>
-        <h1>Your Name</h1>
+        <h1><span style="background-color: black; color: white;">Your Name</span></h1>
         <nav>
             <ul>
                 <li><a href="resume.html">Resume</a></li>
@@ -88,8 +90,12 @@
             <input type="checkbox" id="dark-mode">
         </div>
         <div class="language-translation">
+            <label for="language-select">Select Language:</label>
             <select id="language-select">
-                <!-- Language options go here -->
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <!-- Add more language options as needed -->
             </select>
         </div>
     </header>
@@ -115,10 +121,10 @@
         const languageSelect = document.getElementById('language-select');
 
         // Add options to the languageSelect element for different languages
-
     </script>
 </body>
 </html>
+
 
 
 
