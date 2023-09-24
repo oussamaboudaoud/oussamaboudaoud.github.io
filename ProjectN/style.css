@@ -1,0 +1,37 @@
+/* style.css */
+
+/* Apply styles to the body for a dark background and white text */
+body {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    font-family: Georgia, serif; /* Use Georgia font or a similar serif font */
+}
+
+/* Style the header with a background color and padding */
+header {
+    background-color: #222; /* Darker background for the header */
+    color: #fff; /* White text color */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style navigation menu */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Style links in navigation menu */
+nav a {
+    text-decoration: none;
+    color: #fff; /* White link text color */
+    font-weight: bold;
+}
+
+/* Add more CSS rules to style your website as needed */
