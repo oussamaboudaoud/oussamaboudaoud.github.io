@@ -17,6 +17,7 @@
             padding-top: 1.5cm; /* 1.5 cm of empty space at the top */
             display: flex;
             flex-direction: column;
+            align-items: center; /* Center content horizontally */
         }
 
         header {
@@ -24,6 +25,7 @@
             color: white;
             text-align: center;
             padding: 10px;
+            width: 100%;
         }
 
         header h1 {
@@ -67,6 +69,7 @@
         .black-line {
             border-top: 1px solid black;
             margin-top: 20px;
+            width: 100%;
         }
     </style>
 </head>
@@ -77,13 +80,15 @@
 
     <div class="empty-space"></div>
 
-    <div class="dropbox-link">
-        <span class="dropbox-icon">&#x1F4C2;</span> <!-- Dropbox icon -->
-        <a href="https://www.dropbox.com/scl/fi/x0w8n51m1t5j9mi7bbeed/BOUDAOUD-s-Resum.pdf?rlkey=h0mqc7hnn37jmp3wzkf9fy5dn&dl=0" target="_blank">View Resume on Dropbox</a>
-    </div>
+    <div class="content-container">
+        <div class="dropbox-link">
+            <span class="dropbox-icon">&#x1F4C2;</span> <!-- Dropbox icon -->
+            <a href="https://www.dropbox.com/scl/fi/x0w8n51m1t5j9mi7bbeed/BOUDAOUD-s-Resum.pdf?rlkey=h0mqc7hnn37jmp3wzkf9fy5dn&dl=0" target="_blank">View Resume on Dropbox</a>
+        </div>
 
-    <div class="dropbox-link">
-        <a href="https://github.com/yourusername/BOUDAOUD-s-Resum%C3%A9%20copy.pdf" class="download-icon" target="_blank" download>Download Resume as PDF</a>
+        <div class="dropbox-link">
+            <a href="https://github.com/oussamaboudaoud/BOUDAOUD-s-Resum%C3%A9%20copy.pdf" class="download-icon" target="_blank" download>Download Resume as PDF</a>
+        </div>
     </div>
 
     <div class="black-line"></div>
@@ -93,5 +98,4 @@
     </div>
 </body>
 </html>
-
 
