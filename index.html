@@ -76,6 +76,11 @@
         .contact-page {
             /* Add specific styles for the Contact page if needed */
         }
+
+        /* Hide contact content by default */
+        .contact-page {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -84,10 +89,7 @@
         <h1>Your Name</h1>
         <nav>
             <ul>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="media.html">Media</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="javascript:void(0);" onclick="loadContactPage()">Contact</a></li>
             </ul>
         </nav>
         <div class="dark-mode-toggle">
@@ -106,8 +108,20 @@
     </div>
 
     <!-- Content specific to each page goes here -->
-    <main class="contact-page">
+    <main>
         <!-- Content for the Contact page -->
+        <div class="contact-page">
+            <!-- Your contact page content goes here -->
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/osama-bendavid/" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/o_bendavid" target="_blank">Twitter</a>
+                <a href="https://www.facebook.com/OussBoudaoud/" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/clockwork_orange23/" target="_blank">Instagram</a>
+                <a href="https://github.com/oussamaboudaoud" target="_blank">GitHub</a>
+                <a href="mailto:your.email@example.com">Email</a>
+                <!-- Add more social media links or contact details as needed -->
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -126,7 +140,13 @@
         // Handle Language Translation (You'll need a translation library for this)
         const languageSelect = document.getElementById('language-select');
 
-        // Add options to the languageSelect element for different languages
+        // Function to load the Contact page content
+        function loadContactPage() {
+            const contactPage = document.querySelector('.contact-page');
+            if (contactPage.style.display === 'none') {
+                contactPage.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
