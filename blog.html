@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Blog</title>
+    <title>Blog</title>
 </head>
 <body>
-    <!-- Your blog content goes here -->
-    <a href="index.html">Back to Home</a>
+    <header>
+        <h1>Blog</h1>
+        <button id="latestButton">Latest</button>
+        <button id="archiveButton">Archive</button>
+    </header>
+
+    <section id="latestArticles">
+        <!-- Latest articles go here -->
+        <article>
+            <h2>Article Title 1</h2>
+            <p>Article content goes here.</p>
+        </article>
+        <!-- Add more latest articles as needed -->
+    </section>
+
+    <section id="archiveArticles" style="display: none;">
+        <!-- Archive articles go here -->
+        <article>
+            <h2>Article Title 1 (Archive)</h2>
+            <p>Article content goes here.</p>
+        </article>
+        <!-- Add more archive articles as needed -->
+    </section>
 </body>
 </html>
+<script>
+    const latestButton = document.getElementById('latestButton');
+    const archiveButton = document.getElementById('archiveButton');
+    const latestArticles = document.getElementById('latestArticles');
+    const archiveArticles = document.getElementById('archiveArticles');
+
+    latestButton.addEventListener('click', () => {
+        latestArticles.style.display = 'block';
+        archiveArticles.style.display = 'none';
+    });
+
+    archiveButton.addEventListener('click', () => {
+        latestArticles.style.display = 'none';
+        archiveArticles.style.display = 'block';
+    });
+</script>
