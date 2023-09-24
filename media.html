@@ -9,16 +9,24 @@
     <style>
         /* Your media page styles here */
         .city-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Create a 3-column grid */
-            grid-gap: 20px; /* Add spacing between images */
-            text-align: center;
-            margin: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
 
-        .city-gallery img {
+        .city {
+            text-align: center;
+        }
+
+        .city h2 {
+            font-size: 24px;
+        }
+
+        .city img {
             max-width: 100%;
             height: auto;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
@@ -36,32 +44,33 @@
     </header>
 
     <div class="city-gallery">
-        <h2>Paris</h2>
-        <img src="paris/image1.jpg" alt="Paris 1">
-        <img src="paris/image2.jpg" alt="Paris 2">
-        <img src="paris/image2.jpg" alt="Paris 3">
-        <img src="paris/image2.jpg" alt="Paris 4">
-        <img src="paris/image2.jpg" alt="Paris 5">
-        <img src="paris/image2.jpg" alt="Paris 6">
-        <img src="paris/image2.jpg" alt="Paris 7">
-        <img src="paris/image2.jpg" alt="Paris 8">
-        <img src="paris/image2.jpg" alt="Paris 10">
+        <div class="city">
+            <h2>Paris</h2>
+            <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image1.jpg" alt="Paris 1">
+            <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image2.jpg" alt="Paris 2">
+                        <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image2.jpg" alt="Paris 3">
+            <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image2.jpg" alt="Paris 4">
+            <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image2.jpg" alt="Paris 5">
+            <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image2.jpg" alt="Paris 6">
+            <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image2.jpg" alt="Paris 7">
+            <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image2.jpg" alt="Paris 8">
+            <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image2.jpg" alt="Paris 9">
+            <img src="https://github.com/oussamaboudaoud/your-repo/raw/main/Paris/image2.jpg" alt="Paris 10">
 
+            <!-- Add more images for Paris -->
+        </div>
 
-        <!-- Add more images for Paris -->
+        <div class="city">
+            <h2>Beirut</h2>
+            <img src="https://github.com/your-username/your-repo/raw/main/Beirut/image1.jpg" alt="Beirut 1">
+            <img src="https://github.com/your-username/your-repo/raw/main/Beirut/image2.jpg" alt="Beirut 2">
+            <img src="https://github.com/your-username/your-repo/raw/main/Beirut/image2.jpg" alt="Beirut 3">
+            <img src="https://github.com/your-username/your-repo/raw/main/Beirut/image2.jpg" alt="Beirut 4">
+            <img src="https://github.com/your-username/your-repo/raw/main/Beirut/image2.jpg" alt="Beirut 5">
+            <img src="https://github.com/your-username/your-repo/raw/main/Beirut/image2.jpg" alt="Beirut 6">
 
-        <h2>Beirut</h2>
-        <img src="beirut/image1.jpg" alt="Beirut 1">
-        <img src="beirut/image2.jpg" alt="Beirut 2">
-        <img src="beirut/image2.jpg" alt="Beirut 3">
-        <img src="beirut/image2.jpg" alt="Beirut 4">
-        <img src="beirut/image2.jpg" alt="Beirut 5">
-        <img src="beirut/image2.jpg" alt="Beirut 6">
-        <img src="beirut/image2.jpg" alt="Beirut 7">
-        <img src="beirut/image2.jpg" alt="Beirut 8">
-
-        <!-- Add more images for Beirut -->
-
+            <!-- Add more images for Beirut -->
+        </div>
     </div>
 </body>
 </html>
