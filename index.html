@@ -85,6 +85,26 @@
             margin: 0;
             margin-bottom: 0.5cm; /* 0.5 cm space between "your name" and other words */
         }
+
+        .profile-picture {
+            text-align: center;
+            margin-top: 1cm;
+        }
+
+        .profile-picture img {
+            width: 120px; /* Adjust the width as needed */
+            height: 120px; /* Adjust the height as needed */
+            border: 2px solid black; /* Add a black border */
+            display: block;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            text-align: right;
+            margin-right: 2cm; /* 2 cm of space from the right */
+            margin-top: 0.5cm; /* 0.5 cm space from the top */
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -113,12 +133,16 @@
         </div>
     </header>
 
-    <main>
-        <!-- Content sections will go here -->
-    </main>
-
+    <div class="profile-picture">
+        <img src="LinkedIn Photo.jpg" alt="Your Name's Profile Picture" width="120" height="120">
+    </div>
+    
+    <hr> <!-- Black line -->
+    
     <footer>
-        <!-- Footer content here -->
+        <div class="copyright">
+            &copy; 2023 Your Name
+        </div>
     </footer>
 
     <script>
@@ -137,5 +161,6 @@
     </script>
 </body>
 </html>
+
 
 
