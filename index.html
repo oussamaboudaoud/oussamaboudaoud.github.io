@@ -4,8 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name</title>
- <link rel="stylesheet" type="text/css" href="styles.css">
 
+    <style>
+        /* Internal CSS styles go here */
+
+        body {
+            font-family: Georgia, serif;
+            background-color: white;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .dark-mode-toggle {
+            float: right;
+            margin-right: 20px;
+        }
+
+        .dark-mode-toggle label {
+            font-weight: bold;
+        }
+
+        .language-translation {
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Add more styles as needed */
+    </style>
+
+    <script>
+        // Internal JavaScript code goes here
+        // Example:
+        document.getElementById('dark-mode').addEventListener('change', function () {
+            // Toggle dark mode
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -15,7 +72,7 @@
                 <li><a href="#Resume">Resume</a></li>
                 <li><a href="#Blog">Blog</a></li>
                 <li><a href="#Media">Media</a></li>
-                 <li><a href="#Contact">Media</a></li>
+                <li><a href="#Contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -34,7 +91,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Include more JavaScript code as needed -->
 </body>
 </html>
 
@@ -45,93 +102,6 @@
 
 
 
-
-
-
-
-
-
-body {
-    font-family: Georgia, serif;
-    background-color: white;
-    color: black;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #f0f0f0;
-    padding: 20px;
-    text-align: center;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-.dark-mode-toggle {
-    float: right;
-    margin-right: 20px;
-}
-
-.dark-mode-toggle label {
-    font-weight: bold;
-}
-
-.language-translation {
-    margin-top: 20px;
-}
-
-footer {
-    background-color: #f0f0f0;
-    text-align: center;
-    padding: 10px;
-}
-
-/* Add more styles as needed */
-
-
-
-
-
-
-
-
-
-
-
-
-<script> 
-// Dark mode toggle
-const darkModeToggle = document.getElementById('dark-mode');
-const body = document.body;
-
-darkModeToggle.addEventListener('change', () => {
-    body.classList.toggle('dark-mode', darkModeToggle.checked);
-});
-
-// Language translation options
-const languages = ['English', 'French', 'Spanish', 'German', 'Arabic', 'Hebrew', 'Persian', 'Portuguese', 'Turkish', 'Dutch', 'Finnish'];
-const translationContainer = document.querySelector('.language-translation');
-
-languages.forEach((language) => {
-    const button = document.createElement('button');
-    button.textContent = language;
-    button.addEventListener('click', () => {
-        alert(`Translating to ${language}`);
-        // Implement your translation logic here
-    });
-    translationContainer.appendChild(button);
-});
-
-</script>
 
 
 
