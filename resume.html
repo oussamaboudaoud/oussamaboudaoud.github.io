@@ -3,119 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>Oussama Boudaoud - Resume</title>
     <style>
         /* Your resume page styles here */
         body {
-            font-family: 'Trebuchet MS', sans-serif; /* Use Trebuchet MS font */
+            font-family: Trebuchet MS, sans-serif;
             background-color: white;
             color: black;
             margin: 0;
             padding: 0;
             padding-left: 6cm; /* 6 cm of empty space on the left */
             padding-right: 6cm; /* 6 cm of empty space on the right */
-            padding-top: 1cm; /* 1 cm of empty space at the top */
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Highlighted name style */
-        .highlighted-name {
+        header {
             background-color: black;
             color: white;
-            padding: 10px;
             text-align: center;
+            padding: 10px;
+        }
+
+        header h1 {
             margin: 0;
+            padding: 0;
+            font-size: 24px;
         }
 
-        /* Your resume content styles here */
-        .resume-content {
-            margin-top: 1cm; /* Space below highlighted name */
+        .dropbox-link {
+            margin-top: 20px;
         }
 
-        .resume-section {
-            margin-top: 1cm; /* Space between sections */
-        }
-
-        .section-header {
+        .dropbox-link a {
+            text-decoration: none;
+            color: blue;
             font-weight: bold;
         }
 
-        .section-content {
-            margin-left: 1cm; /* Indent content within sections */
+        .dropbox-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .empty-space {
+            height: 6cm; /* 6 cm of empty space at the top */
         }
     </style>
 </head>
 <body>
-    <!-- Highlighted name -->
-    <h1 class="highlighted-name">Oussama Boudaoud</h1>
+    <header>
+        <h1>Oussama Boudaoud</h1>
+    </header>
 
-    <!-- Resume content -->
-    <div class="resume-content">
-        <!-- Education section -->
-        <div class="resume-section">
-            <p class="section-header">Education</p>
-            <div class="section-content">
-                <p>Lebanese American University (LAU)</p>
-                <p>BACHELOR OF SCIENCE IN BUSINESS, BANKING & FINANCE, MINOR IN ECONOMICS, CUMULATIVE GPA: 3.8/4</p>
-                <p>Aug 2018 – July 2021</p>
-                <!-- Add more education details if needed -->
-            </div>
-        </div>
+    <div class="empty-space"></div>
 
-        <!-- Work Experience section -->
-        <div class="resume-section">
-            <p class="section-header">Work Experience</p>
-            <div class="section-content">
-                <p>American University of Beirut (AUB)</p>
-                <p>SUMMER INTERN</p>
-                <p>June 2022 - Aug. 2022</p>
-                <ul>
-                    <li>Analyzed health data using STATA, improving data interpretation and extracting insights into public health trends.</li>
-                    <li>Developed strong analytical skills and attention to detail through managing and manipulating complex datasets.</li>
-                </ul>
-                <!-- Add more work experience details if needed -->
-            </div>
-        </div>
-
-        <!-- Skills section -->
-        <div class="resume-section">
-            <p class="section-header">Skills</p>
-            <div class="section-content">
-                <p>Programming / Stat Software: STATA (advanced), R (intermediate), SPSS (intermediate), HTML (intermediate), CSS (intermediate), Javascript</p>
-                <p>Productivity Software: Microsoft Office Suite (with strong emphasis on Excel), G-Suite, Slack</p>
-                <p>Languages: English (native), French (professional proficiency), Levantine Arabic</p>
-            </div>
-        </div>
-
-        <!-- Awards and Scholarships section -->
-        <div class="resume-section">
-            <p class="section-header">Awards and Scholarships</p>
-            <div class="section-content">
-                <p>Erasmus Program (Erasmus+), 2020</p>
-                <p>Awarded a full scholarship by the European Union to study at one of Europe’s most prestigious social sciences schools Sciences Po in the heart of Paris</p>
-                <p>Role: Exchange student. Funding amount: 4K euros.</p>
-                <!-- Add more awards and scholarships details if needed -->
-            </div>
-        </div>
-
-        <!-- Additional Information section -->
-        <div class="resume-section">
-            <p class="section-header">Additional Information</p>
-            <div class="section-content">
-                <p>Relevant Coursework:</p>
-                <ul>
-                    <li>Corporate Finance</li>
-                    <li>Financial Accounting</li>
-                    <li>Managerial Accounting</li>
-                    <!-- Add more coursework details if needed -->
-                </ul>
-                <p>Extracurricular Activities:</p>
-                <ul>
-                    <li>Manage a YouTube channel focused on startup ecosystem</li>
-                    <li>Authored news articles and conducted detail-oriented reporting for “Roostergnn Global News Network”</li>
-                    <!-- Add more extracurricular activities if needed -->
-                </ul>
-            </div>
-        </div>
+    <div class="dropbox-link">
+        <span class="dropbox-icon">&#x1F4C2;</span> <!-- Dropbox icon -->
+        <a href="https://www.dropbox.com/scl/fi/x0w8n51m1t5j9mi7bbeed/BOUDAOUD-s-Resum.pdf?rlkey=h0mqc7hnn37jmp3wzkf9fy5dn&dl=0" target="_blank">View Resume on Dropbox</a>
     </div>
 </body>
 </html>
