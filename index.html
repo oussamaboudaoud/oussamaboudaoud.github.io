@@ -28,6 +28,8 @@
         nav ul li {
             display: inline;
             margin-right: 20px;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         .dark-mode-toggle {
@@ -56,6 +58,18 @@
             background-color: black;
             color: white;
         }
+
+        /* Links */
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: green;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -63,10 +77,10 @@
         <h1>Your Name</h1>
         <nav>
             <ul>
-                <li><a href="#Resume">Resume</a></li>
-                <li><a href="#Blog">Blog</a></li>
-                <li><a href="#Media">Media</a></li>
-                <li><a href="#Contact">Contact</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
         <div class="dark-mode-toggle">
@@ -102,25 +116,6 @@
 
         // Add options to the languageSelect element for different languages
 
-        // Handle Blog, Media, and Contact Links
-        const blogLink = document.querySelector('a[href="#Blog"]');
-        const mediaLink = document.querySelector('a[href="#Media"]');
-        const contactLink = document.querySelector('a[href="#Contact"]');
-
-        blogLink.addEventListener('click', () => {
-            // Open the Blog page (blog.html or another URL)
-            window.open('blog.html', '_blank');
-        });
-
-        mediaLink.addEventListener('click', () => {
-            // Open the Media page (media.html or another URL)
-            window.open('media.html', '_blank');
-        });
-
-        contactLink.addEventListener('click', () => {
-            // Open the Contact page (contact.html or another URL)
-            window.open('contact.html', '_blank');
-        });
     </script>
 </body>
 </html>
