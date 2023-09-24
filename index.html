@@ -16,6 +16,10 @@
             text-align: center;
         }
 
+        .header h1 {
+            margin-top: 2cm;
+        }
+
         .profile-picture img {
             width: 150px; /* Adjust the width as needed */
             height: 150px; /* Adjust the height as needed */
@@ -34,12 +38,19 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5cm;
         }
 
         nav ul li {
-            display: inline;
-            margin-right: 20px;
             font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav ul li:hover {
+            color: green;
+            font-style: italic;
         }
 
         .dark-mode-toggle {
@@ -69,9 +80,9 @@
 <body>
     <div class="header">
         <h1>Your Name</h1>
-      <div class="profile-picture">
-    <img src="LinkedIn Photo.jpg" alt="Your Name's Profile Picture" width="150" height="150">
-</div>
+        <div class="profile-picture">
+            <img src="LinkedIn Photo.jpg" alt="Your Name's Profile Picture" width="150" height="150">
+        </div>
         <hr>
     </div>
 
