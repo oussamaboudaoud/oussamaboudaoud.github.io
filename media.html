@@ -8,6 +8,19 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         /* Your media page styles here */
+        .media-container {
+            text-align: center;
+        }
+
+        .media-container h1 {
+            font-size: 36px;
+            margin-top: 1.5cm; /* 1.5 cm space at the top */
+            margin-bottom: 2cm; /* 2 cm space at the bottom */
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+
         .city-gallery {
             display: flex;
             justify-content: space-around;
@@ -22,8 +35,10 @@
             font-size: 24px;
         }
 
-        .city img {
-            max-width: 100%;
+        .city img.thumbnail {
+            max-width: 300px; /* Adjust the maximum width as needed */
+            max-height: 200px; /* Adjust the maximum height as needed */
+            width: auto;
             height: auto;
             margin-bottom: 20px;
             border: 1px solid #ccc;
@@ -32,29 +47,21 @@
 </head>
 <body>
     <header>
-        <h1>Your Name</h1>
-        <nav>
-            <ul>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="media.html">Media</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Oussama Boudaoud</h1>
     </header>
 
     <div class="city-gallery">
         <div class="city">
             <h2>Paris</h2>
-            <img src="media/Paris 1.jpg" alt="Paris 1.jpg">
-            <img src="media/Paris 2.jpg" alt="Paris 2.jpg">
+            <img class="thumbnail" src="https://github.com/oussamaboudaoud/oussamaboudaoud/raw/main/media/Paris/Paris 1.jpg" alt="Paris 1.jpg">
+            <img class="thumbnail" src="https://github.com/oussamaboudaoud/oussamaboudaoud/raw/main/media/Paris%202.JPG" alt="Paris 2.JPG">
             <!-- Add more images for Paris -->
         </div>
 
         <div class="city">
             <h2>Beirut</h2>
-            <img src="media/Beirut 1.jpg" alt="Beirut 1.jpg">
-            <img src="media/Beirut 2.jpg" alt="Beirut 2.jpg">
+            <img class="thumbnail" src="https://github.com/oussamaboudaoud/oussamaboudaoud/raw/main/media/Beirut/image1.jpg" alt="Beirut 1.jpg">
+            <img class="thumbnail" src="https://github.com/oussamaboudaoud/oussamaboudaoud/raw/main/media/Beirut/image2.jpg" alt="Beirut 2.jpg">
             <!-- Add more images for Beirut -->
         </div>
     </div>
