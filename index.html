@@ -35,6 +35,8 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
+            padding-top: 0.5cm; /* 0.5 cm space between title and navigation */
+            border-bottom: 2px solid black; /* Black line beneath navigation */
         }
 
         nav ul li {
@@ -83,13 +85,36 @@
             color: white;
             padding: 10px;
             margin: 0;
-            margin-bottom: 0.5cm; /* 0.5 cm space between "your name" and other words */
+            margin-bottom: 0.5cm; /* 0.5 cm space between title and content */
+        }
+
+        .profile-picture {
+            text-align: center;
+            margin-top: 0.5cm; /* 0.5 cm space between title and profile picture */
+        }
+
+        .profile-picture img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 0.5cm; /* 0.5 cm space between profile picture and copyright */
+        }
+
+        .copyright::after {
+            content: ', Your Name';
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Your Name</h1>
+        <div class="profile-picture">
+            <img src="your-profile-picture.jpg" alt="Your Name">
+        </div>
         <nav>
             <ul>
                 <li><a href="resume.html">Resume</a></li>
@@ -137,6 +162,7 @@
     </script>
 </body>
 </html>
+
 
 
 
