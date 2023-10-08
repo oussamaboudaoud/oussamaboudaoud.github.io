@@ -14,36 +14,67 @@
 
     <section id="latestArticles">
         <!-- Latest articles go here -->
-        <article>
-            <h2>Article Title 1</h2>
-            <p>Article content goes here.</p>
-        </article>
-        <!-- Add more latest articles as needed -->
     </section>
 
     <section id="archiveArticles" style="display: none;">
         <!-- Archive articles go here -->
-        <article>
-            <h2>Article Title 1 (Archive)</h2>
-            <p>Article content goes here.</p>
-        </article>
-        <!-- Add more archive articles as needed -->
     </section>
+
+    <script>
+        const latestButton = document.getElementById('latestButton');
+        const archiveButton = document.getElementById('archiveButton');
+        const latestArticles = document.getElementById('latestArticles');
+        const archiveArticles = document.getElementById('archiveArticles');
+
+        latestButton.addEventListener('click', () => {
+            latestArticles.style.display = 'block';
+            archiveArticles.style.display = 'none';
+        });
+
+        archiveButton.addEventListener('click', () => {
+            latestArticles.style.display = 'none';
+            archiveArticles.style.display = 'block';
+        });
+
+        // Sample data for articles (in JSON format)
+        const articles = [
+            {
+                title: 'Article Title 1',
+                content: 'Article content goes here for the latest article.',
+                category: 'latest',
+            },
+            {
+                title: 'Article Title 2',
+                content: 'Article content goes here for another latest article.',
+                category: 'latest',
+            },
+            {
+                title: 'Article Title 3',
+                content: 'Article content goes here for an archived article.',
+                category: 'archive',
+            },
+            // Add more articles as needed
+        ];
+
+        // Function to render articles
+        function renderArticles(category) {
+            const articlesContainer = category === 'latest' ? latestArticles : archiveArticles;
+            articlesContainer.innerHTML = '';
+
+            articles.forEach((article) => {
+                if (article.category === category) {
+                    const articleElement = document.createElement('article');
+                    articleElement.innerHTML = `
+                        <h2>${article.title}</h2>
+                        <p>${article.content}</p>
+                    `;
+                    articlesContainer.appendChild(articleElement);
+                }
+            });
+        }
+
+        // Initially, render the latest articles
+        renderArticles('latest');
+    </script>
 </body>
 </html>
-<script>
-    const latestButton = document.getElementById('latestButton');
-    const archiveButton = document.getElementById('archiveButton');
-    const latestArticles = document.getElementById('latestArticles');
-    const archiveArticles = document.getElementById('archiveArticles');
-
-    latestButton.addEventListener('click', () => {
-        latestArticles.style.display = 'block';
-        archiveArticles.style.display = 'none';
-    });
-
-    archiveButton.addEventListener('click', () => {
-        latestArticles.style.display = 'none';
-        archiveArticles.style.display = 'block';
-    });
-</script>
