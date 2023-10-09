@@ -4,7 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oussama Boudaoud</title>
-    <!-- Include i18next library -->
+    <style>
+        <!-- Your existing CSS styles here -->
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Oussama Boudaoud</h1>
+        <nav>
+            <ul>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="dark-mode-toggle">
+            <label for="dark-mode">Dark Mode:</label>
+            <input type="checkbox" id="dark-mode">
+        </div>
+        <div class="language-translation">
+            <label for="language-select">Select Language:</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="profile-picture">
+        <img src="LinkedIn Photo.jpg" alt="Your Name's Profile Picture" width="120" height="120">
+    </div>
+    
+    <hr> <!-- Black line -->
+    
+    <footer>
+        <div class="copyright">
+            &copy;  2023, Oussama Boudaoud
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.3/dist/umd/i18next.min.js"></script>
     <script>
         // Define translation resources
@@ -18,7 +57,7 @@
                     contact: "Contact",
                     darkModeLabel: "Dark Mode:",
                     selectLanguageLabel: "Select Language:",
-                    copyright: "&copy; 2023, Oussama Boudaoud",
+                    copyright: "&copy;  2023, Oussama Boudaoud",
                 },
             },
             fr: {
@@ -30,7 +69,7 @@
                     contact: "Contact",
                     darkModeLabel: "Mode sombre :",
                     selectLanguageLabel: "Sélectionnez la langue :",
-                    copyright: "&copy; 2023, Oussama Boudaoud",
+                    copyright: "&copy;  2023, Oussama Boudaoud",
                 },
             },
         };
@@ -41,52 +80,25 @@
             debug: true, // Enable debugging in the console
             resources,
         });
-    </script>
-    <style>
-        /* Your CSS styles here */
-    </style>
-</head>
-<body>
-    <header>
-        <h1 data-i18n="title">Oussama Boudaoud</h1>
-        <nav>
-            <ul>
-                <li><a href="resume.html" data-i18n="resume">Resume</a></li>
-                <li><a href="blog.html" data-i18n="blog">Blog</a></li>
-                <li><a href="media.html" data-i18n="media">Media</a></li>
-                <li><a href="contact.html" data-i18n="contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="dark-mode-toggle">
-            <label for="dark-mode" data-i18n="darkModeLabel">Dark Mode:</label>
-            <input type="checkbox" id="dark-mode">
-        </div>
-        <div class="language-translation">
-            <label for="language-select" data-i18n="selectLanguageLabel">Select Language:</label>
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="fr">French</option>
-                <!-- Add more language options as needed -->
-            </select>
-        </div>
-    </header>
 
-    <!-- Your content here -->
+        // Function to update the page content based on the selected language
+        function updateContent() {
+            const elementsToTranslate = [
+                'title',
+                'resume',
+                'blog',
+                'media',
+                'contact',
+                'darkModeLabel',
+                'selectLanguageLabel',
+                'copyright',
+            ];
 
-    <hr> <!-- Black line -->
-    
-    <footer>
-        <div class="copyright" data-i18n="copyright">&copy; 2023, Oussama Boudaoud</div>
-    </footer>
-
-    <script>
-        // Handle Dark Mode
-        const darkModeToggle = document.getElementById('dark-mode');
-        const body = document.body;
-
-        darkModeToggle.addEventListener('change', () => {
-            body.classList.toggle('dark-mode');
-        });
+            elementsToTranslate.forEach((element) => {
+                const translation = i18next.t(element);
+                document.querySelector(`[data-i18n="${element}"]`).textContent = translation;
+            });
+        }
 
         // Handle Language Translation
         const languageSelect = document.getElementById('language-select');
@@ -94,9 +106,12 @@
         languageSelect.addEventListener('change', (event) => {
             const selectedLanguage = event.target.value;
             i18next.changeLanguage(selectedLanguage);
+            updateContent(); // Update the content when the language is changed
         });
+
+        // Initial content update
+        updateContent();
     </script>
 </body>
 </html>
-
 
