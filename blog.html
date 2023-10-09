@@ -72,25 +72,26 @@
                 }
             });
 
-            // Add the new article
+            // Add the new article with an image
             if (category === 'latest') {
                 const officeSpaceArticle = {
                     title: 'Office Space Tried To Warn Us',
-                    content: `<imag src="${officeSpaceArticle.imageUrl}" alt="Office Space Image" width="130" height="130" /> <p> In the annals of comedy cinema, there exists a timeless gem that never loses its luster: <a href="https://www.youtube.com/watch?v=dMIrlP61Z9s"> "Office Space." </a> Director Mike Judge's 1999 classic offers a side-splitting critique of corporate culture that continues to resonate with audiences worldwide. As we take a fresh look at this cult favorite, we're reminded of the scathingly brilliant mirror it holds up to the absurdities and vexations of modern office life. </p> 
-                    <p> Meet Peter Gibbons, portrayed by the brilliant Ron Livingston, a software programmer who encapsulates the disillusionment and discontent that many of us have felt in the workplace. His daily grind—commuting through traffic hell and wrestling with the mystique of TPS reports—feels all too familiar. We've all been there, haven't we? </p>
-                    And then there's Bill Lumbergh, the epitome of clueless and condescending bosses, brought to life by the unforgettable Gary Cole. His <i> "Yeah, if you could go ahead and do that, that would be great" </i> has become the stuff of office legend. Through Lumbergh, we witness the chasm that often yawns between upper management and the rank-and-file, a gap rife with comedic misunderstanding. </p>
-                    <p> But <i>"Office Space" </i> doesn't stop at lampooning inept bosses. It paints a portrait of Peter's colleagues, each coping with their own version of workplace misery. Samir and Michael Bolton (yes, the singer) provide comic relief while representing those who feel compelled to don a professional façade at the expense of their true selves. </p>
-                    The film takes its lunacy to new heights when Peter, his pals, and a disgruntled consultant hatch a plan to embezzle money from the company. It's a cathartic moment, allowing viewers to vicariously break free from the oppressive corporate machine. </p> 
-                    What sets "Office Space" apart is its ability to entertain while making us think. It forces us to ponder the value of our precious time, the futility of mindless bureaucracy, and the importance of pursuing our passions outside the confines of our cubicles. </p> 
-                    In today's ever-evolving work landscape, with remote jobs and the gig economy redefining employment, "Office Space" remains as relevant as ever. Its timeless critique of corporate absurdity encourages us to seek meaning in our careers, question the norms, and rebel against the soul-sapping routines that threaten to smother our individuality. </p> 
-                    In closing, "Office Space" is a brilliant and razor-sharp comedy that serves as both a hilarious escape and a provocative reflection on the modern workplace. It invites us to challenge the corporate madness we encounter daily and, just maybe, find the courage to break free from the cubicles that constrain our dreams and aspirations.</p>`,
+                    imageUrl: 'Horrible Bosses movie.jpg', // Define the image path here
+                    content: `<img src="Horrible Bosses movie.jpg" alt="Office Space Image" width="130" height="130" /> <p> In the annals of comedy cinema, there exists a timeless gem that never loses its luster: <a href="https://www.youtube.com/watch?v=dMIrlP61Z9s"> "Office Space." </a> Director Mike Judge's 1999 classic offers a side-splitting critique of corporate culture that continues to resonate with audiences worldwide. As we take a fresh look at this cult favorite, we're reminded of the scathingly brilliant mirror it holds up to the absurdities and vexations of modern office life. </p> 
+                        <p> Meet Peter Gibbons, portrayed by the brilliant Ron Livingston, a software programmer who encapsulates the disillusionment and discontent that many of us have felt in the workplace. His daily grind—commuting through traffic hell and wrestling with the mystique of TPS reports—feels all too familiar. We've all been there, haven't we? </p>
+                        And then there's Bill Lumbergh, the epitome of clueless and condescending bosses, brought to life by the unforgettable Gary Cole. His <i> "Yeah, if you could go ahead and do that, that would be great" </i> has become the stuff of office legend. Through Lumbergh, we witness the chasm that often yawns between upper management and the rank-and-file, a gap rife with comedic misunderstanding. </p>
+                        <p> But <i>"Office Space" </i> doesn't stop at lampooning inept bosses. It paints a portrait of Peter's colleagues, each coping with their own version of workplace misery. Samir and Michael Bolton (yes, the singer) provide comic relief while representing those who feel compelled to don a professional façade at the expense of their true selves. </p>
+                        The film takes its lunacy to new heights when Peter, his pals, and a disgruntled consultant hatch a plan to embezzle money from the company. It's a cathartic moment, allowing viewers to vicariously break free from the oppressive corporate machine. </p> 
+                        What sets "Office Space" apart is its ability to entertain while making us think. It forces us to ponder the value of our precious time, the futility of mindless bureaucracy, and the importance of pursuing our passions outside the confines of our cubicles. </p> 
+                        In today's ever-evolving work landscape, with remote jobs and the gig economy redefining employment, "Office Space" remains as relevant as ever. Its timeless critique of corporate absurdity encourages us to seek meaning in our careers, question the norms, and rebel against the soul-sapping routines that threaten to smother our individuality. </p> 
+                        In closing, "Office Space" is a brilliant and razor-sharp comedy that serves as both a hilarious escape and a provocative reflection on the modern workplace. It invites us to challenge the corporate madness we encounter daily and, just maybe, find the courage to break free from the cubicles that constrain our dreams and aspirations.</p>`,
                     category: 'latest',
                 };
 
                 const officeSpaceElement = document.createElement('article');
                 officeSpaceElement.innerHTML = `
                     <h2>${officeSpaceArticle.title}</h2>
-                    <p>${officeSpaceArticle.content}</p>
+                    ${officeSpaceArticle.content}
                 `;
                 articlesContainer.appendChild(officeSpaceElement);
             }
@@ -101,3 +102,4 @@
     </script>
 </body>
 </html>
+
