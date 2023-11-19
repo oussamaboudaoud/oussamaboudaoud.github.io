@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Oussama Boudaoud</title>
+    <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.2/dist/umd/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-xhr-backend@3.2.2/dist/umd/i18nextXHRBackend.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.1/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
     <style>
         body {
             font-family: Georgia, serif;
@@ -147,7 +150,7 @@
 </head>
 <body>
     <header>
-        <h1>Oussama Boudaoud</h1>
+        <h1 id="greeting"></h1>
         <nav>
             <ul>
                 <li><a href="resume.html">Resume</a></li>
@@ -183,18 +186,30 @@
     </footer>
 
     <script>
-        // Handle Dark Mode
-        const darkModeToggle = document.getElementById('dark-mode');
-        const body = document.body;
+        document.addEventListener('DOMContentLoaded', function () {
+            i18next
+                .use(i18nextXHRBackend)
+                .use(i18nextBrowserLanguageDetector)
+                .init({
+                    backend: {
+                        loadPath: 'locales/{{lng}}/{{ns}}.json'
+                    }
+                }, function (err, t) {
+                    updateContent();
+                });
 
-        darkModeToggle.addEventListener('change', () => {
-            body.classList.toggle('dark-mode');
+            function updateContent() {
+                document.getElementById('greeting').innerText = i18next.t('greeting');
+                document.getElementById('welcome').innerText = i18next.t('welcome');
+            }
+
+            document.getElementById('language-select').addEventListener('change', function () {
+                const selectedLanguage = this.value;
+                i18next.changeLanguage(selectedLanguage, function () {
+                    updateContent();
+                });
+            });
         });
-
-        // Handle Language Translation (You'll need a translation library for this)
-        const languageSelect = document.getElementById('language-select');
-
-        // Add options to the languageSelect element for different languages
     </script>
 </body>
 </html>
