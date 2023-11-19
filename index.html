@@ -12,9 +12,9 @@
             color: black;
             margin: 0;
             padding: 0;
-            padding-left: 7cm; /* 7 cm of empty space on the left */
-            padding-right: 7cm; /* 7 cm of empty space on the right */
-            padding-top: 1cm; /* 1 cm of empty space at the top */
+            padding-left: 2%; /* Updated: Use percentage for responsiveness */
+            padding-right: 2%; /* Updated: Use percentage for responsiveness */
+            padding-top: 1cm;
             display: flex;
             flex-direction: column;
         }
@@ -26,7 +26,7 @@
 
         header {
             background-color: #f0f0f0;
-            padding: 20px;
+            padding: 2%; /* Updated: Use percentage for responsiveness */
             text-align: center;
             width: 100%;
             box-sizing: border-box;
@@ -40,7 +40,7 @@
 
         nav ul li {
             display: inline;
-            margin-right: 1cm; /* Sufficient space between words */
+            margin-right: 2%; /* Updated: Use percentage for responsiveness */
             text-decoration: none;
             font-weight: bold;
             font-size: 24px;
@@ -48,7 +48,7 @@
 
         .dark-mode-toggle {
             float: right;
-            margin-right: 20px;
+            margin-right: 2%; /* Updated: Use percentage for responsiveness */
         }
 
         .dark-mode-toggle label {
@@ -56,14 +56,14 @@
         }
 
         .language-translation {
-            margin-top: 20px;
+            margin-top: 2%; /* Updated: Use percentage for responsiveness */
             font-size: 18px;
         }
 
         footer {
             background-color: #f0f0f0;
             text-align: center;
-            padding: 10px;
+            padding: 1%; /* Updated: Use percentage for responsiveness */
             width: 100%;
             box-sizing: border-box;
         }
@@ -82,29 +82,66 @@
         h1 {
             background-color: black;
             color: white;
-            padding: 10px;
+            padding: 1%; /* Updated: Use percentage for responsiveness */
             margin: 0;
-            margin-bottom: 0.5cm; /* 0.5 cm space between "your name" and other words */
+            margin-bottom: 0.5cm;
         }
 
         .profile-picture {
             text-align: center;
-            margin-top: 1cm;
+            margin-top: 2%; /* Updated: Use percentage for responsiveness */
         }
 
         .profile-picture img {
-            width: 300px; /* Adjust the width as needed */
-            height: 430px; /* Adjust the height as needed */
-            border: 2px solid black; /* Add a black border */
+            width: 100%; /* Updated: Use percentage for responsiveness */
+            max-width: 300px; /* Updated: Set a maximum width */
+            height: auto;
+            border: 2px solid black;
             display: block;
             margin: 0 auto;
         }
 
         .copyright {
             text-align: right;
-            margin-right: 2cm; /* 2 cm of space from the right */
-            margin-top: 0.5cm; /* 0.5 cm space from the top */
+            margin-right: 2%;
+            margin-top: 0.5cm;
             font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            /* Adjust styles for smaller screens (mobile devices) */
+            body {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            header {
+                padding: 10px;
+            }
+
+            nav ul li {
+                margin-right: 5px;
+            }
+
+            .dark-mode-toggle {
+                margin-right: 10px;
+            }
+
+            .language-translation {
+                margin-top: 10px;
+            }
+
+            footer {
+                padding: 5px;
+            }
+
+            h1 {
+                padding: 5px;
+            }
+
+            .profile-picture {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -160,3 +197,5 @@
         // Add options to the languageSelect element for different languages
     </script>
 </body>
+</html>
+
