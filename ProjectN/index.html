@@ -12,7 +12,18 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
     <!-- Add other React dependencies here -->
-
+ <!-- Google Analytics 4 Tracking Code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVT907T7HC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            window.dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-EVT907T7HC');
+    </script>
+    <!-- End Google Analytics 4 Tracking Code -->
+</head>
     <script>
         // Your React components and app logic go here
         // Make sure to include a root element in your React app where components will be rendered.
