@@ -1,3 +1,4 @@
+<!-- blog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,9 +108,7 @@
     <button id="archiveBtn">ARCHIVE</button>
   </nav>
 
-  <div class="blog-container" id="blogContent">
-    <!-- Blog content gets injected here -->
-  </div>
+  <div class="blog-container" id="blogContent"></div>
 
   <script>
     const blogContent = document.getElementById('blogContent');
@@ -118,35 +117,33 @@
 
     const posts = [
       {
+        slug: "moon-flower-loops",
         title: "Does the Moon Make Flower-Like Loops Around the Sun?",
         date: "February 25, 2025",
         location: "New York, N.Y.",
         subject: "Celestial Mathematics",
-        summary: `I recently saw an animation on Facebook that purported to show the hidden beauty of the Moon’s orbit...`,
-        link: "#",
+        summary: `An animation on Facebook showed the Moon’s orbit forming a flower-like pattern...`,
+        content: `Here is the full content of the flower-like Moon orbit article.`,
         category: "recent"
       },
       {
+        slug: "password-math",
         title: "Password Math",
         date: "February 8, 2025",
-        location: "New York, N.Y.",
+        location: "Montreal, QC",
         subject: "Mathematics",
-        summary: `A friend from my PC Magazine days recently posted on Facebook a little mathematics anomaly...`,
-        link: "#",
+        summary: `A friend from my PC Magazine days recently posted on Facebook...`,
+        content: `Here is the full content of the password math article.`,
         category: "recent"
       },
       {
-        title: "Reading Jack Smith’s 'Final Report'",
-        date: "January 20, 2025",
-        subject: "Politics",
-        link: "#",
-        category: "archive"
-      },
-      {
-        title: "Rudimentary 3D on HTML Canvas",
-        date: "September 29, 2024",
-        subject: "Programming",
-        link: "#",
+        slug: "ai-vs-creativity",
+        title: "Can AI Compose Music?",
+        date: "January 1, 2025",
+        location: "Paris, France",
+        subject: "Music",
+        summary: `As AI gets better at writing music, can it truly be creative?`,
+        content: `Here is the full content of the AI composing music article.`,
         category: "archive"
       }
     ];
@@ -156,15 +153,14 @@
       const recentPosts = posts.filter(p => p.category === "recent");
 
       recentPosts.forEach(post => {
-        const postHTML = `
+        blogContent.innerHTML += `
           <div class="post">
-            <h2><a href="${post.link}">${post.title}</a></h2>
+            <h2><a href="article.html?title=${post.slug}">${post.title}</a></h2>
             <div class="meta">${post.date}<br>${post.location}</div>
             <p>${post.summary}</p>
-            <a class="read-more" href="${post.link}">... read more ...</a>
+            <a class="read-more" href="article.html?title=${post.slug}">... read more ...</a>
           </div>
         `;
-        blogContent.innerHTML += postHTML;
       });
 
       recentBtn.classList.add("active-tab");
@@ -172,6 +168,8 @@
     }
 
     function showArchive() {
+      const archivePosts = posts.filter(p => p.category === "archive");
+
       blogContent.innerHTML = `
         <table class="archive-table">
           <thead>
@@ -182,18 +180,13 @@
             </tr>
           </thead>
           <tbody>
-            ${posts
-              .filter(p => p.category === "archive")
-              .map(
-                post => `
-                <tr>
-                  <td><a href="${post.link}">${post.title}</a></td>
-                  <td>${post.date}</td>
-                  <td>${post.subject}</td>
-                </tr>
-              `
-              )
-              .join("")}
+            ${archivePosts.map(post => `
+              <tr>
+                <td><a href="article.html?title=${post.slug}">${post.title}</a></td>
+                <td>${post.date}</td>
+                <td>${post.subject}</td>
+              </tr>
+            `).join("")}
           </tbody>
         </table>
       `;
@@ -205,7 +198,8 @@
     recentBtn.addEventListener("click", showRecent);
     archiveBtn.addEventListener("click", showArchive);
 
-    showRecent(); // Show Recent by default
+    showRecent();
   </script>
 </body>
 </html>
+
