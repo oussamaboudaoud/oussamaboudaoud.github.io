@@ -1,0 +1,82 @@
+<!-- article.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog Article</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 26px;
+    }
+
+    .meta {
+      color: gray;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .content {
+      margin-top: 30px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: blue;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="articleTitle"></h1>
+  <div class="meta" id="articleMeta"></div>
+  <div class="content" id="articleContent"></div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const slug = urlParams.get('title');
+
+    const posts = [
+      {
+        slug: "moon-flower-loops",
+        title: "Does the Moon Make Flower-Like Loops Around the Sun?",
+        date: "February 25, 2025",
+        location: "New York, N.Y.",
+        content: "This is the full article explaining how the Moon's orbit appears flower-like when plotted against the Sun..."
+      },
+      {
+        slug: "password-math",
+        title: "Password Math",
+        date: "February 8, 2025",
+        location: "Montreal, QC",
+        content: "This article explains how a simple math puzzle reveals complexity behind password combinations..."
+      },
+      {
+        slug: "ai-vs-creativity",
+        title: "Can AI Compose Music?",
+        date: "January 1, 2025",
+        location: "Paris, France",
+        content: "Exploring how artificial intelligence is shaping music composition in the 21st century..."
+      }
+    ];
+
+    const article = posts.find(post => post.slug === slug);
+
+    if (article) {
+      document.getElementById('articleTitle').innerText = article.title;
+      document.getElementById('articleMeta').innerText = `${article.date} • ${article.location}`;
+      document.getElementById('articleContent').innerText = article.content;
+    } else {
+      document.body.innerHTML = "<p>Article not found.</p>";
+    }
+  </script>
+</body>
+</html>
