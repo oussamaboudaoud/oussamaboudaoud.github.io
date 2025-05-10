@@ -35,3 +35,32 @@ nav a {
 }
 
 /* Add more CSS rules to style your website as needed */
+/* DARK MODE OVERRIDES */
+
+.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+.dark-mode header,
+.dark-mode footer {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+.dark-mode nav a {
+    color: #90caf9;
+}
+
+.dark-mode nav a:hover {
+    color: #64b5f6;
+    font-style: italic;
+}
+.dark-mode img {
+    border: 1px solid #555;
+}
+
+.dark-mode hr {
+    border-top: 1px solid #555;
+}
+
