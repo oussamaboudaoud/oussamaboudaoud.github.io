@@ -1,102 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <style>
-        /* Add CSS for setting left and right margins */
-        article {
-            margin-left: 7cm;
-            margin-right: 7cm;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Add CSS to center-align the title */
-        article h2 {
-            text-align: center;
-        }
+    header {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-        /* Add CSS to center-align the image */
-        article img {
-            display: block;
-            margin: 0 auto; /* Center-align horizontally */
-        }
-    </style>
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .blog-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    article {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 30px;
+    }
+
+    article h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    article img {
+      display: block;
+      margin: 10px auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    article .date {
+      font-size: 14px;
+      color: gray;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .blog-container {
+        padding: 10px;
+      }
+
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Blog</h1>
-        <button id="latestButton">Latest</button>
-        <button id="archiveButton">Archive</button>
-    </header>
+  <header>
+    <h1>My Blog</h1>
+    <button id="latestButton">Latest</button>
+    <button id="archiveButton">Archive</button>
+  </header>
 
-    <section id="latestArticles">
-        <!-- Latest articles go here -->
-    </section>
+  <div class="blog-container">
+    <section id="blogSection"></section>
+  </div>
 
-    <section id="archiveArticles" style="display: none;">
-        <!-- Archive articles go here -->
-    </section>
+  <script>
+    const latestButton = document.getElementById('latestButton');
+    const archiveButton = document.getElementById('archiveButton');
+    const blogSection = document.getElementById('blogSection');
 
-    <script>
-        const latestButton = document.getElementById('latestButton');
-        const archiveButton = document.getElementById('archiveButton');
-        const latestArticles = document.getElementById('latestArticles');
-        const archiveArticles = document.getElementById('archiveArticles');
+    const blogPosts = [
+      {
+        title: 'Office Space Tried To Warn Us',
+        imageUrl: 'Horrible Bosses movie.jpg',
+        date: 'May 10, 2025',
+        content: `In the annals of comedy cinema, "Office Space" remains timeless...`,
+        category: 'latest',
+      },
+      {
+        title: 'Throwback: First Article Ever',
+        imageUrl: '',
+        date: 'December 1, 2023',
+        content: `Just testing the blog concept back in the early days.`,
+        category: 'archive',
+      }
+      // ➕ Add more posts as needed
+    ];
 
-        latestButton.addEventListener('click', () => {
-            latestArticles.style.display = 'block';
-            archiveArticles.style.display = 'none';
-        });
+    function renderPosts(category) {
+      blogSection.innerHTML = '';
 
-        archiveButton.addEventListener('click', () => {
-            latestArticles.style.display = 'none';
-            archiveArticles.style.display = 'block';
-        });
+      const filtered = blogPosts.filter(post => post.category === category);
 
-        // Sample data for articles (in JSON format)
-        const articles = [
-            {
-                title: 'Office Space Tried To Warn Us',
-                imageUrl: 'Horrible Bosses movie.jpg', // Define the image path here
-                content: `<img src="Horrible Bosses movie.jpg" alt="Office Space Image" width="300" height="260" /> <article> In the annals of comedy cinema, there exists a timeless gem that never loses its luster: <a href="https://www.youtube.com/watch?v=dMIrlP61Z9s"> "Office Space." </a> Director Mike Judge's 1999 classic offers a side-splitting critique of corporate culture that continues to resonate with audiences worldwide. As we take a fresh look at this cult favorite, we're reminded of the scathingly brilliant mirror it holds up to the absurdities and vexations of modern office life. </article>
-                    <article> Meet Peter Gibbons, portrayed by the brilliant Ron Livingston, a software programmer who encapsulates the disillusionment and discontent that many of us have felt in the workplace. His daily grind—commuting through traffic hell and wrestling with the mystique of TPS reports—feels all too familiar. We've all been there, haven't we? </article>
-                    <article> And then there's Bill Lumbergh, the epitome of clueless and condescending bosses, brought to life by the unforgettable Gary Cole. His <i> "Yeah, if you could go ahead and do that, that would be great" </i> has become the stuff of office legend. Through Lumbergh, we witness the chasm that often yawns between upper management and the rank-and-file, a gap rife with comedic misunderstanding. </article>
-                    <article> But <i>"Office Space" </i> doesn't stop at lampooning inept bosses. It paints a portrait of Peter's colleagues, each coping with their own version of workplace misery. Samir and Michael Bolton (yes, the singer) provide comic relief while representing those who feel compelled to don a professional façade at the expense of their true selves. </article>
-                    <article> The film takes its lunacy to new heights when Peter, his pals, and a disgruntled consultant hatch a plan to embezzle money from the company. It's a cathartic moment, allowing viewers to vicariously break free from the oppressive corporate machine. </article>
-                    <article> What sets "Office Space" apart is its ability to entertain while making us think. It forces us to ponder the value of our precious time, the futility of mindless bureaucracy, and the importance of pursuing our passions outside the confines of our cubicles. </article>
-                    <article> In today's ever-evolving work landscape, with remote jobs and the gig economy redefining employment, "Office Space" remains as relevant as ever. Its timeless critique of corporate absurdity encourages us to seek meaning in our careers, question the norms, and rebel against the soul-sapping routines that threaten to smother our individuality. </article>
-                    <article> In closing, "Office Space" is a brilliant and razor-sharp comedy that serves as both a hilarious escape and a provocative reflection on the modern workplace. It invites us to challenge the corporate madness we encounter daily and, just maybe, find the courage to break free from the cubicles that constrain our dreams and aspirations.</article>`,
-                category: 'latest',
-            },
-            {
-                title: 'Article Title 3',
-                content: 'Article content goes here for an archived article.',
-                category: 'archive',
-            },
-            // Add more articles as needed
-        ];
+      if (filtered.length === 0) {
+        blogSection.innerHTML = `<p>No articles in this category yet.</p>`;
+        return;
+      }
 
-        // Function to render articles
-        function renderArticles(category) {
-            const articlesContainer = category === 'latest' ? latestArticles : archiveArticles;
-            articlesContainer.innerHTML = '';
+      filtered.forEach(post => {
+        const article = document.createElement('article');
+        article.innerHTML = `
+          <h2>${post.title}</h2>
+          ${post.imageUrl ? `<img src="${post.imageUrl}" alt="${post.title}">` : ''}
+          <div class="date">${post.date}</div>
+          <p>${post.content}</p>
+        `;
+        blogSection.appendChild(article);
+      });
+    }
 
-            articles.forEach((article) => {
-                if (article.category === category) {
-                    const articleElement = document.createElement('article');
-                    articleElement.innerHTML = `
-                        <h2>${article.title}</h2>
-                        ${article.content}
-                    `;
-                    articlesContainer.appendChild(articleElement);
-                }
-            });
-        }
+    // Default to latest
+    renderPosts('latest');
 
-        // Initially, render the latest articles
-        renderArticles('latest');
-    </script>
+    latestButton.onclick = () => renderPosts('latest');
+    archiveButton.onclick = () => renderPosts('archive');
+  </script>
+</body>
+</html>
+
 </body>
 </html>
 
