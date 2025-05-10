@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog</title>
   <style>
     body {
       font-family: Georgia, serif;
+      background-color: white;
+      color: black;
       margin: 0;
       padding: 0;
     }
@@ -14,44 +16,69 @@
     header {
       background-color: black;
       color: white;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
     }
 
-    button {
-      margin: 10px;
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f2f2f2;
+      padding: 10px 0;
+    }
+
+    nav button {
+      margin: 0 10px;
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
+      font-weight: bold;
+    }
+
+    .active-tab {
+      color: green;
     }
 
     .blog-container {
       max-width: 800px;
-      margin: 0 auto;
+      margin: auto;
       padding: 20px;
     }
 
-    article {
+    .post {
       border-bottom: 1px solid #ccc;
       margin-bottom: 30px;
     }
 
-    article h2 {
-      text-align: center;
-      margin-top: 0;
+    .post h2 {
+      color: navy;
+      font-size: 22px;
     }
 
-    article img {
-      display: block;
-      margin: 10px auto;
-      max-width: 100%;
-      height: auto;
-    }
-
-    article .date {
+    .post .meta {
       font-size: 14px;
       color: gray;
-      text-align: center;
+    }
+
+    .read-more {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    .archive-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .archive-table th, .archive-table td {
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .archive-table th {
+      background-color: #f0f0f0;
+      font-weight: bold;
     }
 
     @media (max-width: 600px) {
@@ -59,7 +86,11 @@
         padding: 10px;
       }
 
-      button {
+      nav {
+        flex-direction: column;
+      }
+
+      nav button {
         width: 100%;
         margin-bottom: 10px;
       }
@@ -68,77 +99,113 @@
 </head>
 <body>
   <header>
-    <h1>My Blog</h1>
-    <button id="latestButton">Latest</button>
-    <button id="archiveButton">Archive</button>
+    <h1>Oussama Boudaoud Blog</h1>
   </header>
 
-  <div class="blog-container">
-    <section id="blogSection"></section>
+  <nav>
+    <button id="recentBtn" class="active-tab">RECENT</button>
+    <button id="archiveBtn">ARCHIVE</button>
+  </nav>
+
+  <div class="blog-container" id="blogContent">
+    <!-- Blog content gets injected here -->
   </div>
 
   <script>
-    const latestButton = document.getElementById('latestButton');
-    const archiveButton = document.getElementById('archiveButton');
-    const blogSection = document.getElementById('blogSection');
+    const blogContent = document.getElementById('blogContent');
+    const recentBtn = document.getElementById('recentBtn');
+    const archiveBtn = document.getElementById('archiveBtn');
 
-    const blogPosts = [
+    const posts = [
       {
-        title: 'Office Space Tried To Warn Us',
-        imageUrl: 'Horrible Bosses movie.jpg',
-        date: 'May 10, 2025',
-        content: `In the annals of comedy cinema, "Office Space" remains timeless...`,
-        category: 'latest',
+        title: "Does the Moon Make Flower-Like Loops Around the Sun?",
+        date: "February 25, 2025",
+        location: "New York, N.Y.",
+        subject: "Celestial Mathematics",
+        summary: `I recently saw an animation on Facebook that purported to show the hidden beauty of the Moon’s orbit...`,
+        link: "#",
+        category: "recent"
       },
       {
-        title: 'Throwback: First Article Ever',
-        imageUrl: '',
-        date: 'December 1, 2023',
-        content: `Just testing the blog concept back in the early days.`,
-        category: 'archive',
+        title: "Password Math",
+        date: "February 8, 2025",
+        location: "New York, N.Y.",
+        subject: "Mathematics",
+        summary: `A friend from my PC Magazine days recently posted on Facebook a little mathematics anomaly...`,
+        link: "#",
+        category: "recent"
+      },
+      {
+        title: "Reading Jack Smith’s 'Final Report'",
+        date: "January 20, 2025",
+        subject: "Politics",
+        link: "#",
+        category: "archive"
+      },
+      {
+        title: "Rudimentary 3D on HTML Canvas",
+        date: "September 29, 2024",
+        subject: "Programming",
+        link: "#",
+        category: "archive"
       }
-      // ➕ Add more posts as needed
-      { 
-      title: 'Why don't you fuck off?' ,
-      imageUrl: '',
-        date: 'May 10, 2025',
-        content: `Can you see this`,
-        category: 'archive',
     ];
-      // ➕ Add more posts as needed
 
-    function renderPosts(category) {
-      blogSection.innerHTML = '';
+    function showRecent() {
+      blogContent.innerHTML = "";
+      const recentPosts = posts.filter(p => p.category === "recent");
 
-      const filtered = blogPosts.filter(post => post.category === category);
-
-      if (filtered.length === 0) {
-        blogSection.innerHTML = `<p>No articles in this category yet.</p>`;
-        return;
-      }
-
-      filtered.forEach(post => {
-        const article = document.createElement('article');
-        article.innerHTML = `
-          <h2>${post.title}</h2>
-          ${post.imageUrl ? `<img src="${post.imageUrl}" alt="${post.title}">` : ''}
-          <div class="date">${post.date}</div>
-          <p>${post.content}</p>
+      recentPosts.forEach(post => {
+        const postHTML = `
+          <div class="post">
+            <h2><a href="${post.link}">${post.title}</a></h2>
+            <div class="meta">${post.date}<br>${post.location}</div>
+            <p>${post.summary}</p>
+            <a class="read-more" href="${post.link}">... read more ...</a>
+          </div>
         `;
-        blogSection.appendChild(article);
+        blogContent.innerHTML += postHTML;
       });
+
+      recentBtn.classList.add("active-tab");
+      archiveBtn.classList.remove("active-tab");
     }
 
-    // Default to latest
-    renderPosts('latest');
+    function showArchive() {
+      blogContent.innerHTML = `
+        <table class="archive-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Subject</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${posts
+              .filter(p => p.category === "archive")
+              .map(
+                post => `
+                <tr>
+                  <td><a href="${post.link}">${post.title}</a></td>
+                  <td>${post.date}</td>
+                  <td>${post.subject}</td>
+                </tr>
+              `
+              )
+              .join("")}
+          </tbody>
+        </table>
+      `;
 
-    latestButton.onclick = () => renderPosts('latest');
-    archiveButton.onclick = () => renderPosts('archive');
+      archiveBtn.classList.add("active-tab");
+      recentBtn.classList.remove("active-tab");
+    }
+
+    recentBtn.addEventListener("click", showRecent);
+    archiveBtn.addEventListener("click", showArchive);
+
+    showRecent(); // Show Recent by default
   </script>
 </body>
 </html>
-
-</body>
-</html>
-
-
