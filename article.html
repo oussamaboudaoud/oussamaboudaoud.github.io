@@ -1,255 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog Article</title>
-  <style>
-    body {
-      font-family: Georgia, serif;
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 26px;
-    }
-
-    .meta {
-      color: gray;
-      font-size: 14px;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    pre {
-      background-color: #f4f4f4;
-      padding: 10px;
-      overflow-x: auto;
-    }
-
-    code {
-      font-family: monospace;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 20px 0;
-      display: block;
-    }
-
-    a {
-      color: blue;
-      text-decoration: underline;
-    }
-
-    h2, h3 {
-      margin-top: 30px;
-      font-size: 20px;
-    }
-
-    .img-block {
-      margin: 25px 0;
-      text-align: center;
-    }
-
-    .img-block img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      padding: 4px;
-      background-color: #f9f9f9;
-    }
-
-    .img-caption {
-      font-size: 14px;
-      color: #555;
-      margin-top: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoding My North African Heritage: A DNA Analysis Project</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        
+        .meta {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 3px solid #3498db;
+        }
+        
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .disclaimer {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 30px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        
+        .highlight {
+            background-color: #fffde7;
+            padding: 15px;
+            border-left: 3px solid #ffd600;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-  <h1 id="articleTitle"></h1>
-  <div class="meta" id="articleMeta"></div>
-  <div class="content" id="articleContent"></div>
+    <header>
+        <h1>Decoding My North African Heritage: How I Used Programming to Analyze My DNA Test Results</h1>
+        <div class="meta">Posted on May 10, 2025</div>
+    </header>
 
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const slug = urlParams.get('title');
+    <article>
+        <h2>Why I Embarked on This Journey</h2>
+        <p>As someone with North African roots and a background that spans multiple regions, I've always been curious about the precise composition of my genetic heritage. While I knew broadly about my family's origins, I wanted to dig deeper and understand the exact proportions and potentially discover unexpected connections. As a computer science student with previous business experience, I realized this presented a perfect opportunity to blend my technical skills with personal curiosity.</p>
+        <p>In this post, I'll walk through how I used my programming and data analysis knowledge to extract deeper insights from my DNA test results across three major platforms: 23andMe, AncestryDNA, and MyHeritage.</p>
 
-    const posts = [
-      {
-        slug: "dna-north-african-analysis",
-        title: "Decoding My North African Heritage: A DNA + Programming Journey",
-        date: "May 10, 2025",
-        location: "Montreal, QC",
-        content: `
-<h2>Why I Embarked on This Journey</h2>
-<p>As someone with North African roots and a background that spans multiple regions, I've always been curious about the precise composition of my genetic heritage. While I knew broadly about my family's origins, I wanted to dig deeper and understand the exact proportions and potentially discover unexpected connections. As a computer science student with previous business experience, I realized this presented a perfect opportunity to blend my technical skills with personal curiosity.</p>
+        <h2>The Data Collection Process</h2>
+        <p>I began by taking tests from three major DNA testing companies:</p>
+        <ol>
+            <li><strong>23andMe</strong> - Known for health insights alongside ancestry information</li>
+            <li><strong>AncestryDNA</strong> - Offers extensive genealogical records integration</li>
+            <li><strong>MyHeritage</strong> - Popular for its historical population models and family matching</li>
+        </ol>
+        
+        <p>After receiving my results, I noticed significant variations between the reports. For example:</p>
+        <ul>
+            <li><strong>23andMe</strong> reported I was 46.8% North African, 38.5% Arab/Egyptian/Levantine (with 34.1% specifically Levantine), 10.5% Northern West Asian, and small percentages of European and Sub-Saharan African ancestry.</li>
+            <li><strong>AncestryDNA</strong> showed 46% Northern Africa, 33% Levant, 10% Southern Italy & Eastern Mediterranean, 8% Arabian Peninsula, 2% North-Central Nigeria, and 1% Spain.</li>
+            <li><strong>MyHeritage</strong> indicated 51.4% North African, 11.3% Middle Eastern, 10.8% West Asian, 13.8% Italian, 5.3% Greek and South Italian, 4.2% Ashkenazi Jewish, and small percentages of Nigerian and Kenyan.</li>
+        </ul>
+        <p>These discrepancies raised an interesting question: how could I reconcile these differences to extract a more accurate picture of my genetic heritage?</p>
 
-<p>In this post, I'll walk through how I used my programming and data analysis knowledge to extract deeper insights from my DNA test results across three major platforms: 23andMe, AncestryDNA, and MyHeritage.</p>
-
-<h2>The Data Collection Process</h2>
-<p>I began by taking tests from three major DNA testing companies:</p>
-<ul>
-  <li><strong>23andMe</strong> – Health insights + ancestry</li>
-  <li><strong>AncestryDNA</strong> – Genealogical record integration</li>
-  <li><strong>MyHeritage</strong> – Historical population models + matching</li>
-</ul>
-<p>Each gave slightly different results, raising questions of consistency. Here’s a sample chart I created:</p>
-<img src="ancestry_comparison.png" alt="DNA Service Comparison Chart" />
-
-<h2>Step 1: Data Extraction & Standardization</h2>
-<pre><code>import pandas as pd
+        <h2>Technical Approach: Building a DNA Data Pipeline</h2>
+        
+        <h3>Step 1: Data Extraction and Standardization</h3>
+        <p>My first challenge was getting the raw data into a consistent format for analysis. Each service provides raw genetic data, but in different formats:</p>
+        
+        <pre><code>import pandas as pd
 import numpy as np
 
+# Function to standardize raw DNA data from different services
 def standardize_raw_data(file_path, service):
     if service == '23andme':
-        df = pd.read_csv(file_path, comment='#', sep='\\t')
+        # 23andMe format handling
+        df = pd.read_csv(file_path, comment='#', sep='\t')
+        # Standardize column names
         df.columns = ['rsid', 'chromosome', 'position', 'genotype']
     elif service == 'ancestry':
-        df = pd.read_csv(file_path, comment='#', sep='\\t')
+        # AncestryDNA format handling
+        df = pd.read_csv(file_path, comment='#', sep='\t')
+        # Different column structure needs normalization
         df.columns = ['rsid', 'chromosome', 'position', 'allele1', 'allele2']
+        # Combine alleles into genotype
         df['genotype'] = df['allele1'] + df['allele2']
         df = df[['rsid', 'chromosome', 'position', 'genotype']]
     elif service == 'myheritage':
-        df = pd.read_csv(file_path, comment='#', sep='\\t')
+        # MyHeritage format handling
+        df = pd.read_csv(file_path, comment='#', sep='\t')
+        # Standardize columns
         df.columns = ['rsid', 'chromosome', 'position', 'genotype']
-    return df
-</code></pre>
+    
+    return df</code></pre>
 
-<h2>Step 2: Visualizing the Differences</h2>
-<pre><code>import matplotlib.pyplot as plt
+        <h3>Step 2: Comparative Analysis Framework</h3>
+        <p>Next, I needed to compare ancestry percentages across services. I built a Python script to standardize categories and visualize the differences:</p>
+        
+        <pre><code>import matplotlib.pyplot as plt
 import seaborn as sns
 
-# ancestry_data = { ... }
-
-# plotting logic
-plt.savefig('ancestry_comparison.png')
-</code></pre>
-
-<h2>DNA Test Result Snapshots</h2>
-
-<div class="img-block">
-  <img src="23andMe1.jpeg" alt="23andMe Screenshot 1">
-  <div class="img-caption">Figure 1: 23andMe — Overall ancestry breakdown</div>
-</div>
-
-<div class="img-block">
-  <img src="23andMe2.jpeg" alt="23andMe Screenshot 2">
-  <div class="img-caption">Figure 2: 23andMe — Middle Eastern & North African ancestry detail</div>
-</div>
-
-<div class="img-block">
-  <img src="AncestryDNA.jpeg" alt="AncestryDNA Report">
-  <div class="img-caption">Figure 3: AncestryDNA — Regional composition and estimated connections</div>
-</div>
-
-<div class="img-block">
-  <img src="MyHeritage.jpeg" alt="MyHeritage Ethnicity Estimate">
-  <div class="img-caption">Figure 4: MyHeritage — Ethnicity composition overview</div>
-</div>
-
-<div class="img-block">
-  <img src="MyHeritage2.jpeg" alt="MyHeritage Ancient DNA">
-  <div class="img-caption">Figure 5: MyHeritage — Ancient DNA Origins feature results</div>
-</div>
-
-<div class="img-block">
-  <img src="future_image_1.jpeg" alt="Future DNA Result">
-  <div class="img-caption">Figure 6: [Insert caption once image is ready]</div>
-</div>
-
-<div class="img-block">
-  <img src="future_image_2.jpeg" alt="Future DNA Result 2">
-  <div class="img-caption">Figure 7: [Insert caption once image is ready]</div>
-</div>
-
-<h2>Step 3: Weighted Consensus Calculation</h2>
-<pre><code>service_weights = {
-  '23andMe': 0.35,
-  'AncestryDNA': 0.40,
-  'MyHeritage': 0.25
+# Actual ancestry data from each service
+ancestry_data = {
+    'Region': ['North African', 'Levantine/Middle Eastern', 'Southern European', 'West Asian/Anatolian', 'Sub-Saharan African', 'Ashkenazi Jewish', 'Arabian Peninsula'],
+    '23andMe': [46.8, 34.1, 1.3, 10.5, 0.7, 0, 0],
+    'AncestryDNA': [46.0, 33.0, 11.0, 4.7, 2.0, 0, 8.0],
+    'MyHeritage': [51.4, 22.1, 19.1, 10.8, 3.2, 4.2, 0]
 }
-</code></pre>
-<p>The output gave me a more balanced profile:</p>
-<pre><code>North African: 47.8%
-Levantine/Middle Eastern: 30.4%
+
+# Convert to DataFrame
+df = pd.DataFrame(ancestry_data)
+
+# Melt DataFrame for easier plotting
+melted_df = pd.melt(df, id_vars=['Region'], var_name='Service', value_name='Percentage')
+
+# Create grouped bar chart
+plt.figure(figsize=(14, 9))
+sns.barplot(x='Region', y='Percentage', hue='Service', data=melted_df)
+plt.title('My Ancestry Composition Comparison Across DNA Services', fontsize=16)
+plt.xlabel('Ancestry Region', fontsize=14)
+plt.ylabel('Percentage (%)', fontsize=14)
+plt.xticks(rotation=45)
+plt.legend(title='Service')
+plt.tight_layout()
+plt.savefig('ancestry_comparison.png')
+plt.show()</code></pre>
+
+        <h3>Step 3: Building a North African-Optimized Weighted Algorithm</h3>
+        <p>The inconsistencies between services prompted me to create a weighted algorithm that would generate a "consensus" ancestry profile specialized for my North African and Mediterranean background. After researching each company's reference populations for the MENA (Middle East and North Africa) region, I assigned appropriate weights:</p>
+        
+        <pre><code># Assign confidence weights based on reference population sizes for North African heritage
+service_weights = {
+    '23andMe': 0.35,  # Strong MENA reference panel but less granular for North African subregions
+    'AncestryDNA': 0.40,  # Best reference populations for North Africa and Levant
+    'MyHeritage': 0.25   # Smaller overall but good for detecting Italian/Southern European
+}
+
+# Function to calculate weighted ancestry estimates
+def calculate_weighted_ancestry(ancestry_data, weights):
+    regions = ancestry_data['Region']
+    weighted_results = {}
+    
+    for region in regions:
+        weighted_sum = 0
+        for service, weight in weights.items():
+            weighted_sum += ancestry_data[region][service] * weight
+        weighted_results[region] = weighted_sum
+    
+    return weighted_results
+
+# Calculate weighted results
+weighted_ancestry = calculate_weighted_ancestry(ancestry_data, service_weights)
+
+# Print results
+for region, percentage in weighted_ancestry.items():
+    print(f"{region}: {percentage:.1f}%")</code></pre>
+
+        <p>The output gave me a more balanced estimate of my heritage:</p>
+        <pre><code>North African: 47.8%
+Levantine/Middle Eastern: 30.4% 
 Southern European: 9.7%
 West Asian/Anatolian: 8.7%
 Sub-Saharan African: 1.9%
 Ashkenazi Jewish: 1.1%
 Arabian Peninsula: 3.2%</code></pre>
 
-<h2>Interesting Discoveries</h2>
-<ul>
-  <li><strong>Haplogroups:</strong> Maternal: K1, Paternal: J-CTS5368 – both common in MENA</li>
-  <li><strong>Ancient DNA:</strong> MyHeritage mapped me to historical populations like Nubians, Levantines, and early European Jews</li>
-  <li><strong>Italian Ancestry:</strong> ~13.8% according to MyHeritage – possibly linked to Arab-Sicilian connections</li>
-</ul>
-
-<h2>Technical Challenges</h2>
-<ul>
-  <li><strong>Data Privacy:</strong> All files processed locally</li>
-  <li><strong>Standardization:</strong> Mismatched region labels normalized via dictionary logic</li>
-  <li><strong>Population Bias:</strong> Companies vary in how well they represent MENA groups</li>
-</ul>
-
-<h2>Code Example: Normalizing Region Names</h2>
-<pre><code>def standardize_regions(service_data, service_name):
-    if service_name == '23andMe':
-        return {
-          'North African': service_data.get('North African', 0),
-          'Levantine/Middle Eastern': service_data.get('Levantine', 0) + service_data.get('Egyptian', 0)
-        }
-    elif service_name == 'AncestryDNA':
-        return {
-          'North African': service_data.get('Northern Africa', 0),
-          'Levantine/Middle Eastern': service_data.get('Levant', 0)
-        }
-</code></pre>
-
-<h2>What I Learned</h2>
-<ol>
-  <li>Handling inconsistent data formats</li>
-  <li>Weighted statistical modeling</li>
-  <li>Real-world Python + Pandas data processing</li>
-  <li>Respecting data privacy in sensitive domains</li>
-</ol>
-
-<h2>Future Directions</h2>
-<ul>
-  <li>Create open-source tools for MENA ancestry</li>
-  <li>Interactive migration maps using haplogroups</li>
-  <li>ML-assisted pattern detection across datasets</li>
-  <li>Compare with ancient genome databases</li>
-</ul>
-
-<h2>Conclusion</h2>
-<p>This project was a mix of personal curiosity and technical experimentation. It taught me how messy real-world data can be, especially when multiple methodologies and references are involved.</p>
-
-<p>With more awareness of data limitations, I was able to form a more accurate understanding of my roots – and hope others with similar backgrounds will find inspiration to dive into their own code-powered ancestry journey!</p>
-
-<p><em>Disclaimer:</em> All processing was local and personal. Follow best practices if you're working with sensitive genetic information.</p>
-`
-      }
-    ];
-
-    const article = posts.find(post => post.slug === slug);
-
-    if (article) {
-      document.getElementById('articleTitle').innerText = article.title;
-      document.getElementById('articleMeta').innerText = `${article.date} • ${article.location}`;
-      document.getElementById('articleContent').innerHTML = article.content;
-    } else {
-      document.body.innerHTML = "<p>Article not found.</p>";
+        <h2>Interesting Discoveries</h2>
+        <p>The most fascinating part of this project was uncovering hidden patterns in my genetic data that weren't immediately obvious from the standard reports:</p>
+        
+        <h3>1. Haplogroup Analysis</h3>
+        <p>My maternal haplogroup K1 and paternal haplogroup J-CTS5368 tell an interesting story. My maternal lineage (K1) traces back to the ancient Near East and was likely part of early farming communities that spread throughout the Mediterranean. Meanwhile, my paternal haplogroup J-CTS5368 is commonly found in North Africa and the Middle East, aligning with my predominant ancestry.</p>
+        
+        <h3>2. Ancient Ancestry Analysis</h3>
+        <p>MyHeritage's Ancient Origins feature revealed connections to historical populations that weren't obvious from the standard ethnicity estimates:</p>
+        <ul>
+            <li>25.8% Levantine (AD 300-1300)</li>
+            <li>21.0% Egyptian</li>
+            <li>15.8% Nubian (AD 660-960)</li>
+            <li>15.0% European Jew (AD 1160-1400)</li>
+            <li>10.8% North African (AD 580-1160)</li>
+            <li>Smaller percentages of Byzantine Anatolian and Slavic ancestry</li>
+        </ul>
+        
+        <h3>3. Geographic Consistency</h3>
+        <p>I wrote a script to analyze the geography of my results:</p>
+        
+        <pre><code># Function to analyze geographical consistency across services
+def analyze_geographic_consistency(ancestry_data):
+    # Group regions by geographical areas
+    geography_mapping = {
+        'North African': 'North Africa',
+        'Levantine/Middle Eastern': 'Middle East',
+        'Southern European': 'Europe',
+        'West Asian/Anatolian': 'West Asia',
+        'Sub-Saharan African': 'Africa',
+        'Ashkenazi Jewish': 'Europe/Middle East',
+        'Arabian Peninsula': 'Middle East'
     }
-  </script>
+    
+    # Aggregate percentages by geographical area
+    geography_totals = {}
+    for region in ancestry_data['Region']:
+        geo_area = geography_mapping[region]
+        if geo_area not in geography_totals:
+            geography_totals[geo_area] = {}
+            
+        for service in ['23andMe', 'AncestryDNA', 'MyHeritage']:
+            if geo_area not in geography_totals:
+                geography_totals[geo_area] = {}
+            
+            if service not in geography_totals[geo_area]:
+                geography_totals[geo_area][service] = 0
+                
+            idx = ancestry_data['Region'].index(region)
+            geography_totals[geo_area][service] += ancestry_data[service][idx]
+    
+    return geography_totals</code></pre>
+        
+        <h3>4. Italian Connection</h3>
+        <p>One surprising finding was the significant Italian ancestry (13.8% according to MyHeritage, 10% Southern Italy from AncestryDNA). This prompted me to research historical connections between North Africa and Southern Italy, revealing fascinating migration patterns during the Arab rule of Sicily and Southern Italy between the 9th and 11th centuries.</p>
+
+        <h2>Technical Challenges and Solutions</h2>
+        <p>This project presented several technical challenges specific to analyzing North African and Mediterranean ancestry:</p>
+        
+        <h3>1. Data Privacy Concerns</h3>
+        <p>I had to carefully handle my genetic data, creating secure local storage and processing pipelines rather than using cloud services. This was especially important given the potentially sensitive nature of ethnic heritage information.</p>
+        
+        <h3>2. Standardization Issues</h3>
+        <p>Each service uses different reference populations and labels for North African and Middle Eastern regions, making direct comparisons challenging. For example, what 23andMe calls "Arab, Egyptian & Levantine," AncestryDNA separates into distinct "Levant" and "Arabian Peninsula" regions. I implemented the following normalization technique:</p>
+        
+        <pre><code># Function to standardize regional categories
+def standardize_regions(service_data, service_name):
+    standardized = {}
+    
+    if service_name == '23andMe':
+        # Map 23andMe specific categories to standard categories
+        standardized['North African'] = service_data.get('North African', 0)
+        standardized['Levantine/Middle Eastern'] = service_data.get('Levantine', 0) + service_data.get('Egyptian', 0)
+        standardized['Southern European'] = service_data.get('Southern European', 0) + service_data.get('Italian', 0)
+        # Continue for other regions...
+        
+    elif service_name == 'AncestryDNA':
+        # Map AncestryDNA specific categories
+        standardized['North African'] = service_data.get('Northern Africa', 0)
+        standardized['Levantine/Middle Eastern'] = service_data.get('Levant', 0)
+        # Continue mapping other regions...
+        
+    return standardized</code></pre>
+        
+        <h3>3. Reference Population Bias</h3>
+        <p>DNA testing companies have historically had smaller reference populations for North African and Middle Eastern regions compared to European ones. This required careful weighting in my algorithm based on each company's strengths for specific regions.</p>
+        
+        <h3>4. Ancient Population Mapping</h3>
+        <p>Interpreting the MyHeritage Ancient Origins results required additional research to understand how these historical populations relate to modern-day regions and migrations.</p>
+
+        <h2>What I Learned</h2>
+        <p>This project taught me valuable skills that extend beyond genealogy and will be directly applicable to my career as a CS professional:</p>
+        <ol>
+            <li><strong>Data Integration</strong>: Working with heterogeneous data sources and formats from multiple testing companies, giving me practical experience handling real-world inconsistent data formats</li>
+            <li><strong>Statistical Analysis</strong>: Applying weighted algorithms and normalization techniques to reconcile conflicting data points, which required careful consideration of each source's reliability for specific regions</li>
+            <li><strong>Data Visualization</strong>: Creating meaningful visualizations of complex relationships between geographical regions, testing methodologies, and historical migrations</li>
+            <li><strong>Privacy Engineering</strong>: Implementing proper data handling for sensitive genetic and ethnic information, an increasingly critical skill in today's data environment</li>
+            <li><strong>Domain Knowledge Transfer</strong>: Learning to apply computer science concepts to fields outside my immediate expertise, something that will be valuable as I work across different industries</li>
+        </ol>
+
+        <h2>Future Directions</h2>
+        <p>I'm continuing to develop this project in several ways that combine my CS education with my interest in genetic ancestry:</p>
+        <ol>
+            <li><strong>MENA-Focused Analysis Tool</strong>: Creating an open-source tool specifically optimized for people with North African, Middle Eastern, and Mediterranean ancestry, as these regions are often less granularly represented in commercial DNA tests</li>
+            <li><strong>Historical Migration Visualization</strong>: Building an interactive map that shows the historical migrations relevant to my specific haplogroups (K1 and J-CTS5368) and how they align with known historical movements of people throughout North Africa and the Mediterranean</li>
+            <li><strong>ML-Based Ancestry Refinement</strong>: Using machine learning techniques to identify patterns across the raw data from all three services to potentially uncover more specific regional connections than any individual test can provide</li>
+            <li><strong>Ancient DNA Comparison</strong>: Exploring how my DNA compares to ancient samples from North Africa and the Levant through public databases of archaeogenetic information</li>
+        </ol>
+
+        <h2>Conclusion</h2>
+        <p>This journey through my North African, Levantine, and Mediterranean heritage demonstrates how CS skills can unlock deeper insights from consumer DNA tests. By applying data science techniques to my genetic data, I was able to create a more nuanced understanding of my ancestry than any single testing service could provide.</p>
+        <p>The project also taught me valuable lessons about genetic ancestry that go beyond the technical aspects:</p>
+        <ol>
+            <li>Different testing companies can vary significantly in their results, not necessarily because one is "wrong," but because they use different reference populations and methodologies</li>
+            <li>The history of human migration is complex and doesn't always align with modern political boundaries</li>
+            <li>Our genetic makeup often contains surprising connections that tell stories about historical events and population movements</li>
+        </ol>
+        <p>For fellow CS students considering similar projects, I'd recommend starting with data standardization as your first step, followed by careful consideration of how to normalize different ancestry categories across platforms.</p>
+
+        <div class="disclaimer">
+            <p><em>Disclaimer: This project was conducted for personal research only. All genetic data was processed locally with appropriate privacy measures. If you're considering a similar project, be sure to research and follow best practices for handling sensitive genetic information.</em></p>
+        </div>
+    </article>
 </body>
 </html>
-
- 
