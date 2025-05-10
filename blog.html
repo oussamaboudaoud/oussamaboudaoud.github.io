@@ -117,49 +117,68 @@
 
     const posts = [
       {
-        slug: "moon-flower-loops",
-        title: "Does the Moon Make Flower-Like Loops Around the Sun?",
-        date: "February 25, 2025",
-        location: "New York, N.Y.",
-        subject: "Celestial Mathematics",
-        summary: `An animation on Facebook showed the Moon’s orbit forming a flower-like pattern...`,
-        content: `Here is the full content of the flower-like Moon orbit article.`,
-        category: "recent"
-      },
-      {
-        slug: "password-math",
-        title: "Password Math",
-        date: "February 8, 2025",
-        location: "Montreal, QC",
-        subject: "Mathematics",
-        summary: `A friend from my PC Magazine days recently posted on Facebook...`,
-        content: `Here is the full content of the password math article.`,
-        category: "recent"
-      },
-      {
-        slug: "decoding-dna",
-        title: "Decoding My North African Heritage: How I Used Programming to Analyze My DNA Test Results",
+        slug: "dna-north-african-analysis",
+        title: "Decoding My North African Heritage: A DNA + Programming Journey",
         date: "May 10, 2025",
         location: "Montreal, QC",
-        subject: "Genetics",
-        summary: `As someone with North African roots, I was curious about my genetic heritage. DNA testing provided raw data, but I wanted to delve deeper. Using programming, I analyzed my DNA test results to uncover detailed insights into my ancestry.`,
-        content: `Here is the full content of the DNA heritage article.`,
+        subject: "Genetics & Programming",
+        summary: "I blended my CS background with DNA data from 23andMe, AncestryDNA, and MyHeritage to analyze my North African roots...",
+        content: "",
         category: "recent"
-      },
-      {
-        slug: "ai-vs-creativity",
-        title: "Can AI Compose Music?",
-        date: "January 1, 2025",
-        location: "Paris, France",
-        subject: "Music",
-        summary: `As AI gets better at writing music, can it truly be creative?`,
-        content: `Here is the full content of the AI composing music article.`,
-        category: "archive"
       }
     ];
 
+    function showRecent() {
+      blogContent.innerHTML = "";
+      const recentPosts = posts.filter(p => p.category === "recent");
 
-::contentReference[oaicite:0]{index=0}
- 
+      recentPosts.forEach(post => {
+        blogContent.innerHTML += `
+          <div class="post">
+            <h2><a href="article.html?title=${post.slug}">${post.title}</a></h2>
+            <div class="meta">${post.date}<br>${post.location}</div>
+            <p>${post.summary}</p>
+            <a class="read-more" href="article.html?title=${post.slug}">... read more ...</a>
+          </div>
+        `;
+      });
 
+      recentBtn.classList.add("active-tab");
+      archiveBtn.classList.remove("active-tab");
+    }
 
+    function showArchive() {
+      const archivePosts = posts.filter(p => p.category === "archive");
+
+      blogContent.innerHTML = `
+        <table class="archive-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Subject</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${archivePosts.map(post => `
+              <tr>
+                <td><a href="article.html?title=${post.slug}">${post.title}</a></td>
+                <td>${post.date}</td>
+                <td>${post.subject}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      `;
+
+      archiveBtn.classList.add("active-tab");
+      recentBtn.classList.remove("active-tab");
+    }
+
+    recentBtn.addEventListener("click", showRecent);
+    archiveBtn.addEventListener("click", showArchive);
+
+    showRecent();
+  </script>
+</body>
+</html>
