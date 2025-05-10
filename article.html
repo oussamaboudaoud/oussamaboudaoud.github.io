@@ -51,6 +51,25 @@
       margin-top: 30px;
       font-size: 20px;
     }
+
+    .img-block {
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .img-block img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      padding: 4px;
+      background-color: #f9f9f9;
+    }
+
+    .img-caption {
+      font-size: 14px;
+      color: #555;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -112,6 +131,43 @@ import seaborn as sns
 # plotting logic
 plt.savefig('ancestry_comparison.png')
 </code></pre>
+
+<h2>DNA Test Result Snapshots</h2>
+
+<div class="img-block">
+  <img src="23andMe1.jpeg" alt="23andMe Screenshot 1">
+  <div class="img-caption">Figure 1: 23andMe — Overall ancestry breakdown</div>
+</div>
+
+<div class="img-block">
+  <img src="23andMe2.jpeg" alt="23andMe Screenshot 2">
+  <div class="img-caption">Figure 2: 23andMe — Middle Eastern & North African ancestry detail</div>
+</div>
+
+<div class="img-block">
+  <img src="AncestryDNA.jpeg" alt="AncestryDNA Report">
+  <div class="img-caption">Figure 3: AncestryDNA — Regional composition and estimated connections</div>
+</div>
+
+<div class="img-block">
+  <img src="MyHeritage.jpeg" alt="MyHeritage Ethnicity Estimate">
+  <div class="img-caption">Figure 4: MyHeritage — Ethnicity composition overview</div>
+</div>
+
+<div class="img-block">
+  <img src="MyHeritage2.jpeg" alt="MyHeritage Ancient DNA">
+  <div class="img-caption">Figure 5: MyHeritage — Ancient DNA Origins feature results</div>
+</div>
+
+<div class="img-block">
+  <img src="future_image_1.jpeg" alt="Future DNA Result">
+  <div class="img-caption">Figure 6: [Insert caption once image is ready]</div>
+</div>
+
+<div class="img-block">
+  <img src="future_image_2.jpeg" alt="Future DNA Result 2">
+  <div class="img-caption">Figure 7: [Insert caption once image is ready]</div>
+</div>
 
 <h2>Step 3: Weighted Consensus Calculation</h2>
 <pre><code>service_weights = {
@@ -180,7 +236,6 @@ Arabian Peninsula: 3.2%</code></pre>
 
 <p><em>Disclaimer:</em> All processing was local and personal. Follow best practices if you're working with sensitive genetic information.</p>
 `
-      
       }
     ];
 
@@ -196,4 +251,5 @@ Arabian Peninsula: 3.2%</code></pre>
   </script>
 </body>
 </html>
+
  
