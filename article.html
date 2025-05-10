@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog Article</title>
   <style>
@@ -22,10 +22,24 @@
       color: gray;
       font-size: 14px;
       text-align: center;
+      margin-bottom: 30px;
     }
 
-    .content {
-      margin-top: 30px;
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: monospace;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      display: block;
     }
 
     a {
@@ -33,20 +47,9 @@
       text-decoration: underline;
     }
 
-    img {
-      max-width: 100%;
-      margin-top: 20px;
-      border: 1px solid #ccc;
-    }
-
-    pre {
-      background-color: #f5f5f5;
-      padding: 10px;
-      overflow-x: auto;
-    }
-
-    code {
-      font-family: monospace;
+    h2, h3 {
+      margin-top: 30px;
+      font-size: 20px;
     }
   </style>
 </head>
@@ -61,47 +64,41 @@
 
     const posts = [
       {
-        slug: "moon-flower-loops",
-        title: "Does the Moon Make Flower-Like Loops Around the Sun?",
-        date: "February 25, 2025",
-        location: "New York, N.Y.",
-        content: `<h2>Understanding the Moon's Orbit</h2>
-<p>When viewed from a heliocentric perspective, the Moon's path around the Sun appears as a series of loops, resembling a flower-like pattern. This is due to the combination of the Earth's orbit around the Sun and the Moon's orbit around the Earth.</p>
-<p>These loops are not actual deviations in the Moon's path but are a result of the relative motions of the Earth and Moon. The Moon's orbit is elliptical, and as the Earth moves along its own elliptical orbit, the Moon's path creates this intricate pattern.</p>
-<p>Visualizing this pattern helps in understanding the complex gravitational interactions and motions within our solar system.</p>`
-      },
-      {
-        slug: "password-math",
-        title: "Password Math",
-        date: "February 8, 2025",
-        location: "Montreal, QC",
-        content: `<h2>The Mathematics Behind Password Strength</h2>
-<p>Passwords are a critical component of digital security. The strength of a password is often determined by its length and complexity. Mathematically, the number of possible combinations increases exponentially with each additional character.</p>
-<p>For example, a 6-character password using lowercase letters has 26^6 possible combinations. Adding uppercase letters, numbers, and symbols significantly increases this number, making brute-force attacks more difficult.</p>
-<p>Understanding the math behind passwords emphasizes the importance of creating strong, complex passwords to enhance security.</p>`
-      },
-      {
-        slug: "ai-vs-creativity",
-        title: "Can AI Compose Music?",
-        date: "January 1, 2025",
-        location: "Paris, France",
-        content: `<h2>Exploring AI in Music Composition</h2>
-<p>Artificial Intelligence has made significant strides in various fields, including music composition. AI algorithms can analyze vast amounts of musical data to generate new compositions that mimic human-created music.</p>
-<p>While AI can produce technically sound music, the question remains whether it can truly capture the emotional depth and creativity inherent in human compositions. The debate continues as AI technology evolves.</p>`
-      },
-      {
-        slug: "decoding-dna",
-        title: "Decoding My North African Heritage: How I Used Programming to Analyze My DNA Test Results",
+        slug: "dna-north-african-analysis",
+        title: "Decoding My North African Heritage: A DNA + Programming Journey",
         date: "May 10, 2025",
         location: "Montreal, QC",
-        content: `<h2>Why I Embarked on This Journey</h2>
-<p>As someone with North African roots, I was curious about my genetic heritage. DNA testing provided raw data, but I wanted to delve deeper. Using programming, I analyzed my DNA test results to uncover detailed insights into my ancestry.</p>
-<h2>Tools and Techniques Used</h2>
-<p>I utilized Python scripts and bioinformatics libraries to parse and interpret the raw genetic data. By comparing my genetic markers with various population databases, I identified specific regions and ethnic groups that contribute to my heritage.</p>
-<h2>Findings and Reflections</h2>
-<p>The analysis revealed a rich tapestry of genetic influences, shedding light on my family's migratory patterns and historical connections. This project not only enhanced my understanding of my background but also demonstrated the power of programming in personal research.</p>
-<p><em>Disclaimer: This project was conducted for personal research only. All genetic data was processed locally with appropriate privacy measures.</em></p>
-<img src="dna-results-sample.png" alt="DNA Results Chart" />`
+        content: `
+<h2>Why I Embarked on This Journey</h2>
+<p>As someone with North African roots... (full article continues)</p>
+
+<h2>The Data Collection Process</h2>
+<ul>
+  <li><strong>23andMe</strong> - Health + ancestry</li>
+  <li><strong>AncestryDNA</strong> - Genealogical records</li>
+  <li><strong>MyHeritage</strong> - Historical population models</li>
+</ul>
+
+<h2>Example Chart:</h2>
+<img src="ancestry_comparison.png" alt="Ancestry Comparison Chart" />
+
+<h2>Python Example:</h2>
+<pre><code>import pandas as pd
+
+def standardize_raw_data(file_path, service):
+  # Standardization logic here
+  pass
+</code></pre>
+
+<h2>What I Learned</h2>
+<ol>
+  <li>Data integration from diverse formats</li>
+  <li>Visualization with Matplotlib</li>
+  <li>Reference population bias handling</li>
+</ol>
+
+<p><em>Note:</em> All data processed locally for privacy.</p>
+        `
       }
     ];
 
@@ -117,4 +114,4 @@
   </script>
 </body>
 </html>
-
+ 
