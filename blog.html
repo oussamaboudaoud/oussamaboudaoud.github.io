@@ -97,6 +97,32 @@
       }
     }
   </style>
+
+
+
+  <script>
+  const darkModeToggle = document.getElementById('dark-mode');
+
+  // Load user preference
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    if (darkModeToggle) darkModeToggle.checked = true;
+  }
+
+  // Toggle dark mode on change
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('change', function () {
+      if (this.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  }
+</script>
+
 </head>
 <body>
   <header>
