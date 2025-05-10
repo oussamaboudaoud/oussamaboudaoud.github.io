@@ -2,98 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About - Oussama Boudaoud</title>
   <style>
     body {
-      margin: 0;
       font-family: Georgia, serif;
       background-color: white;
       color: black;
+      margin: 0;
+      padding: 20px;
       line-height: 1.6;
-      text-align: center;
     }
 
     header {
       background-color: black;
       color: white;
       padding: 20px;
-      font-size: 32px;
+      text-align: center;
+      font-size: 28px;
       font-weight: bold;
-      letter-spacing: 2px;
     }
 
     nav {
-      display: flex;
-      justify-content: center;
-      border-bottom: 1px solid black;
+      text-align: center;
       padding: 10px;
-      background-color: #fff;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ccc;
     }
 
     nav a {
       margin: 0 15px;
+      font-weight: bold;
       text-decoration: none;
       color: black;
-      font-weight: bold;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: green;
+      font-style: italic;
     }
 
-    .content {
-      max-width: 700px;
-      margin: auto;
-      padding: 40px 20px;
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
-    .profile-pic {
+    .profile-img {
       width: 100%;
-      max-width: 400px;
-      margin: 20px auto;
+      max-width: 300px;
+      display: block;
+      margin: 0 auto 30px auto;
+      border: 2px solid black;
     }
 
-    .project-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 40px;
-    }
-
-    .project-text {
+    .bio p {
       font-size: 18px;
-      margin-top: 15px;
+      margin-bottom: 20px;
     }
 
-    @media (max-width: 600px) {
-      .project-title {
-        font-size: 20px;
-      }
-      .project-text {
-        font-size: 16px;
-      }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 16px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
     }
   </style>
 </head>
 <body>
-
   <header>Oussama Boudaoud</header>
 
   <nav>
-    <a href="index.html">HOME</a>
-    <a href="blog.html">BLOG</a>
-    <a href="about.html">ABOUT</a>
+    <a href="index.html">Home</a>
+    <a href="resume.html">Resume</a>
+    <a href="blog.html">Blog</a>
+    <a href="media.html">Media</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html" style="color: green;">About</a>
   </nav>
 
-  <div class="content">
-    <img class="profile-pic" src="the nerd looks.jpeg" alt="Oussama in nature or working" />
+  <div class="container">
+    <img src="the nerd looks.jpeg" alt="Oussama Boudaoud" class="profile-img" />
 
-    <div class="project-title">My Current Project</div>
-    <div class="project-text">
-      I’m currently seeking a <strong>Fall 2025 internship</strong> through the <strong>Concordia University Co-op Program</strong>.<br>
-      I'm passionate about software development, problem solving, and building beautiful, usable websites. Let's build something great!
+    <div class="bio">
+      <h2>About Me</h2>
+      <p>
+        Hello! I’m <strong>Oussama Boudaoud</strong>, a computer science student deeply passionate about crafting clean,
+        efficient, and accessible web applications. I’m currently studying at <strong>Concordia University</strong> and am part of the 
+        <strong>Co-op program</strong>, through which I’m actively seeking a <strong>Fall 2025 internship or junior developer role</strong>.
+      </p>
+
+      <p>
+        My interests span across <strong>full-stack development</strong>, <strong>user-centered design</strong>, and building things that
+        just work — from personal sites to scalable applications. I’m a hands-on learner, problem solver, and a big fan of projects
+        that blend creativity and logic.
+      </p>
+
+      <p>
+        Outside of coding, I enjoy exploring music, photography, and the power of storytelling through digital media.
+        I believe great software is not only functional but also elegant, inclusive, and meaningful.
+      </p>
+
+      <p>
+        Let’s connect, collaborate, and build something impactful together 🚀.
+      </p>
     </div>
   </div>
 
+  <footer>&copy; 2023, Oussama Boudaoud</footer>
 </body>
 </html>
