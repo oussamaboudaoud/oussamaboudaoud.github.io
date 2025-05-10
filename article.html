@@ -10,6 +10,7 @@
       max-width: 800px;
       margin: auto;
       padding: 20px;
+      line-height: 1.6;
     }
 
     h1 {
@@ -25,12 +26,27 @@
 
     .content {
       margin-top: 30px;
-      line-height: 1.6;
     }
 
     a {
       color: blue;
       text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+    }
+
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: monospace;
     }
   </style>
 </head>
@@ -64,6 +80,21 @@
         date: "January 1, 2025",
         location: "Paris, France",
         content: "Exploring how artificial intelligence is shaping music composition in the 21st century..."
+      },
+      {
+        slug: "decoding-dna",
+        title: "Decoding My North African Heritage: How I Used Programming to Analyze My DNA Test Results",
+        date: "May 10, 2025",
+        location: "Montreal, QC",
+        content: `<h2>Why I Embarked on This Journey</h2>
+<p>As someone with North African roots... <strong>[FULL ARTICLE TEXT GOES HERE]</strong></p>
+
+<p>...Final paragraph with insights into my genetic heritage, lessons learned, and a call to action for others interested in combining programming and ancestry research.</p>
+
+<p><em>Disclaimer: This project was conducted for personal research only. All genetic data was processed locally with appropriate privacy measures.</em></p>
+
+<img src="dna-results-sample.png" alt="DNA Results Chart" />
+`
       }
     ];
 
@@ -72,7 +103,7 @@
     if (article) {
       document.getElementById('articleTitle').innerText = article.title;
       document.getElementById('articleMeta').innerText = `${article.date} • ${article.location}`;
-      document.getElementById('articleContent').innerText = article.content;
+      document.getElementById('articleContent').innerHTML = article.content;
     } else {
       document.body.innerHTML = "<p>Article not found.</p>";
     }
