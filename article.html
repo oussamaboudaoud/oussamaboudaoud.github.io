@@ -70,35 +70,117 @@
         location: "Montreal, QC",
         content: `
 <h2>Why I Embarked on This Journey</h2>
-<p>As someone with North African roots... (full article continues)</p>
+<p>As someone with North African roots and a background that spans multiple regions, I've always been curious about the precise composition of my genetic heritage. While I knew broadly about my family's origins, I wanted to dig deeper and understand the exact proportions and potentially discover unexpected connections. As a computer science student with previous business experience, I realized this presented a perfect opportunity to blend my technical skills with personal curiosity.</p>
+
+<p>In this post, I'll walk through how I used my programming and data analysis knowledge to extract deeper insights from my DNA test results across three major platforms: 23andMe, AncestryDNA, and MyHeritage.</p>
 
 <h2>The Data Collection Process</h2>
+<p>I began by taking tests from three major DNA testing companies:</p>
 <ul>
-  <li><strong>23andMe</strong> - Health + ancestry</li>
-  <li><strong>AncestryDNA</strong> - Genealogical records</li>
-  <li><strong>MyHeritage</strong> - Historical population models</li>
+  <li><strong>23andMe</strong> – Health insights + ancestry</li>
+  <li><strong>AncestryDNA</strong> – Genealogical record integration</li>
+  <li><strong>MyHeritage</strong> – Historical population models + matching</li>
 </ul>
+<p>Each gave slightly different results, raising questions of consistency. Here’s a sample chart I created:</p>
+<img src="ancestry_comparison.png" alt="DNA Service Comparison Chart" />
 
-<h2>Example Chart:</h2>
-<img src="ancestry_comparison.png" alt="Ancestry Comparison Chart" />
-
-<h2>Python Example:</h2>
+<h2>Step 1: Data Extraction & Standardization</h2>
 <pre><code>import pandas as pd
+import numpy as np
 
 def standardize_raw_data(file_path, service):
-  # Standardization logic here
-  pass
+    if service == '23andme':
+        df = pd.read_csv(file_path, comment='#', sep='\\t')
+        df.columns = ['rsid', 'chromosome', 'position', 'genotype']
+    elif service == 'ancestry':
+        df = pd.read_csv(file_path, comment='#', sep='\\t')
+        df.columns = ['rsid', 'chromosome', 'position', 'allele1', 'allele2']
+        df['genotype'] = df['allele1'] + df['allele2']
+        df = df[['rsid', 'chromosome', 'position', 'genotype']]
+    elif service == 'myheritage':
+        df = pd.read_csv(file_path, comment='#', sep='\\t')
+        df.columns = ['rsid', 'chromosome', 'position', 'genotype']
+    return df
+</code></pre>
+
+<h2>Step 2: Visualizing the Differences</h2>
+<pre><code>import matplotlib.pyplot as plt
+import seaborn as sns
+
+# ancestry_data = { ... }
+
+# plotting logic
+plt.savefig('ancestry_comparison.png')
+</code></pre>
+
+<h2>Step 3: Weighted Consensus Calculation</h2>
+<pre><code>service_weights = {
+  '23andMe': 0.35,
+  'AncestryDNA': 0.40,
+  'MyHeritage': 0.25
+}
+</code></pre>
+<p>The output gave me a more balanced profile:</p>
+<pre><code>North African: 47.8%
+Levantine/Middle Eastern: 30.4%
+Southern European: 9.7%
+West Asian/Anatolian: 8.7%
+Sub-Saharan African: 1.9%
+Ashkenazi Jewish: 1.1%
+Arabian Peninsula: 3.2%</code></pre>
+
+<h2>Interesting Discoveries</h2>
+<ul>
+  <li><strong>Haplogroups:</strong> Maternal: K1, Paternal: J-CTS5368 – both common in MENA</li>
+  <li><strong>Ancient DNA:</strong> MyHeritage mapped me to historical populations like Nubians, Levantines, and early European Jews</li>
+  <li><strong>Italian Ancestry:</strong> ~13.8% according to MyHeritage – possibly linked to Arab-Sicilian connections</li>
+</ul>
+
+<h2>Technical Challenges</h2>
+<ul>
+  <li><strong>Data Privacy:</strong> All files processed locally</li>
+  <li><strong>Standardization:</strong> Mismatched region labels normalized via dictionary logic</li>
+  <li><strong>Population Bias:</strong> Companies vary in how well they represent MENA groups</li>
+</ul>
+
+<h2>Code Example: Normalizing Region Names</h2>
+<pre><code>def standardize_regions(service_data, service_name):
+    if service_name == '23andMe':
+        return {
+          'North African': service_data.get('North African', 0),
+          'Levantine/Middle Eastern': service_data.get('Levantine', 0) + service_data.get('Egyptian', 0)
+        }
+    elif service_name == 'AncestryDNA':
+        return {
+          'North African': service_data.get('Northern Africa', 0),
+          'Levantine/Middle Eastern': service_data.get('Levant', 0)
+        }
 </code></pre>
 
 <h2>What I Learned</h2>
 <ol>
-  <li>Data integration from diverse formats</li>
-  <li>Visualization with Matplotlib</li>
-  <li>Reference population bias handling</li>
+  <li>Handling inconsistent data formats</li>
+  <li>Weighted statistical modeling</li>
+  <li>Real-world Python + Pandas data processing</li>
+  <li>Respecting data privacy in sensitive domains</li>
 </ol>
 
-<p><em>Note:</em> All data processed locally for privacy.</p>
-        `
+<h2>Future Directions</h2>
+<ul>
+  <li>Create open-source tools for MENA ancestry</li>
+  <li>Interactive migration maps using haplogroups</li>
+  <li>ML-assisted pattern detection across datasets</li>
+  <li>Compare with ancient genome databases</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>This project was a mix of personal curiosity and technical experimentation. It taught me how messy real-world data can be, especially when multiple methodologies and references are involved.</p>
+
+<p>With more awareness of data limitations, I was able to form a more accurate understanding of my roots – and hope others with similar backgrounds will find inspiration to dive into their own code-powered ancestry journey!</p>
+
+<p><em>Disclaimer:</em> All processing was local and personal. Follow best practices if you're working with sensitive genetic information.</p>
+`
+      
       }
     ];
 
