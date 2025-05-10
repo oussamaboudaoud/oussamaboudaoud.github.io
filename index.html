@@ -1,220 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Oussama Boudaoud</title>
-    <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.2/dist/umd/i18next.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/i18next-xhr-backend@3.2.2/dist/umd/i18nextXHRBackend.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.1/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
-    <style>
-        body {
-            font-family: Georgia, serif;
-            background-color: white;
-            color: black;
-            margin: 0;
-            padding: 0;
-            padding-left: 2%; /* Updated: Use percentage for responsiveness */
-            padding-right: 2%; /* Updated: Use percentage for responsiveness */
-            padding-top: 1cm;
-            display: flex;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>Oussama Boudaoud</title>
+  <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.2/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-xhr-backend@3.2.2/dist/umd/i18nextXHRBackend.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.1/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: white;
+      color: black;
+      margin: 0;
+      padding: 0 2%;
+      padding-top: 1cm;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .dark-mode {
-            background-color: black;
-            color: white;
-        }
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
 
-        header {
-            background-color: #f0f0f0;
-            padding: 2%; /* Updated: Use percentage for responsiveness */
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-        }
+    header {
+      background-color: #f0f0f0;
+      padding: 2%;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
 
-        nav ul li {
-            display: inline;
-            margin-right: 2%; /* Updated: Use percentage for responsiveness */
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 24px;
-        }
+    nav ul li {
+      display: inline;
+      margin-right: 2%;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 24px;
+    }
 
-        .dark-mode-toggle {
-            float: right;
-            margin-right: 2%; /* Updated: Use percentage for responsiveness */
-        }
+    .dark-mode-toggle {
+      float: right;
+      margin-right: 2%;
+    }
 
-        .dark-mode-toggle label {
-            font-weight: bold;
-        }
+    .dark-mode-toggle label {
+      font-weight: bold;
+    }
 
-        .language-translation {
-            margin-top: 2%; /* Updated: Use percentage for responsiveness */
-            font-size: 18px;
-        }
+    .language-translation {
+      margin-top: 2%;
+      font-size: 18px;
+    }
 
-        footer {
-            background-color: #f0f0f0;
-            text-align: center;
-            padding: 1%; /* Updated: Use percentage for responsiveness */
-            width: 100%;
-            box-sizing: border-box;
-        }
+    footer {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 1%;
+      width: 100%;
+      box-sizing: border-box;
+    }
 
-        a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
 
-        a:hover {
-            color: green;
-            font-style: italic;
-        }
+    a:hover {
+      color: green;
+      font-style: italic;
+    }
 
-        h1 {
-            background-color: black;
-            color: white;
-            padding: 1%; /* Updated: Use percentage for responsiveness */
-            margin: 0;
-            margin-bottom: 0.5cm;
-        }
+    h1 {
+      background-color: black;
+      color: white;
+      padding: 1%;
+      margin: 0;
+      margin-bottom: 0.5cm;
+    }
 
-        .profile-picture {
-            text-align: center;
-            margin-top: 2%; /* Updated: Use percentage for responsiveness */
-        }
+    .profile-picture {
+      text-align: center;
+      margin-top: 2%;
+    }
 
-        .profile-picture img {
-            width: 100%; /* Updated: Use percentage for responsiveness */
-            max-width: 300px; /* Updated: Set a maximum width */
-            height: auto;
-            border: 2px solid black;
-            display: block;
-            margin: 0 auto;
-        }
+    .profile-picture img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border: 2px solid black;
+      display: block;
+      margin: 0 auto;
+    }
 
-        .copyright {
-            text-align: right;
-            margin-right: 2%;
-            margin-top: 0.5cm;
-            font-size: 16px;
-        }
+    #about {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      border-top: 1px solid #ccc;
+      margin-top: 40px;
+    }
 
-        @media (max-width: 600px) {
-            /* Adjust styles for smaller screens (mobile devices) */
-            body {
-                padding-left: 5px;
-                padding-right: 5px;
-            }
+    #about h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
 
-            header {
-                padding: 10px;
-            }
+    #about p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
 
-            nav ul li {
-                margin-right: 5px;
-            }
+    .copyright {
+      text-align: right;
+      margin-right: 2%;
+      margin-top: 0.5cm;
+      font-size: 16px;
+    }
 
-            .dark-mode-toggle {
-                margin-right: 10px;
-            }
+    @media (max-width: 600px) {
+      body {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
 
-            .language-translation {
-                margin-top: 10px;
-            }
+      header {
+        padding: 10px;
+      }
 
-            footer {
-                padding: 5px;
-            }
+      nav ul li {
+        margin-right: 5px;
+      }
 
-            h1 {
-                padding: 5px;
-            }
+      .dark-mode-toggle {
+        margin-right: 10px;
+      }
 
-            .profile-picture {
-                margin-top: 10px;
-            }
-        }
-    </style>
-   
+      .language-translation {
+        margin-top: 10px;
+      }
 
-    
+      footer {
+        padding: 5px;
+      }
+
+      h1 {
+        padding: 5px;
+      }
+
+      .profile-picture {
+        margin-top: 10px;
+      }
+
+      #about h2 {
+        font-size: 22px;
+      }
+
+      #about p {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1 id="greeting"></h1>
-        <nav>
-            <ul>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="media.html">Media</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="dark-mode-toggle">
-            <label for="dark-mode">Dark Mode:</label>
-            <input type="checkbox" id="dark-mode">
-        </div>
-        <div class="language-translation">
-            <label for="language-select">Select Language:</label>
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="fr">French</option>
-                <!-- Add more language options as needed -->
-            </select>
-        </div>
-    </header>
-
-    <div class="profile-picture">
-        <img src="LinkedIn Photo.jpg" alt="Osama's Profile Picture" width="120" height="120">
+  <header>
+    <h1 id="greeting"></h1>
+    <nav>
+      <ul>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <div class="dark-mode-toggle">
+      <label for="dark-mode">Dark Mode:</label>
+      <input type="checkbox" id="dark-mode" />
     </div>
-    
-    <hr> <!-- Black line -->
-    
-    <footer>
-        <div class="copyright">
-            &copy;  2023, Oussama Boudaoud
-        </div>
-    </footer>
+    <div class="language-translation">
+      <label for="language-select">Select Language:</label>
+      <select id="language-select">
+        <option value="en">English</option>
+        <option value="fr">French</option>
+      </select>
+    </div>
+  </header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            i18next
-                .use(i18nextXHRBackend)
-                .use(i18nextBrowserLanguageDetector)
-                .init({
-                    backend: {
-                        loadPath: 'locales/{{lng}}/{{ns}}.json'
-                    }
-                }, function (err, t) {
-                    updateContent();
-                });
+  <div class="profile-picture">
+    <img src="LinkedIn Photo.jpg" alt="Oussama's Profile Picture" />
+  </div>
 
-            function updateContent() {
-                document.getElementById('greeting').innerText = i18next.t('greeting');
-                document.getElementById('welcome').innerText = i18next.t('welcome');
-            }
+  <section id="about">
+    <h2>My Current Project</h2>
+    <p>
+      I’m currently seeking a <strong>Fall 2025 internship or junior developer role</strong> through the
+      <strong>Concordia University Co-op Program</strong>.
+      <br /><br />
+      I'm passionate about <strong>software development</strong>, <strong>problem solving</strong>, and building
+      <strong>beautiful, usable websites</strong>.
+      <br /><br />
+      Let's build something great together! 🚀
+    </p>
+  </section>
 
-            document.getElementById('language-select').addEventListener('change', function () {
-                const selectedLanguage = this.value;
-                i18next.changeLanguage(selectedLanguage, function () {
-                    updateContent();
-                });
-            });
-        }); 
-    </script>
+  <footer>
+    <div class="copyright">
+      &copy; 2023, Oussama Boudaoud
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // i18next init
+      i18next
+        .use(i18nextXHRBackend)
+        .use(i18nextBrowserLanguageDetector)
+        .init({
+          backend: {
+            loadPath: 'locales/{{lng}}/{{ns}}.json'
+          }
+        }, function (err, t) {
+          updateContent();
+        });
+
+      function updateContent() {
+        document.getElementById('greeting').innerText = i18next.t('greeting');
+      }
+
+      document.getElementById('language-select').addEventListener('change', function () {
+        const selectedLanguage = this.value;
+        i18next.changeLanguage(selectedLanguage, function () {
+          updateContent();
+        });
+      });
+
+      // dark mode toggle
+      const darkModeToggle = document.getElementById('dark-mode');
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+      }
+      darkModeToggle.addEventListener('change', () => {
+        if (darkModeToggle.checked) {
+          document.body.classList.add('dark-mode');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.body.classList.remove('dark-mode');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
- 
