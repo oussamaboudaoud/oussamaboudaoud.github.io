@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <title>Oussama Boudaoud</title>
+
+  <!-- i18next for translations -->
   <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.2/dist/umd/i18next.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/i18next-xhr-backend@3.2.2/dist/umd/i18nextXHRBackend.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.1/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+
   <style>
     body {
       font-family: Georgia, serif;
@@ -34,17 +37,26 @@
     }
 
     nav ul {
-      list-style-type: none;
-      margin: 0;
+      list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     nav ul li {
       display: inline;
       margin-right: 2%;
-      text-decoration: none;
       font-weight: bold;
-      font-size: 24px;
+      font-size: 22px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+    }
+
+    nav a:hover {
+      color: green;
+      font-style: italic;
     }
 
     .dark-mode-toggle {
@@ -59,25 +71,6 @@
     .language-translation {
       margin-top: 2%;
       font-size: 18px;
-    }
-
-    footer {
-      background-color: #f0f0f0;
-      text-align: center;
-      padding: 1%;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-    }
-
-    a:hover {
-      color: green;
-      font-style: italic;
     }
 
     h1 {
@@ -102,93 +95,62 @@
       margin: 0 auto;
     }
 
-    #about {
+    footer {
+      background-color: #f0f0f0;
       text-align: center;
-      padding: 40px 20px;
-      background-color: #f9f9f9;
-      border-top: 1px solid #ccc;
-      margin-top: 40px;
-    }
-
-    #about h2 {
-      font-size: 26px;
-      margin-bottom: 15px;
-    }
-
-    #about p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.6;
+      padding: 1%;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .copyright {
       text-align: right;
-      margin-right: 2%;
       margin-top: 0.5cm;
       font-size: 16px;
     }
 
     @media (max-width: 600px) {
-      body {
-        padding-left: 5px;
-        padding-right: 5px;
-      }
-
-      header {
-        padding: 10px;
-      }
-
       nav ul li {
-        margin-right: 5px;
+        display: block;
+        margin: 10px 0;
+        text-align: center;
       }
 
       .dark-mode-toggle {
-        margin-right: 10px;
+        float: none;
+        text-align: center;
+        margin: 10px 0;
       }
 
       .language-translation {
-        margin-top: 10px;
+        text-align: center;
       }
 
-      footer {
-        padding: 5px;
-      }
-
-      h1 {
-        padding: 5px;
-      }
-
-      .profile-picture {
-        margin-top: 10px;
-      }
-
-      #about h2 {
-        font-size: 22px;
-      }
-
-      #about p {
-        font-size: 16px;
+      .copyright {
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1 id="greeting"></h1>
+    <h1 id="greeting">Welcome</h1>
+
     <nav>
       <ul>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="media.html">Media</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
     </nav>
+
     <div class="dark-mode-toggle">
       <label for="dark-mode">Dark Mode:</label>
       <input type="checkbox" id="dark-mode" />
     </div>
+
     <div class="language-translation">
       <label for="language-select">Select Language:</label>
       <select id="language-select">
@@ -201,19 +163,6 @@
   <div class="profile-picture">
     <img src="LinkedIn Photo.jpg" alt="Oussama's Profile Picture" />
   </div>
-
-  <section id="about">
-    <h2>My Current Project</h2>
-    <p>
-      I’m currently seeking a <strong>Fall 2025 internship or junior developer role</strong> through the
-      <strong>Concordia University Co-op Program</strong>.
-      <br /><br />
-      I'm passionate about <strong>software development</strong>, <strong>problem solving</strong>, and building
-      <strong>beautiful, usable websites</strong>.
-      <br /><br />
-      Let's build something great together! 🚀
-    </p>
-  </section>
 
   <footer>
     <div class="copyright">
@@ -246,12 +195,13 @@
         });
       });
 
-      // dark mode toggle
+      // Dark mode toggle
       const darkModeToggle = document.getElementById('dark-mode');
       if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
         darkModeToggle.checked = true;
       }
+
       darkModeToggle.addEventListener('change', () => {
         if (darkModeToggle.checked) {
           document.body.classList.add('dark-mode');
