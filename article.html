@@ -90,6 +90,23 @@
             display: block;
             margin: 20px auto;
             border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: -15px;
+            margin-bottom: 25px;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
         }
         
         .highlight {
@@ -97,6 +114,12 @@
             padding: 15px;
             border-left: 3px solid #ffd600;
             margin: 20px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -120,11 +143,38 @@
         </ol>
         
         <p>After receiving my results, I noticed significant variations between the reports. For example:</p>
+        
+        <div class="image-grid">
+            <div>
+                <img src="23andMe1.jpeg" alt="23andMe DNA Results Part 1">
+                <div class="image-caption">23andMe Results - Regional Breakdown</div>
+            </div>
+            <div>
+                <img src="23andMe2.jpeg" alt="23andMe DNA Results Part 2">
+                <div class="image-caption">23andMe Results - Additional Details</div>
+            </div>
+        </div>
+        
+        <div class="image-grid">
+            <div>
+                <img src="AncestryDNA.jpeg" alt="AncestryDNA Results">
+                <div class="image-caption">AncestryDNA Ethnicity Estimate</div>
+            </div>
+            <div>
+                <img src="MyHeritage.jpeg" alt="MyHeritage DNA Results">
+                <div class="image-caption">MyHeritage Ethnicity Estimate</div>
+            </div>
+        </div>
+        
         <ul>
             <li><strong>23andMe</strong> reported I was 46.8% North African, 38.5% Arab/Egyptian/Levantine (with 34.1% specifically Levantine), 10.5% Northern West Asian, and small percentages of European and Sub-Saharan African ancestry.</li>
             <li><strong>AncestryDNA</strong> showed 46% Northern Africa, 33% Levant, 10% Southern Italy & Eastern Mediterranean, 8% Arabian Peninsula, 2% North-Central Nigeria, and 1% Spain.</li>
             <li><strong>MyHeritage</strong> indicated 51.4% North African, 11.3% Middle Eastern, 10.8% West Asian, 13.8% Italian, 5.3% Greek and South Italian, 4.2% Ashkenazi Jewish, and small percentages of Nigerian and Kenyan.</li>
         </ul>
+        
+        <img src="MyHeritage2.jpeg" alt="MyHeritage Detailed Results">
+        <div class="image-caption">MyHeritage Detailed Ancestry Breakdown</div>
+        
         <p>These discrepancies raised an interesting question: how could I reconcile these differences to extract a more accurate picture of my genetic heritage?</p>
 
         <h2>Technical Approach: Building a DNA Data Pipeline</h2>
