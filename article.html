@@ -131,15 +131,15 @@
 
     <article>
         <h2>Why I Embarked on This Journey</h2>
-        <p>As someone with North African (Kabylia) roots and a background that spans multiple parts of the world, I've always been curious about the precise composition of my genetic heritage. While I knew broadly about my family's origins, I wanted to dig deeper and understand the exact proportions and potentially discover unexpected connections. As a computer science student with previous business experience, I realized this presented a perfect opportunity to blend my technical skills with personal curiosity.</p>
+        <p>As someone with North African (Kabylia) roots and a background that spans multiple parts of the world, I've always wondered about my genetic makeup. While I know broadly my family origins, I wanted to drill down on details to unearth potential surprises. As a computer science student, I realized this presented a perfect opportunity to blend my technical skills with personal curiosity.</p>
         <p>In this post, I'll walk through how I used my programming and data analysis knowledge to extract deeper insights from my DNA test results across three major platforms: 23andMe, AncestryDNA, and MyHeritage.</p>
 
         <h2>The Data Collection Process</h2>
         <p>I began by taking tests from three major DNA testing companies:</p>
         <ol>
-            <li><strong>23andMe</strong> - Known for health insights alongside ancestry information</li>
-            <li><strong>AncestryDNA</strong> - Offers extensive genealogical records integration</li>
-            <li><strong>MyHeritage</strong> - Popular for its historical population models and family matching</li>
+            <li><strong>23andMe</strong> - Known for valuable health insights alongside ancestry information</li>
+            <li><strong>AncestryDNA</strong> - Offers extensive genealogical records and has the largest DNA database</li>
+            <li><strong>MyHeritage</strong> - Popular in the MENA region and in Europe</li>
         </ol>
         
         <p>After receiving my results, I noticed significant variations between the reports. For example:</p>
@@ -167,7 +167,7 @@
         </div>
         
         <ul>
-            <li><strong>23andMe</strong> reported I was 46.8% North African, 38.5% Arab/Egyptian/Levantine (with 34.1% specifically Levantine), 10.5% Northern West Asian, and small percentages of European and Sub-Saharan African ancestry.</li>
+            <li><strong>23andMe</strong> reported I was 46.8% North African, 34.1% Levantine (specifically Northern Levant Coast), 10.5% Northern West Asian, and small percentages of European and Sub-Saharan African ancestry.</li>
             <li><strong>AncestryDNA</strong> showed 46% Northern Africa, 33% Levant, 10% Southern Italy & Eastern Mediterranean, 8% Arabian Peninsula, 2% North-Central Nigeria, and 1% Spain.</li>
             <li><strong>MyHeritage</strong> indicated 51.4% North African, 11.3% Middle Eastern, 10.8% West Asian, 13.8% Italian, 5.3% Greek and South Italian, 4.2% Ashkenazi Jewish, and small percentages of Nigerian and Kenyan.</li>
         </ul>
@@ -331,14 +331,14 @@ def analyze_geographic_consistency(ancestry_data):
     
     return geography_totals</code></pre>
         
-        <h3>4. Italian Connection</h3>
-        <p>One surprising finding was the significant Italian ancestry (13.8% according to MyHeritage, 10% Southern Italy from AncestryDNA). This prompted me to research historical connections between North Africa and Southern Italy, revealing fascinating migration patterns during the Arab rule of Sicily and Southern Italy between the 9th and 11th centuries.</p>
+        <h3>4. Italian Connection & other revelations </h3>
+        <p>One surprising finding was the significant Italian ancestry (13.8% according to MyHeritage, 10% Southern Italy from AncestryDNA). This prompted me to research historical connections between North Africa and Southern Italy, revealing fascinating migration patterns during the Arab rule of Sicily and Southern Italy between the 9th and 11th centuries. What was also revealing is having significant shared DNA among my DNA matches with several Jewish people (notably, an eldery Italian Jewish lady), pointing out to possible Jewish heritage. This is consistent with the etymology of my surname ("Dawod" being the Arab version of David) and the historical presense of Jewish communities in North Africa fleeing the Spanish Inquistion in the 15th century. The presense of tons of Spanish DNA matches (and the 1% Spain) also echoes this finding, even hinting at Moorish roots (North African rule of Islamic Spain « Al-Andalus » )  </p>
 
         <h2>Technical Challenges and Solutions</h2>
         <p>This project presented several technical challenges specific to analyzing North African and Mediterranean ancestry:</p>
         
         <h3>1. Data Privacy Concerns</h3>
-        <p>I had to carefully handle my genetic data, creating secure local storage and processing pipelines rather than using cloud services. This was especially important given the potentially sensitive nature of ethnic heritage information.</p>
+        <p>I had to carefully handle my genetic data, creating secure local storage and processing pipelines rather than using cloud services. This was especially important given the sensitive nature of ethnic heritage information.</p>
         
         <h3>2. Standardization Issues</h3>
         <p>Each service uses different reference populations and labels for North African and Middle Eastern regions, making direct comparisons challenging. For example, what 23andMe calls "Arab, Egyptian & Levantine," AncestryDNA separates into distinct "Levant" and "Arabian Peninsula" regions. I implemented the following normalization technique:</p>
@@ -398,7 +398,7 @@ def standardize_regions(service_data, service_name):
         <p>For fellow CS students considering similar projects, I'd recommend starting with data standardization as your first step, followed by careful consideration of how to normalize different ancestry categories across platforms.</p>
 
         <div class="disclaimer">
-            <p><em>Disclaimer: This project was conducted for personal research only. All genetic data was processed locally with appropriate privacy measures. If you're considering a similar project, be sure to research and follow best practices for handling sensitive genetic information.</em></p>
+            <p><em>Disclaimer: This project was conducted solely for personal research. All genetic data was processed locally with appropriate privacy measures. If you're considering a similar project, be sure to research and follow best practices for handling sensitive genetic information.</em></p>
         </div>
     </article>
 </body>
