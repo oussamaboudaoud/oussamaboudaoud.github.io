@@ -6,11 +6,6 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <title>Oussama Boudaoud</title>
 
-  <!-- i18next for translations -->
-  <script src="https://cdn.jsdelivr.net/npm/i18next@22.4.2/dist/umd/i18next.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/i18next-xhr-backend@3.2.2/dist/umd/i18nextXHRBackend.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.1/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
-
   <style>
     body {
       font-family: Georgia, serif;
@@ -155,7 +150,6 @@
       <label for="language-select">Select Language:</label>
       <select id="language-select">
         <option value="en">English</option>
-        <option value="fr">French</option>
       </select>
     </div>
   </header>
@@ -172,29 +166,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // i18next init
-      i18next
-        .use(i18nextXHRBackend)
-        .use(i18nextBrowserLanguageDetector)
-        .init({
-          backend: {
-            loadPath: 'locales/{{lng}}/{{ns}}.json'
-          }
-        }, function (err, t) {
-          updateContent();
-        });
-
-      function updateContent() {
-        document.getElementById('greeting').innerText = i18next.t('greeting');
-      }
-
-      document.getElementById('language-select').addEventListener('change', function () {
-        const selectedLanguage = this.value;
-        i18next.changeLanguage(selectedLanguage, function () {
-          updateContent();
-        });
-      });
-
       // Dark mode toggle
       const darkModeToggle = document.getElementById('dark-mode');
       if (localStorage.getItem('theme') === 'dark') {
@@ -215,3 +186,4 @@
   </script>
 </body>
 </html>
+
