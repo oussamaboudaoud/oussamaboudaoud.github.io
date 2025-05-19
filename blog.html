@@ -115,29 +115,31 @@
     const recentBtn = document.getElementById('recentBtn');
     const archiveBtn = document.getElementById('archiveBtn');
 
-const posts = [
-  {
-    slug: "dna-north-african-analysis",
-    title: "Demystifying My Heritage: How I Used Programming to Analyze My DNA Test Results",
-    date: "May 10, 2025",
-    location: "Montreal, QC",
-    subject: "Genetics & Programming",
-    summary: "I blended my CS background with DNA data from 23andMe, AncestryDNA, and MyHeritage to analyze my North African roots...",
-    content: "",
-    category: "recent"
-  },
-  //  NEW ENTRY 
-  {
-    slug: "ottoman-imperial-decree-digitization",
-    title: "Ottoman Imperial Decree Digitization: A Computer Vision Approach",
-    date: "May 15, 2025",
-    location: "Montreal, QC",
-    subject: "Computer Vision & Heritage",
-    summary: "Applying computer vision to digitize and analyze a precious Ottoman firman from my family's collection...",
-    content: "",
-    category: "recent"
-  }
-];
+    const posts = [
+      {
+        slug: "dna-north-african-analysis",
+        title: "Demystifying My Heritage: How I Used Programming to Analyze My DNA Test Results",
+        date: "May 10, 2025",
+        location: "Montreal, QC",
+        subject: "Genetics & Programming",
+        summary: "I blended my CS background with DNA data from 23andMe, AncestryDNA, and MyHeritage to analyze my North African roots...",
+        content: "",
+        category: "recent",
+        link: "article.html"
+      },
+      {
+        slug: "ottoman-imperial-decree-digitization",
+        title: "Ottoman Imperial Decree Digitization: A Computer Vision Approach",
+        date: "May 15, 2025",
+        location: "Montreal, QC",
+        subject: "Computer Vision & Heritage",
+        summary: "Applying computer vision to digitize and analyze a precious Ottoman firman from my family's collection...",
+        content: "",
+        category: "recent",
+        link: "ottoman-imperial-decree-digitization.html"
+      }
+    ];
+
     function showRecent() {
       blogContent.innerHTML = "";
       const recentPosts = posts.filter(p => p.category === "recent");
@@ -145,10 +147,10 @@ const posts = [
       recentPosts.forEach(post => {
         blogContent.innerHTML += `
           <div class="post">
-            <h2><a href="article.html?title=${post.slug}">${post.title}</a></h2>
+            <h2><a href="${post.link}">${post.title}</a></h2>
             <div class="meta">${post.date}<br>${post.location}</div>
             <p>${post.summary}</p>
-            <a class="read-more" href="article.html?title=${post.slug}">... read more ...</a>
+            <a class="read-more" href="${post.link}">... read more ...</a>
           </div>
         `;
       });
@@ -172,7 +174,7 @@ const posts = [
           <tbody>
             ${archivePosts.map(post => `
               <tr>
-                <td><a href="article.html?title=${post.slug}">${post.title}</a></td>
+                <td><a href="${post.link || 'article.html?title=' + post.slug}">${post.title}</a></td>
                 <td>${post.date}</td>
                 <td>${post.subject}</td>
               </tr>
