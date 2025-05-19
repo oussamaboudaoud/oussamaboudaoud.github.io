@@ -142,23 +142,20 @@
         <h2>Personal Connection and Historical Context</h2>
         <p>The firman featured in this project holds significant personal and historical value, having been passed down through generations in my family. Sultan Abdul Hamid II reigned from 1876 to 1909 during a pivotal period of Ottoman history, making this document an important historical artifact. This personal connection motivated me to apply my computer science expertise to preserve and analyze this cultural heritage item, creating a meaningful intersection between my ancestry and modern technology.</p>
 
-        <!-- Image Grid for Firman Photos -->
         <div class="image-grid">
             <div>
-                <img src="firman1.jpg" alt="Ottoman Firman - Full Document View">
-                <div class="image-caption">Complete Ottoman firman with Sultan Abdul Hamid II's tughra</div>
+                <img src="firman1.jpg" alt="Ottoman Firman - Full View">
+                <div class="image-caption">Complete view of the Ottoman firman with Sultan Abdul Hamid II's tughra</div>
             </div>
             <div>
-                <img src="firman2.jpg" alt="Ottoman Firman - Tughra Detail">
-                <div class="image-caption">Detailed view of the Sultan's imperial seal (tughra)</div>
+                <img src="firman 2.jpg" alt="Ottoman Firman - Tughra Detail">
+                <div class="image-caption">Detailed view of the Sultan's tughra (imperial seal)</div>
             </div>
         </div>
 
-        <!-- Personal Photo -->
-        <img src="firman3.jpeg" alt="Personal connection to the firman" class="personal-photo">
+        <img src="firman 3.jpeg" alt="Personal connection to the firman" class="personal-photo">
         <div class="image-caption">Myself at age 13 with this precious family heirloom</div>
 
-        <!-- Rest of your article content remains unchanged -->
         <h2>Technical Implementation</h2>
         
         <h3>1. Image Preprocessing Pipeline</h3>
@@ -188,8 +185,91 @@ def preprocess_document(image_path):
     
     return binary, enhanced, denoised</code></pre>
 
-        <!-- Rest of your technical content remains the same -->
+        <h3>2. Tughra Detection and Analysis</h3>
+        <p>The tughra of Sultan Abdul Hamid II at the top of the document is a distinctive feature I isolated using contour detection:</p>
         
+        <pre><code>def detect_tughra(image):
+    # Find contours
+    contours, _ = cv2.findContours(255 - image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    
+    # Filter contours by size and aspect ratio
+    potential_tughras = []
+    for contour in contours:
+        x, y, w, h = cv2.boundingRect(contour)
+        aspect_ratio = w / h
+        if w > 100 and h > 100 and 1.5 > aspect_ratio > 0.5:
+            potential_tughras.append((x, y, w, h))
+    
+    # Return the top-most large contour
+    if potential_tughras:
+        return sorted(potential_tughras, key=lambda x: x[1])[0]
+    return None</code></pre>
+
+        <h3>3. Database Schema for Document Archiving</h3>
+        <p>To store the processed document data, I designed a MongoDB schema specifically accounting for the Sultan Abdul Hamid II provenance:</p>
+        
+        <pre><code>document_schema = {
+    "metadata": {
+        "document_id": "AH2_FIRMAN_1890",
+        "date": "estimated_1890",
+        "sultan": "Abdul Hamid II",
+        "reign_period": "1876-1909",
+        "type": "firman",
+        "language": "Ottoman Turkish",
+        "source": "family_inheritance",
+        "provenance": "Passed down through family lineage since Ottoman era"
+    },
+    "image_data": {
+        "original_image": "path/to/original.jpg",
+        "processed_image": "path/to/processed.jpg",
+        "width": 1200,
+        "height": 1800,
+        "dpi": 300
+    },
+    "analysis_results": {
+        "has_tughra": True,
+        "tughra_identification": "Abdul Hamid II",
+        "tughra_confidence_score": 0.92,
+        "tughra_location": {
+            "x": 320,
+            "y": 120,
+            "width": 200,
+            "height": 150
+        },
+        "line_count": 10,
+        "text_direction": "right_to_left",
+        "average_line_height": 45.7,
+        "script_features": {
+            "average_component_density": 0.62,
+            "average_aspect_ratio": 1.23
+        }
+    },
+    "transcription": {
+        "status": "pending",
+        "text": "",
+        "confidence": 0
+    }
+}</code></pre>
+
+        <h2>How This Project Highlights Tech Skills for Montreal Job Market</h2>
+        <p>This project demonstrates several key skills sought by Montreal tech employers:</p>
+        <ol>
+            <li><strong>Computer Vision Expertise</strong>: Shows proficiency with OpenCV and image processing techniques applicable to fields like medical imaging and autonomous systems</li>
+            <li><strong>Machine Learning Application</strong>: Illustrates practical ML implementation for document analysis</li>
+            <li><strong>Full-Stack Development</strong>: Demonstrates ability to build both backend processing systems and frontend visualization tools</li>
+            <li><strong>Cultural Context</strong>: Shows ability to work with diverse cultural contexts and personal passion for heritage preservation</li>
+            <li><strong>Database Design</strong>: Experience with NoSQL database schemas for specialized data</li>
+        </ol>
+
+        <h2>Future Development</h2>
+        <p>To expand this project, I would:</p>
+        <ol>
+            <li>Implement a full Arabic/Ottoman script OCR system using deep learning</li>
+            <li>Create a comparative analysis system for Sultan Abdul Hamid II's tughras across multiple documents</li>
+            <li>Develop an API for accessing the document database</li>
+            <li>Apply NLP techniques for content analysis and translation</li>
+        </ol>
+
         <div class="disclaimer">
             <p><em>Note: The firman images and document in this project are from my personal family collection and are shared here for educational purposes only.</em></p>
         </div>
