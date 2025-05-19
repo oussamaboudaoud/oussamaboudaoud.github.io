@@ -115,19 +115,29 @@
     const recentBtn = document.getElementById('recentBtn');
     const archiveBtn = document.getElementById('archiveBtn');
 
-    const posts = [
-      {
-        slug: "dna-north-african-analysis",
-        title: "Demystifying My Heritage: How I Used Programming to Analyze My DNA Test Results",
-        date: "May 10, 2025",
-        location: "Montreal, QC",
-        subject: "Genetics & Programming",
-        summary: "I blended my CS background with DNA data from 23andMe, AncestryDNA, and MyHeritage to analyze my North African roots...",
-        content: "",
-        category: "recent"
-      }
-    ];
-
+const posts = [
+  {
+    slug: "dna-north-african-analysis",
+    title: "Demystifying My Heritage: How I Used Programming to Analyze My DNA Test Results",
+    date: "May 10, 2025",
+    location: "Montreal, QC",
+    subject: "Genetics & Programming",
+    summary: "I blended my CS background with DNA data from 23andMe, AncestryDNA, and MyHeritage to analyze my North African roots...",
+    content: "",
+    category: "recent"
+  },
+  //  NEW ENTRY
+  {
+    slug: "ottoman-imperial-decree-digitization",
+    title: "Ottoman Imperial Decree Digitization: A Computer Vision Approach",
+    date: "May 15, 2025",
+    location: "Montreal, QC",
+    subject: "Computer Vision & Heritage",
+    summary: "Applying computer vision to digitize and analyze a precious Ottoman firman from my family's collection...",
+    content: "",
+    category: "recent"
+  }
+];
     function showRecent() {
       blogContent.innerHTML = "";
       const recentPosts = posts.filter(p => p.category === "recent");
