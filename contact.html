@@ -1,85 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    
-    <!-- Include Font Awesome library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  />
 
-    <style>
-        /* Your contact page styles here */
-        body {
-            font-family: Georgia, serif;
-            background-color: white;
-            color: black;
-            margin: 0;
-            padding: 0;
-            padding-left: 7cm; /* 7 cm of empty space on the left */
-            padding-right: 7cm; /* 7 cm of empty space on the right */
-            padding-top: 1cm; /* 1 cm of empty space at the top */
-        }
+  <style>
+    /* Reset default margins/padding */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
+    body {
+      font-family: Georgia, serif;
+      background-color: white;
+      color: black;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        a:hover {
-            color: green;
-            font-style: italic;
-        }
-        
-        .social-media {
-            margin-top: 20px;
-        }
+    .header {
+      font-size: 2em;
+      background-color: black;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 40px;
+    }
 
-        .social-media a {
-            display: block;
-            margin-bottom: 10px;
-        }
+    .social-networking-sites {
+      width: 100%;
+      max-width: 800px;
+      text-align: left;
+    }
 
-        .social-media i {
-            margin-right: 10px; /* Add some spacing between icon and text */
-        }
+    .social-networking-sites a {
+      display: flex;
+      align-items: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-decoration: none;
+      color: black;
+      margin: 15px 0;
+    }
 
-        .header {
-            font-size: 36px;
-            margin-top: 1cm; /* 1 cm space at the top */
-            background-color: black;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
+    .social-networking-sites a i {
+      margin-right: 10px;
+      font-size: 1.4em;
+    }
 
-        .footer {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-        
-        /* Rest of your contact page styles */
+    .social-networking-sites a:hover {
+      color: green;
+      font-style: italic;
+    }
 
-    </style>
+    .footer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      width: 100%;
+      max-width: 800px;
+      margin-top: 40px;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .header {
+        font-size: 1.5em;
+        padding: 10px;
+      }
+
+      .social-networking-sites a {
+        font-size: 1em;
+      }
+
+      .footer {
+        font-size: 0.9em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="header">Oussama Boudaoud</div>
-    
-    <!-- Your contact page content goes here -->
-    <div class="social-networking-sites"><br><br>
-        <a href="https://www.linkedin.com/in/ousb/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> <br><br>
-        <a href="mailto:oussama.boudaoud@sciencespo.fr"><i class="fas fa-envelope"></i> Email</a><br><br>
-        <a href="https://github.com/oussamaboudaoud" target="_blank"><i class="fab fa-github"></i> GitHub</a><br><br>
+  <div class="header">Oussama Boudaoud</div>
 
-        <!-- Add more social media links as needed -->
-    </div>
-    
-    <div class="footer">
-        &copy; 2025, Oussama Boudaoud
-    </div>
+  <div class="social-networking-sites">
+    <a href="https://www.linkedin.com/in/ousb/" target="_blank">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="mailto:oussama.boudaoud@sciencespo.fr">
+      <i class="fas fa-envelope"></i> Email
+    </a>
+    <a href="https://github.com/oussamaboudaoud" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+
+  <div class="footer">&copy; 2025, Oussama Boudaoud</div>
 </body>
 </html>
 
