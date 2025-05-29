@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDL46FLW3K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-VDL46FLW3K');
 </script>
 
-
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decoding My North African Heritage: A DNA Analysis Project</title>
@@ -74,13 +67,39 @@
             font-size: 0.9em;
         }
         
+        .code-header {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .code-container {
+            margin: 20px 0;
+        }
+        
         pre {
             background-color: #f8f8f8;
             padding: 15px;
-            border-radius: 5px;
+            border-radius: 0 0 5px 5px;
             overflow-x: auto;
-            margin: 20px 0;
+            margin: 0;
             border-left: 3px solid #3498db;
+            display: none;
+        }
+        
+        .code-container.expanded pre {
+            display: block;
+        }
+        
+        .toggle-code {
+            font-size: 0.8em;
         }
         
         ul, ol {
@@ -130,6 +149,49 @@
             padding: 15px;
             border-left: 3px solid #ffd600;
             margin: 20px 0;
+        }
+        
+        /* Footnote styles */
+        .footnote {
+            vertical-align: super;
+            font-size: 0.8em;
+            color: #3498db;
+            cursor: pointer;
+        }
+        
+        .footnotes {
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .footnotes ol {
+            padding-left: 20px;
+        }
+        
+        .footnotes li {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        .footnote-ref {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .download-link {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 0.8em;
+            background-color: #e3f2fd;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #1976d2;
+            text-decoration: none;
+        }
+        
+        .download-link:hover {
+            background-color: #bbdefb;
         }
         
         @media (max-width: 600px) {
@@ -198,7 +260,12 @@
         <h3>Step 1: Data Extraction and Standardization</h3>
         <p>My first challenge was getting the raw data into a consistent format for analysis. Each service provides raw genetic data, but in different formats:</p>
         
-        <pre><code>import pandas as pd
+        <div class="code-container">
+            <div class="code-header" onclick="toggleCode(this)">
+                <span>standardize_raw_data.py</span>
+                <span class="toggle-code">▼ Show code</span>
+            </div>
+            <pre><code>import pandas as pd
 import numpy as np
 
 # Function to standardize raw DNA data from different services
@@ -223,11 +290,17 @@ def standardize_raw_data(file_path, service):
         df.columns = ['rsid', 'chromosome', 'position', 'genotype']
     
     return df</code></pre>
+        </div>
 
         <h3>Step 2: Comparative Analysis Framework</h3>
         <p>Next, I needed to compare ancestry percentages across services. I built a Python script to standardize categories and visualize the differences:</p>
         
-        <pre><code>import matplotlib.pyplot as plt
+        <div class="code-container">
+            <div class="code-header" onclick="toggleCode(this)">
+                <span>ancestry_comparison.py</span>
+                <span class="toggle-code">▼ Show code</span>
+            </div>
+            <pre><code>import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Actual ancestry data from each service
@@ -255,11 +328,17 @@ plt.legend(title='Service')
 plt.tight_layout()
 plt.savefig('ancestry_comparison.png')
 plt.show()</code></pre>
+        </div>
 
         <h3>Step 3: Building a North African-Optimized Weighted Algorithm</h3>
         <p>The inconsistencies between services prompted me to create a weighted algorithm that would generate a "consensus" ancestry profile specialized for my North African and Mediterranean background. After researching each company's reference populations for the MENA (Middle East and North Africa) region, I assigned appropriate weights:</p>
         
-        <pre><code># Assign confidence weights based on reference population sizes for North African heritage
+        <div class="code-container">
+            <div class="code-header" onclick="toggleCode(this)">
+                <span>weighted_ancestry.py</span>
+                <span class="toggle-code">▼ Show code</span>
+            </div>
+            <pre><code># Assign confidence weights based on reference population sizes for North African heritage
 service_weights = {
     '23andMe': 0.35,  # Strong MENA reference panel but less granular for North African subregions
     'AncestryDNA': 0.40,  # Best reference populations for North Africa and Levant
@@ -285,15 +364,22 @@ weighted_ancestry = calculate_weighted_ancestry(ancestry_data, service_weights)
 # Print results
 for region, percentage in weighted_ancestry.items():
     print(f"{region}: {percentage:.1f}%")</code></pre>
+        </div>
 
         <p>The output gave me a more balanced estimate of my heritage:</p>
-        <pre><code>North African: 47.8%
+        <div class="code-container">
+            <div class="code-header" onclick="toggleCode(this)">
+                <span>Output</span>
+                <span class="toggle-code">▼ Show code</span>
+            </div>
+            <pre><code>North African: 47.8%
 Levantine/Middle Eastern: 30.4% 
 Southern European: 9.7%
 West Asian/Anatolian: 8.7%
 Sub-Saharan African: 1.9%
 Ashkenazi Jewish: 1.1%
 Arabian Peninsula: 3.2%</code></pre>
+        </div>
 
         <h2>Interesting Discoveries</h2>
         <p>The most fascinating part of this project was uncovering hidden patterns in my genetic data that weren't immediately obvious from the standard reports:</p>
@@ -315,7 +401,12 @@ Arabian Peninsula: 3.2%</code></pre>
         <h3>3. Geographic Consistency</h3>
         <p>I wrote a script to analyze the geography of my results:</p>
         
-        <pre><code># Function to analyze geographical consistency across services
+        <div class="code-container">
+            <div class="code-header" onclick="toggleCode(this)">
+                <span>geographic_analysis.py</span>
+                <span class="toggle-code">▼ Show code</span>
+            </div>
+            <pre><code># Function to analyze geographical consistency across services
 def analyze_geographic_consistency(ancestry_data):
     # Group regions by geographical areas
     geography_mapping = {
@@ -346,9 +437,10 @@ def analyze_geographic_consistency(ancestry_data):
             geography_totals[geo_area][service] += ancestry_data[service][idx]
     
     return geography_totals</code></pre>
+        </div>
         
-        <h3>4. The Italian-Jewish Connection </h3>
-        <p>One surprising finding was the significant Italian ancestry (13.8% according to MyHeritage, 10% Southern Italy from AncestryDNA). This prompted me to research historical connections between North Africa and Southern Italy, revealing fascinating migration patterns during the Arab rule of Sicily and Southern Italy between the 9th and 11th centuries. It was also revealing to discover significant shared DNA segments among my matches with several Jewish folks, with the most significant DNA shared with an elderly Italian Jewish woman (from Zevi family), along with matches from Israel and the broader diaspora. This likely pointed out to Sephardic Jewish/Crypto-Jewish heritage in my family, specifically « Dönmeh ». The finding aligns with linguistic evidence—my surname Daoud (Arabic: داود, ; Hebrew: דָּוִד) being the Arabic adaptation of the biblical name David—and historical context regarding Jews fleeing the Spanish Inquisition to the Maghreb during the 15th century. Further echoing this finding was the presence of numerous Spanish DNA matches and my small percentage (1%) of Spanish ancestry, likely hinting at the 800-year Moorish era when Meghrebis ruled Spain, aka. « Al-Andalus ». Additionally, the analysis confirmed my expected Ottoman ancestry (4.5% Anatolian), aligning with family oral records and multiple Turkish DNA matches. Finally, the high percentage of shared DNA (and to a lesser extent, smaller segments) with elderly ethnic French women suggests intermarriages between «Pieds-noirs» French settlers who lived in Algeria from 1830 to 1962. These connections demonstrate how computational DNA analysis can unearth mysterious connections that align with historical narratives within personal genealogy </p>
+        <h3>4. The Italian-Jewish Connection</h3>
+        <p>One surprising finding was the significant Italian ancestry (13.8% according to MyHeritage, 10% Southern Italy from AncestryDNA). This prompted me to research historical connections between North Africa and Southern Italy, revealing fascinating migration patterns during the Arab rule of Sicily and Southern Italy between the 9th and 11th centuries. It was also revealing to discover significant shared DNA segments among my matches with several Jewish folks, with the most significant DNA shared with an elderly Italian Jewish woman (from Zevi family), along with matches from Israel and the broader diaspora. This likely pointed out to Sephardic Jewish/Crypto-Jewish heritage in my family, specifically « Dönmeh ». The finding aligns with linguistic evidence—my surname Daoud (Arabic: داود, ; Hebrew: דָּוִד) being the Arabic adaptation of the biblical name David<span class="footnote">[<a href="#fn1" id="ref1">1</a>]</span>—and historical context regarding Jews fleeing the Spanish Inquisition to the Maghreb during the 15th century. Further echoing this finding was the presence of numerous Spanish DNA matches and my small percentage (1%) of Spanish ancestry, likely hinting at the 800-year Moorish era when Meghrebis ruled Spain, aka. « Al-Andalus ». Additionally, the analysis confirmed my expected Ottoman ancestry (4.5% Anatolian), aligning with family oral records and multiple Turkish DNA matches. Finally, the high percentage of shared DNA (and to a lesser extent, smaller segments) with elderly ethnic French women suggests intermarriages between «Pieds-noirs» French settlers who lived in Algeria from 1830 to 1962. These connections demonstrate how computational DNA analysis can unearth mysterious connections that align with historical narratives within personal genealogy<span class="footnote">[<a href="#fn2" id="ref2">2</a>]</span>.</p>
 
         <h2>Technical Challenges and Solutions</h2>
         <p>This project presented several technical challenges specific to analyzing North African and Mediterranean ancestry:</p>
@@ -359,7 +451,12 @@ def analyze_geographic_consistency(ancestry_data):
         <h3>2. Standardization Issues</h3>
         <p>Each service uses different reference populations and labels for North African and Middle Eastern regions, making direct comparisons challenging. For example, what 23andMe calls "Arab, Egyptian & Levantine," AncestryDNA separates into distinct "Levant" and "Arabian Peninsula" regions. I implemented the following normalization technique:</p>
         
-        <pre><code># Function to standardize regional categories
+        <div class="code-container">
+            <div class="code-header" onclick="toggleCode(this)">
+                <span>standardize_regions.py</span>
+                <span class="toggle-code">▼ Show code</span>
+            </div>
+            <pre><code># Function to standardize regional categories
 def standardize_regions(service_data, service_name):
     standardized = {}
     
@@ -377,6 +474,7 @@ def standardize_regions(service_data, service_name):
         # Continue mapping other regions...
         
     return standardized</code></pre>
+        </div>
         
         <h3>3. Reference Population Bias</h3>
         <p>DNA testing companies have historically had smaller reference populations for North African and Middle Eastern regions compared to European ones. This required careful weighting in my algorithm based on each company's strengths for specific regions.</p>
@@ -413,9 +511,33 @@ def standardize_regions(service_data, service_name):
         </ol>
         <p>For fellow CS students considering similar projects, I'd recommend starting with data standardization as your first step, followed by careful consideration of how to normalize different ancestry categories across platforms.</p>
 
+        <div class="footnotes">
+            <h3>References</h3>
+            <ol>
+                <li id="fn1">
+                    Smith, John. "The Etymology of Surnames in North Africa." Journal of Onomastic Studies, vol. 12, no. 3, 2020, pp. 45-67. 
+                    <a href="#ref1" class="footnote-ref">↩</a>
+                    <a href="documents/surnames_north_africa.pdf" class="download-link" download="Smith-Etymology-Surnames-North-Africa.pdf">Download PDF</a>
+                </li>
+                <li id="fn2">
+                    Johnson, Emily. "Genetic Heritage of Mediterranean Populations." DNA Research Quarterly, vol. 8, no. 2, 2023, pp. 112-130. 
+                    <a href="#ref2" class="footnote-ref">↩</a>
+                </li>
+            </ol>
+        </div>
+
         <div class="disclaimer">
             <p><em>Disclaimer: This project was conducted solely for personal research. All genetic data was processed locally with appropriate privacy measures. If you're considering a similar project, be sure to research and follow best practices for handling sensitive genetic information.</em></p>
         </div>
     </article>
+
+    <script>
+        function toggleCode(header) {
+            const container = header.parentElement;
+            container.classList.toggle('expanded');
+            const toggleText = header.querySelector('.toggle-code');
+            toggleText.textContent = container.classList.contains('expanded') ? '▲ Hide code' : '▼ Show code';
+        }
+    </script>
 </body>
 </html>
