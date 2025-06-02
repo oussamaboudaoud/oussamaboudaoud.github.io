@@ -122,6 +122,24 @@
             margin: 20px 0;
         }
         
+        details {
+            margin-bottom: 20px;
+        }
+        
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #3498db;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        summary:hover {
+            background-color: #e1f0fa;
+        }
+        
         @media (max-width: 600px) {
             .image-grid {
                 grid-template-columns: 1fr;
@@ -161,7 +179,9 @@
         <h3>1. Image Preprocessing Pipeline</h3>
         <p>I developed a preprocessing pipeline using OpenCV and scikit-image to address the document's degradation:</p>
         
-        <pre><code>import cv2
+        <details>
+            <summary>View Code: Image Preprocessing Pipeline</summary>
+            <pre><code>import cv2
 import numpy as np
 from skimage import restoration, exposure
 
@@ -184,11 +204,14 @@ def preprocess_document(image_path):
                                 cv2.THRESH_BINARY, 11, 2)
     
     return binary, enhanced, denoised</code></pre>
+        </details>
 
         <h3>2. Tughra Detection and Analysis</h3>
         <p>The tughra of Sultan Abdul Hamid II at the top of the document is a distinctive feature I isolated using contour detection:</p>
         
-        <pre><code>def detect_tughra(image):
+        <details>
+            <summary>View Code: Tughra Detection</summary>
+            <pre><code>def detect_tughra(image):
     # Find contours
     contours, _ = cv2.findContours(255 - image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
@@ -204,11 +227,14 @@ def preprocess_document(image_path):
     if potential_tughras:
         return sorted(potential_tughras, key=lambda x: x[1])[0]
     return None</code></pre>
+        </details>
 
         <h3>3. Database Schema for Document Archiving</h3>
         <p>To store the processed document data, I designed a MongoDB schema specifically accounting for the Sultan Abdul Hamid II provenance:</p>
         
-        <pre><code>document_schema = {
+        <details>
+            <summary>View Code: Database Schema</summary>
+            <pre><code>document_schema = {
     "metadata": {
         "document_id": "AH2_FIRMAN_1890",
         "date": "estimated_1890",
@@ -250,6 +276,7 @@ def preprocess_document(image_path):
         "confidence": 0
     }
 }</code></pre>
+        </details>
 
         <h2>How This Project Highlights Tech Skills</h2>
         <p>This project demonstrates several key skills sought by Montreal tech employers:</p>
