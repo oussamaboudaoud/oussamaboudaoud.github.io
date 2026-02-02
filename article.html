@@ -204,24 +204,31 @@
                 grid-template-columns: 1fr;
             }
         }
-     .image-grid {
+    .image-grid {
     align-items: start !important;
-    gap: 10px !important; /* Reduced from 20px to 10px */
+    gap: 5px !important; /* Minimal gap between images */
+    margin: 10px 0 !important; /* Reduce overall margin */
 }
 
-.image-grid img {
-    height: 600px !important; /* Increased from 350px to 500px */
-    max-height: 600px !important;
+.image-grid img { 
+    height: 750px !important;
+    max-height: 800px !important;
+    min-height: 700px !important;
+    width: 100% !important;
     object-fit: contain !important;
     background: white !important;
     border: 1px solid #ddd !important;
-    margin: 10px auto !important; /* Reduced margin */
+    margin: 0 !important; /* Remove vertical margins */
+    padding: 0 !important;
 }
 
 .image-caption {
-    margin-top: 5px !important; /* Reduced space between image and caption */
-    margin-bottom: 5px !important;
+    margin: 2px 0 !important; /* Minimal caption spacing */
+    padding: 0 !important;
+    font-size: 0.9em !important;
 }
+
+
     </style>
 </head>
 <body>
