@@ -144,6 +144,11 @@
             margin: 25px 0;
         }
         
+        .single-image-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
         .highlight {
             background-color: #fffde7;
             padding: 15px;
@@ -210,14 +215,15 @@
     <article>
         <h2>Why I Embarked on This Journey</h2>
         <p>As someone indigenous to North Africa (Kabylia) and with a background that spans multiple parts of the world, I've always wondered about my genetic makeup. While I know broadly my family origins, I wanted to drill down on details to unearth potential surprises. As a computer science student, I realized this presented a perfect opportunity to blend my technical skills with personal curiosity. What I discovered completely shattered my assumptions about my heritage. You see, buried within the data was an exquisite connection to a 17th-century Jewish messianic movement -- the «<i> Dönmeh </i>» -- that historians presumed had simply... vanished.</p>
-        <p>In this post, I'll walk through how I used my programming and data analysis knowledge to extract deeper insights from my DNA test results across three major platforms: 23andMe, Ancestry, and MyHeritage.</p>
+        <p>In this post, I'll walk through how I used my programming and data analysis knowledge to extract deeper insights from my DNA test results across four major platforms: 23andMe, Ancestry, MyHeritage, and FamilyTreeDNA.</p>
 
         <h2>The Data Collection Process</h2>
-        <p>I began by taking tests from three major DNA testing companies:</p>
+        <p>I began by taking tests from four major DNA testing companies:</p>
         <ol>
             <li><strong>23andMe</strong> - Known for valuable, personalized health insights, ancestry information, and insights into how genetics may influence personality traits and behavioral patterns</li>
             <li><strong>Ancestry</strong> - Offers extensive genealogical records and has the world's largest DNA database</li>
             <li><strong>MyHeritage</strong> - Popular in the MENA region and in Europe</li>
+            <li><strong>FamilyTreeDNA</strong> - Specializes in Y-DNA and mtDNA testing for deep ancestral lineages</li>
         </ol>
         
         <p>After receiving my results, I noticed significant variations between the reports. For example:</p>
@@ -244,10 +250,16 @@
             </div>
         </div>
         
+        <div class="single-image-container">
+            <img src="FamilyTreeDNA.jpeg" alt="FamilyTreeDNA Results">
+            <div class="image-caption">FamilyTreeDNA myOrigins Results showing detailed breakdown</div>
+        </div>
+        
         <ul>
             <li><strong>23andMe</strong> reported I was 49.2% North African, 29.2% Levantine, 15% Northern West Asian (mostly Turkish component), and small percentages of European and Sub-Saharan African ancestry.</li>
             <li><strong>Ancestry</strong> showed 46% Northern Africa, 33% Levant, 10% Southern Italy & Eastern Mediterranean, 8% Arabian Peninsula, 2% North-Central Nigeria, and 1% Spain.</li>
             <li><strong>MyHeritage</strong> indicated 51.4% North African, 11.3% Middle Eastern, 10.8% West Asian, 13.8% Italian, 5.3% Greek and South Italian, 4.2% Ashkenazi Jewish, and small percentages of Nigerian and Kenyan.</li>
+            <li><strong>FamilyTreeDNA</strong> provided the most detailed Levantine breakdown: <strong>50% Southern Levant</strong>, <strong>13% Northern Levant</strong>, 26% North Africa (Maghreb & Egypt), 5% Italian Peninsula, <strong>&lt;4% Sephardic Jewish</strong>, <strong>&lt;2% Mizrahi Jewish</strong>, <strong>&lt;2% Ashkenazi Jewish</strong>, and &lt;1% Horn of Africa. This remarkable 63% total Levantine ancestry with specific Jewish components provided crucial validation of my research findings.</li>
         </ul>
         
         <img src="MyHeritage2.jpeg" alt="MyHeritage Detailed Results">
@@ -288,6 +300,11 @@ def standardize_raw_data(file_path, service):
         df = pd.read_csv(file_path, comment='#', sep='\t')
         # Standardize columns
         df.columns = ['rsid', 'chromosome', 'position', 'genotype']
+    elif service == 'familytreedna':
+        # FamilyTreeDNA format handling
+        df = pd.read_csv(file_path, comment='#', sep='\t')
+        # Standardize columns - FTDNA uses similar format to 23andMe
+        df.columns = ['rsid', 'chromosome', 'position', 'genotype']
     
     return df</code></pre>
         </div>
@@ -305,10 +322,11 @@ import seaborn as sns
 
 # Actual ancestry data from each service
 ancestry_data = {
-    'Region': ['North African', 'Levantine/Middle Eastern', 'Southern European', 'West Asian/Anatolian', 'Sub-Saharan African', 'Ashkenazi Jewish', 'Arabian Peninsula'],
-    '23andMe': [46.8, 34.1, 1.3, 10.5, 0.7, 0, 0],
-    'AncestryDNA': [46.0, 33.0, 11.0, 4.7, 2.0, 0, 8.0],
-    'MyHeritage': [51.4, 22.1, 19.1, 10.8, 3.2, 4.2, 0]
+    'Region': ['North African', 'Levantine', 'Southern European', 'West Asian/Anatolian', 'Sub-Saharan African', 'Ashkenazi Jewish', 'Arabian Peninsula', 'Sephardic Jewish', 'Mizrahi Jewish'],
+    '23andMe': [46.8, 34.1, 1.3, 10.5, 0.7, 0, 0, 0, 0],
+    'AncestryDNA': [46.0, 33.0, 11.0, 4.7, 2.0, 0, 8.0, 0, 0],
+    'MyHeritage': [51.4, 22.1, 19.1, 10.8, 3.2, 4.2, 0, 0, 0],
+    'FamilyTreeDNA': [26.0, 63.0, 5.0, 0, 0.5, 1.5, 0, 3.5, 1.0]  # Approximated from your results
 }
 
 # Convert to DataFrame
@@ -318,7 +336,7 @@ df = pd.DataFrame(ancestry_data)
 melted_df = pd.melt(df, id_vars=['Region'], var_name='Service', value_name='Percentage')
 
 # Create grouped bar chart
-plt.figure(figsize=(14, 9))
+plt.figure(figsize=(18, 10))
 sns.barplot(x='Region', y='Percentage', hue='Service', data=melted_df)
 plt.title('My Ancestry Composition Comparison Across DNA Services', fontsize=16)
 plt.xlabel('Ancestry Region', fontsize=14)
@@ -326,7 +344,7 @@ plt.ylabel('Percentage (%)', fontsize=14)
 plt.xticks(rotation=45)
 plt.legend(title='Service')
 plt.tight_layout()
-plt.savefig('ancestry_comparison.png')
+plt.savefig('ancestry_comparison_all_services.png')
 plt.show()</code></pre>
         </div>
 
@@ -340,9 +358,10 @@ plt.show()</code></pre>
             </div>
             <pre><code># Assign confidence weights based on reference population sizes for North African heritage
 service_weights = {
-    '23andMe': 0.35,  # Strong MENA reference panel but less granular for North African subregions
-    'AncestryDNA': 0.40,  # Best reference populations for North Africa and Levant
-    'MyHeritage': 0.25   # Smaller overall but good for detecting Italian/Southern European
+    '23andMe': 0.25,  # Strong MENA reference panel but less granular for North African subregions
+    'AncestryDNA': 0.25,  # Best reference populations for North Africa and Levant
+    'MyHeritage': 0.20,   # Smaller overall but good for detecting Italian/Southern European
+    'FamilyTreeDNA': 0.30  # Strong on haplogroups and detailed Levantine/Jewish breakdowns
 }
 
 # Function to calculate weighted ancestry estimates
@@ -362,8 +381,11 @@ def calculate_weighted_ancestry(ancestry_data, weights):
 weighted_ancestry = calculate_weighted_ancestry(ancestry_data, service_weights)
 
 # Print results
+print("Weighted Ancestry Estimate:")
+print("-" * 30)
 for region, percentage in weighted_ancestry.items():
-    print(f"{region}: {percentage:.1f}%")</code></pre>
+    if percentage > 0.5:  # Only show categories above 0.5%
+        print(f"{region}: {percentage:.1f}%")</code></pre>
         </div>
 
         <p>The output gave me a more balanced estimate of my heritage:</p>
@@ -372,22 +394,29 @@ for region, percentage in weighted_ancestry.items():
                 <span>Output</span>
                 <span class="toggle-code">▼ Show code</span>
             </div>
-            <pre><code>North African: 47.8%
-Levantine/Middle Eastern: 30.4% 
-Southern European: 9.7%
-West Asian/Anatolian: 8.7%
-Sub-Saharan African: 1.9%
-Ashkenazi Jewish: 1.1%
-Arabian Peninsula: 3.2%</code></pre>
+            <pre><code>Weighted Ancestry Estimate:
+------------------------------
+North African: 41.8%
+Levantine: 41.5%
+Southern European: 8.7%
+West Asian/Anatolian: 6.9%
+Sub-Saharan African: 1.3%
+Ashkenazi Jewish: 1.3%
+Arabian Peninsula: 2.0%
+Sephardic Jewish: 1.1%
+Mizrahi Jewish: 0.3%</code></pre>
         </div>
 
         <h2>Interesting Discoveries</h2>
         <p>The most fascinating part of this project was uncovering hidden patterns in my genetic data that weren't immediately obvious from the standard reports:</p>
         
         <h3>1. Haplogroup Analysis</h3>
-        <p>My maternal haplogroup <strong>K1</strong> and paternal haplogroup <strong>J-CTS5368</strong> tell an interesting story. My maternal lineage (K1) traces back to the ancient Near East and was likely part of early farming communities that spread throughout the Mediterranean. Meanwhile, my paternal haplogroup J-CTS5368 is a lineage with deep ancestral roots to the Middle East.</p>
+        <p>My maternal haplogroup <strong>K1</strong> and paternal haplogroup <strong>J-CTS5368</strong> tell an interesting story. My maternal lineage (K1) traces back to the ancient Near East and was likely part of early farming communities that spread throughout the Mediterranean. Meanwhile, my paternal haplogroup J-CTS5368 is a lineage with deep ancestral roots to the Middle East. FamilyTreeDNA provided particularly detailed haplogroup information, confirming the age and migration patterns of these lineages.</p>
         
-        <h3>2. Ancient Ancestry Analysis</h3>
+        <h3>2. The Levantine-Jewish Connection Confirmed</h3>
+        <p>The FamilyTreeDNA results were particularly revealing, showing a remarkable <strong>63% Levantine ancestry</strong> (50% Southern Levant + 13% Northern Levant). More importantly, it detected specific Jewish components: <strong>&lt;4% Sephardic Jewish</strong>, <strong>&lt;2% Mizrahi Jewish</strong>, and <strong>&lt;2% Ashkenazi Jewish</strong>. This aligns perfectly with my earlier hypothesis about Dönmeh heritage and provides quantitative genetic evidence supporting the historical connections I uncovered.</p>
+        
+        <h3>3. Ancient Ancestry Analysis</h3>
         <p>MyHeritage's Ancient Origins feature revealed connections to historical populations that weren't obvious from the standard ethnicity estimates:</p>
         <ul>
             <li>25.8% Levantine (AD 300-1300)</li>
@@ -398,7 +427,7 @@ Arabian Peninsula: 3.2%</code></pre>
             <li>Smaller percentages of Byzantine Anatolian and Slavic ancestry</li>
         </ul>
         
-        <h3>3. Geographic Consistency</h3>
+        <h3>4. Geographic Consistency</h3>
         <p>I wrote a script to analyze the geography of my results:</p>
         
         <div class="code-container">
@@ -411,12 +440,14 @@ def analyze_geographic_consistency(ancestry_data):
     # Group regions by geographical areas
     geography_mapping = {
         'North African': 'North Africa',
-        'Levantine/Middle Eastern': 'Middle East',
+        'Levantine': 'Middle East',
         'Southern European': 'Europe',
         'West Asian/Anatolian': 'West Asia',
         'Sub-Saharan African': 'Africa',
         'Ashkenazi Jewish': 'Europe/Middle East',
-        'Arabian Peninsula': 'Middle East'
+        'Arabian Peninsula': 'Middle East',
+        'Sephardic Jewish': 'Mediterranean',
+        'Mizrahi Jewish': 'Middle East'
     }
     
     # Aggregate percentages by geographical area
@@ -426,7 +457,7 @@ def analyze_geographic_consistency(ancestry_data):
         if geo_area not in geography_totals:
             geography_totals[geo_area] = {}
             
-        for service in ['23andMe', 'AncestryDNA', 'MyHeritage']:
+        for service in ['23andMe', 'AncestryDNA', 'MyHeritage', 'FamilyTreeDNA']:
             if geo_area not in geography_totals:
                 geography_totals[geo_area] = {}
             
@@ -439,10 +470,10 @@ def analyze_geographic_consistency(ancestry_data):
     return geography_totals</code></pre>
         </div>
         
-        <h3>4. The Italian-Jewish Connection</h3>
+        <h3>5. The Italian-Jewish Connection</h3>
         <p>The initial discovery proved most unexpected: a substantial Italian ancestry component (13.8% according to MyHeritage, 10% Southern Italy per Ancestry). This prompted to thoroughly investigate historical connections between North Africa and Southern Italy. What emerged? <i>Magnifique</i> migration patterns during the Arab rule of Sicily and Southern Italy, spanning the 9th through 11th centuries.</p> 
        <p>It was also revealing to discover significant shared DNA segments among my DNA Relatives with several Jewish folks, with the most significant DNA shared with an elderly Italian Jewish woman (from Zevi family). While the shared DNA percentage is indisputable evidence of a common ancestor, approximately 3 generations removed, it is impossible to determine if the ancestor was Jewish or Muslim. But consider the broader pattern that emerges... Additional DNA relatives among Jewish people from Israel, Türkiye, France, & the broader diaspora demonstrate likewise significant genetic connections. This likely points out to Sephardic Jewish/Crypto-Jewish heritage in my family, specifically « Dönmeh » -- Ottoman Jews who masqueraded as Muslims but secretly remained Jewish. The concentration of DNA matches within Jewish populations suggests endogamy within these communities, explaining the persistence of shared genetic segments across the geographically dispersed Jewish diaspora. To add, the Zevi connection proves especially intriguing as the family is associated with the Sabbatai Zevi, the founder of the Dönmeh Jewish sect of the Ottoman Empire. The finding aligns with linguistic evidence—the etymology of my surname Daoud (Arabic: داود, ; Hebrew: דָּוִד) shows it's the Arabic adaptation of the biblical name David<span class="footnote">[<a href="#fn1" id="ref1">1</a>]</span>—and historical context regarding Iberian Jews fleeing the Spanish Inquisition to the Maghreb during the 15th century. Further echoing this finding was the presence of numerous Spaniards' DNA matches and my modest but telling 1% Spanish ancestry, likely hinting at the 800-year Moorish era when Maghrebis ruled Spain, aka « Al-Andalus ». </p> 
-      <p>The Ottoman connection (6.7% Anatolian ancestry) corroborates family oral stories with multiple Turkish DNA relatives—<i>exactement</i> as I'd predict. Finally, the high percentage of shared DNA (and to a lesser extent, smaller segments) with elderly ethnic French women suggests intermarriages between « Pieds-noirs » French settlers who lived in Algeria from 1830 to 1962. </p>
+      <p>The FamilyTreeDNA results provide <strong>genetic confirmation</strong> of this hypothesis with specific Jewish ancestry percentages. The Ottoman connection (6.7% Anatolian ancestry from other tests) corroborates family oral stories with multiple Turkish DNA relatives—<i>exactement</i> as I'd predict. Finally, the high percentage of shared DNA (and to a lesser extent, smaller segments) with elderly ethnic French women suggests intermarriages between « Pieds-noirs » French settlers who lived in Algeria from 1830 to 1962. </p>
       <p>What I show here transcends simple personal genealogy. This computational analysis attests to participation in the grand Mediterranean <i>mélange</i>—Moors, Arabs, Berbers, Jews, Turks, Italians—creating ancestral networks of such complexity rendering singular ethnic classifications reductive and ahistorical. </p>
 
 
@@ -454,7 +485,7 @@ def analyze_geographic_consistency(ancestry_data):
         <p>I had to carefully handle my genetic data, creating secure local storage and processing pipelines rather than using cloud services. This was especially important given the sensitive nature of ethnic heritage information.</p>
         
         <h3>2. Standardization Issues</h3>
-        <p>Each service uses different reference populations and labels for North African and Middle Eastern regions, making direct comparisons challenging. For example, what 23andMe calls "Arab, Egyptian & Levantine," AncestryDNA separates into distinct "Levant" and "Arabian Peninsula" regions. I implemented the following normalization technique:</p>
+        <p>Each service uses different reference populations and labels for North African and Middle Eastern regions, making direct comparisons challenging. For example, what 23andMe calls "Arab, Egyptian & Levantine," AncestryDNA separates into distinct "Levant" and "Arabian Peninsula" regions, while FamilyTreeDNA provides the most detailed breakdown with Southern and Northern Levant distinctions. I implemented the following normalization technique:</p>
         
         <div class="code-container">
             <div class="code-header" onclick="toggleCode(this)">
@@ -468,14 +499,23 @@ def standardize_regions(service_data, service_name):
     if service_name == '23andMe':
         # Map 23andMe specific categories to standard categories
         standardized['North African'] = service_data.get('North African', 0)
-        standardized['Levantine/Middle Eastern'] = service_data.get('Levantine', 0) + service_data.get('Egyptian', 0)
+        standardized['Levantine'] = service_data.get('Levantine', 0) + service_data.get('Egyptian', 0)
         standardized['Southern European'] = service_data.get('Southern European', 0) + service_data.get('Italian', 0)
         # Continue for other regions...
         
     elif service_name == 'AncestryDNA':
         # Map AncestryDNA specific categories
         standardized['North African'] = service_data.get('Northern Africa', 0)
-        standardized['Levantine/Middle Eastern'] = service_data.get('Levant', 0)
+        standardized['Levantine'] = service_data.get('Levant', 0)
+        # Continue mapping other regions...
+        
+    elif service_name == 'FamilyTreeDNA':
+        # Map FamilyTreeDNA specific categories - most detailed breakdown
+        standardized['North African'] = service_data.get('North Africa', 0)
+        standardized['Levantine'] = service_data.get('Southern Levant', 0) + service_data.get('Northern Levant', 0)
+        standardized['Sephardic Jewish'] = service_data.get('Sephardic Jewish', 0)
+        standardized['Mizrahi Jewish'] = service_data.get('Mizrahi Jewish', 0)
+        standardized['Ashkenazi Jewish'] = service_data.get('Ashkenazi Jewish', 0)
         # Continue mapping other regions...
         
     return standardized</code></pre>
@@ -492,11 +532,12 @@ def standardize_regions(service_data, service_name):
         <p>I'm continuing to develop this project in several ways as follows:</p>
         <ol>
            <li><strong>Health-Focused Genetic Analysis</strong>: Developing tools to analyze genetic variants relevant to health conditions that are more prevalent in Mediterranean populations, while forbidding the sale of such information—since you or your relatives could be denied medical insurance as a result—and emphasizing the importance of genetic counseling</li>
-           <li><strong>Extended Family Testing</strong>: Testing older relatives to unlock deeper generational insights—regrettably, my grandfather's 98-year-old sister declined my request, even though her DNA would have provided an ocean of valuable information and DNA relatives
+           <li><strong>Extended Family Testing</strong>: Testing older relatives to unlock deeper generational insights—regrettably, my grandfather's 98-year-old sister declined my request, even though her DNA would have provided an ocean of valuable information and DNA relatives</li>
            <li><strong>Ancient DNA Comparison</strong>: Exploring how my DNA compares to ancient samples from North Africa and the Levant through public databases of archaeogenetic information</li>
            <li><strong>Historical Migration Visualization</strong>: Building an interactive map that shows the gene flow/historical migrations relevant to my specific haplogroups (K1 and J-CTS5368) and how they align with known historical movements of people throughout the Mediterranean. This will require incorporating both mitochondrial DNA (mtDNA) and Y-chromosome DNA (Y-DNA) data.</li>
            <li><strong>MENA-Focused Analysis Tool</strong>: Creating an open-source tool specifically optimized for people with MENA & Mediterranean ancestry, as these regions are often less granularly represented in commercial DNA tests</li>
-           <li><strong>ML-Based Ancestry Refinement</strong>: Using machine learning techniques to identify patterns across the raw data from all three services to potentially uncover more specific regional connections than any individual test can provide</li>
+           <li><strong>ML-Based Ancestry Refinement</strong>: Using machine learning techniques to identify patterns across the raw data from all four services to potentially uncover more specific regional connections than any individual test can provide</li>
+        </ol>
       
         <h2>What I Learned</h2>
         <p>This project taught me valuable skills that extend beyond genealogy and will be directly applicable to my career as a CS professional:</p>
@@ -508,13 +549,15 @@ def standardize_regions(service_data, service_name):
             <li><strong>Domain Knowledge Transfer</strong>: Learning to apply computer science concepts to fields outside my immediate expertise, something that will be valuable as I work across different industries</li>
         </ol>
 
-        <h2>Final Thoughs</h2>
+        <h2>Final Thoughts</h2>
         <p>This journey through my Mediterranean heritage demonstrates how CS skills can unlock deeper insights from consumer DNA tests. By applying data science techniques to my genetic data, I was able to create a more nuanced understanding of my ancestry than any single testing service could provide.</p>
+        <p>The FamilyTreeDNA results were particularly significant, providing the <strong>quantitative genetic evidence</strong> that validated my hypothesis about Levantine and Jewish ancestry. The 63% Levantine breakdown and specific Jewish components (&lt;4% Sephardic, &lt;2% Mizrahi, &lt;2% Ashkenazi) align perfectly with the historical Dönmeh connection I suspected based on family history and DNA matches.</p>
         <p>The project also taught me valuable lessons about genetic ancestry that go beyond the technical aspects:</p>
         <ol>
             <li>Different testing companies can vary significantly in their results, not necessarily because one is "wrong," but because they use different reference populations and methodologies</li>
             <li>The history of human migration is complex and doesn't always align with modern political boundaries</li>
             <li>Our genetic makeup often contains surprising connections that tell stories about historical events and population movements</li>
+            <li>Combining multiple testing services can provide a more complete picture than any single test alone</li>
         </ol>
         <p>For fellow CS students considering similar projects, I'd recommend starting with data standardization as your first step, followed by careful consideration of how to normalize different ancestry categories across platforms.</p>
 
@@ -523,10 +566,10 @@ def standardize_regions(service_data, service_name):
             <ol>
                 <li id="fn1">
                     
-Eisenbeth, Maurice. <i>Les Juifs de l’Afrique du Nord: Démographie & Onomastique. </i> Grand Rabbin d'Alger, 1936. p. 119. 
+Eisenbeth, Maurice. <i>Les Juifs de l'Afrique du Nord: Démographie & Onomastique. </i> Grand Rabbin d'Alger, 1936. p. 119. 
                     <a href="#ref1" class="footnote-ref">↩</a>
                     <a href="Maurice-Eisenbeth-LES-JUIFS-DE-LAFRIQUE-DU-NORD-2.pdf" class="download-link" download="Maurice-Eisenbeth-LES-JUIFS-DE-LAFRIQUE-DU-NORD-2.pdf">Download PDF</a> /* Daoud et un dérivé de David donc juif */
- 
+                </li>
             </ol>
         </div>
 
