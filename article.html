@@ -204,22 +204,24 @@
                 grid-template-columns: 1fr;
             }
         }
-      .image-grid {
-        align-items: start !important;
-    }
-    
-    .image-grid img {
-        height: 350px !important;
-        object-fit: contain !important;
-        background: white !important;
-        border: 1px solid #ddd !important;
-    }
-    
-    @media (max-width: 600px) {
-        .image-grid {
-            grid-template-columns: 1fr;
-        }
-    }
+     .image-grid {
+    align-items: start !important;
+    gap: 10px !important; /* Reduced from 20px to 10px */
+}
+
+.image-grid img {
+    height: 600px !important; /* Increased from 350px to 500px */
+    max-height: 600px !important;
+    object-fit: contain !important;
+    background: white !important;
+    border: 1px solid #ddd !important;
+    margin: 10px auto !important; /* Reduced margin */
+}
+
+.image-caption {
+    margin-top: 5px !important; /* Reduced space between image and caption */
+    margin-bottom: 5px !important;
+}
     </style>
 </head>
 <body>
